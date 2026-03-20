@@ -30,7 +30,7 @@ jobs:
           pip install aiohttp maxminddb
 
       - name: Запуск парсера
-        run: python goosevpn_parser.py --out ./configs
+        run: python main.py --out ./configs
         timeout-minutes: 30
         env:
           PYTHONUNBUFFERED: '1'
