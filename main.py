@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import re, sys, asyncio, aiohttp, argparse, maxminddb, base64
-from urllib.parse import unquote
+import re, sys, asyncio, aiohttp, argparse, maxminddb, base64, gzip, shutil
+from urllib.parse import unquote, urlparse, parse_qs
 from datetime import datetime
 from typing import Optional
 from dataclasses import dataclass
@@ -16,7 +16,6 @@ COUNTRY_FLAGS = {
     'США': '🇺🇸', 'US': '🇺🇸', 'Япония': '🇯🇵', 'JP': '🇯🇵',
     'Корея': '🇰🇷', 'KR': '🇰🇷', 'Сингапур': '🇸🇬', 'SG': '🇸🇬',
     'Индия': '🇮🇳', 'IN': '🇮🇳', 'Грузия': '🇬🇪', 'GE': '🇬🇪',
-    'Global': '🌐',
 }
 
 def get_flag(country: str) -> str:
@@ -48,7 +47,10 @@ class VPNConfig:
     rank: Optional[int] = None
     
     @property
-    def flag(self) -> str: return get_flag(self.country)
+    def flag(self) -> str:
+        if self.config_type in [ConfigType.WARP_STABLE, ConfigType.WARP_NIGHT]:
+            return '🔥'
+        return get_flag(self.country)
     
     @property
     def type_label(self) -> str:
@@ -66,9 +68,9 @@ class VPNConfig:
     
     def format_name(self) -> str:
         if self.config_type == ConfigType.RESERVE:
-            base = f"[{self.type_label}] Резерв"
+            base = f"🪿 [{self.type_label}] Резерв"
             if self.rank: base += f" {self.rank}"
-            return f"{base} 🪿"
+            return base
         if self.config_type in [ConfigType.WARP_STABLE, ConfigType.WARP_NIGHT]:
             base = f"{self.flag} [{self.type_label}] {self.country}"
             if self.rank: base += f" {self.rank}"
@@ -86,27 +88,71 @@ class VPNConfig:
         return f"{self.url}#{name}"
 
 class GeoLocator:
-    def __init__(self, db_path: Optional[str] = None):
+    GEO_URL = "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb"
+    
+    def __init__(self, db_path: Optional[str] = None, auto_cleanup: bool = True):
         self.reader = None
-        for path in [db_path, "./GeoLite2-Country.mmdb", "/usr/share/GeoIP/GeoLite2-Country.mmdb"]:
+        self.cache = {}
+        self.downloaded_path: Optional[Path] = None
+        self.auto_cleanup = auto_cleanup
+        
+        paths = [db_path, "./GeoLite2-Country.mmdb", "./configs/GeoLite2-Country.mmdb", "/usr/share/GeoIP/GeoLite2-Country.mmdb"]
+        for path in paths:
             if path and Path(path).exists():
                 try:
                     self.reader = maxminddb.open_database(path)
+                    print(f"✅ GeoLite2: {path}")
                     return
                 except: pass
+
+        print("⏬ Скачивание GeoLite2...")
+        if self._download_db():
+            print(f"✅ GeoLite2 готов к работе")
+        else:
+            print("⚠️ Геолокация будет работать в упрощённом режиме")
+    
+    def _download_db(self) -> bool:
+        try:
+            import urllib.request
+            self.downloaded_path = Path("./configs/GeoLite2-Country.mmdb")
+            self.downloaded_path.parent.mkdir(parents=True, exist_ok=True)
+            
+            urllib.request.urlretrieve(self.GEO_URL, self.downloaded_path)
+            
+            if self.downloaded_path.exists() and self.downloaded_path.stat().st_size > 10000:
+                self.reader = maxminddb.open_database(self.downloaded_path)
+                return True
+            return False
+        except Exception as e:
+            print(f"⚠️ Ошибка загрузки GeoLite2: {e}")
+            return False
     
     def get_country_by_ip(self, ip: str) -> Optional[str]:
+        if ip and any(ip.startswith(p) for p in ['10.', '192.168.', '172.16.', '172.17.', '172.18.', '172.19.', '172.2', '172.30.', '172.31.', '127.', '0.0.0.0']):
+            return None
+        if ip in self.cache: return self.cache[ip]
         if not self.reader or not ip: return None
         try:
             result = self.reader.get(ip)
             if result:
                 names = result.get('country', {}).get('names', {})
-                return names.get('ru') or names.get('en')
+                country = names.get('ru') or names.get('en')
+                self.cache[ip] = country
+                return country
         except: pass
         return None
     
     def close(self):
-        if self.reader: self.reader.close()
+        if self.reader:
+            self.reader.close()
+            self.reader = None
+        if self.auto_cleanup and self.downloaded_path and self.downloaded_path.exists():
+            try:
+                self.downloaded_path.unlink()
+                print(f"🧹 GeoLite2 удалён: {self.downloaded_path}")
+            except Exception as e:
+                print(f"⚠️ Не удалось удалить GeoLite2: {e}")
+            self.downloaded_path = None
 
 class ConfigParser:
     @staticmethod
@@ -117,25 +163,38 @@ class ConfigParser:
         return 'Unknown'
     
     @classmethod
+    def _extract_host(cls, url: str) -> Optional[str]:
+        try:
+            rest = url.replace('vless://', '').split('#')[0]
+            if '@' in rest:
+                _, host_port = rest.split('@', 1)
+                host = host_port.split(':')[0].split('?')[0]
+                if host and not host.startswith('[') and len(host) > 3:
+                    return host
+        except: pass
+        return None
+    
+    @classmethod
     def parse_vless(cls, url: str, ctype: ConfigType, geo: Optional[GeoLocator] = None) -> Optional[VPNConfig]:
         try:
             rest = url.replace('vless://', '', 1)
             name = unquote(rest.rsplit('#', 1)[1]) if '#' in rest else "Unnamed"
-            config_part = rest.split('#')[0]
-            host = None
-            if '@' in config_part:
-                _, hp = config_part.split('@', 1)
-                host = hp.split(':')[0].split('?')[0]
+            host = cls._extract_host(url)
             country = cls.extract_country(name)
             if country == 'Unknown' and host and geo:
                 detected = geo.get_country_by_ip(host)
                 if detected: country = detected
-            return VPNConfig(url=url, config_type=ctype, country=country, original_name=name, ip=host)
+            if country == 'Unknown':
+                for flag_code, flag in COUNTRY_FLAGS.items():
+                    if flag in name or flag_code.lower() in name.lower():
+                        country = flag_code if flag_code not in ['🇷🇺','🇹🇷','🇩🇪'] else flag_code
+                        break
+            return VPNConfig(url=url, config_type=ctype, country=country if country != 'Unknown' else 'Global', original_name=name, ip=host)
         except: return None
     
     @classmethod
-    def parse_warp(cls, url: str, ctype: ConfigType, country: str = 'Global') -> Optional[VPNConfig]:
-        return VPNConfig(url=url, config_type=ctype, country=country, original_name='WARP')
+    def parse_warp(cls, url: str, ctype: ConfigType) -> Optional[VPNConfig]:
+        return VPNConfig(url=url, config_type=ctype, country='Cloudflare', original_name='WARP')
 
 class DataSource:
     async def fetch(self, session: aiohttp.ClientSession, **kw) -> list[VPNConfig]: raise NotImplementedError
@@ -147,7 +206,12 @@ class TxtFileSource(DataSource):
         try:
             async with session.get(self.url, timeout=15) as r:
                 text = await r.text()
-                configs = [c for line in text.strip().split('\n') if line.strip().startswith('vless://') and (c := ConfigParser.parse_vless(line, self.ctype, geo))]
+                configs = []
+                for line in text.strip().split('\n'):
+                    line = line.strip()
+                    if line.startswith('vless://'):
+                        if c := ConfigParser.parse_vless(line, self.ctype, geo):
+                            configs.append(c)
                 return configs
         except: return []
 
@@ -262,8 +326,8 @@ def run_api(configs: list[VPNConfig], host: str, port: int):
     uvicorn.run(app, host=host, port=port, log_level="warning")
 
 def parse_args():
-    p = argparse.ArgumentParser(description="🪿 GooseVPN Parser v1.0")
-    p.add_argument('-o','--out', type=str, default='.', help='Папка вывода')
+    p = argparse.ArgumentParser(description="🪿 GooseVPN Parser v1.1")
+    p.add_argument('-o','--out', type=str, default='./configs', help='Папка вывода (по умолчанию: ./configs)')
     p.add_argument('--geo', type=str, help='Путь к GeoLite2-Country.mmdb')
     p.add_argument('--no-ping', action='store_true', help='Без пинг-тестов')
     p.add_argument('--ping-n', type=int, default=15, help='Параллельных пингов')
@@ -275,7 +339,7 @@ def parse_args():
     return p.parse_args()
 
 async def main_async(args):
-    print("🪿 GooseVPN Parser v1.0")
+    print("🪿 GooseVPN Parser v1.1")
     geo = GeoLocator(args.geo)
     main_sources = [
         TxtFileSource("https://xraynet.space/sub.txt", ConfigType.WLTE),
