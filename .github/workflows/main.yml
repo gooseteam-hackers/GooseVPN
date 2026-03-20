@@ -21,7 +21,7 @@ jobs:
       - name: Установка Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.14'
           cache: 'pip'
 
       - name: Установка зависимостей
@@ -30,7 +30,7 @@ jobs:
           pip install aiohttp maxminddb
 
       - name: Запуск парсера
-        run: python main.py
+        run: python goosevpn_parser.py --out ./configs
         timeout-minutes: 30
         env:
           PYTHONUNBUFFERED: '1'
@@ -45,6 +45,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "🤖 Autocommit: обновление конфигов"
-          file_pattern: "*.txt"
+          file_pattern: "configs/*.txt"
           commit_user_name: "GitHub Actions Bot"
           commit_user_email: "actions@github.com"
