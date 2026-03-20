@@ -1,0 +1,27 @@
+//profile-title: base64:8J+qvyBHb29zZVZQTiBQbHVz
+//profile-update-interval: 24
+//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
+//last update on: 2026-03-20 20:29:39
+// 🪿 GooseVPN Plus 🪿 - 11 конфигов, 4 wLTE, 3 WiFi, 2 резервов, ночной и стабильный WARP
+
+// =-=-=-=-=-= wLTE =-=-=-=-=-=
+vless://84a5797e-8942-419e-8c11-d022d7690b0a@178.173.254.148:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=djTtGqd0XWqtt_WHukU7BTPQSn9o7gIpAosAxMy8tUo&sid=ea1058117be12087&sni=nl.crunch-crunch.com&path=&host=nl.crunch-#🌐 [wLTE] Unknown 1
+vless://50b95deb-6394-46c5-b88a-583e5b3ca7ee@fastcon-tg.harknmav.fun:443?encryption=none&security=reality&sni=max.ru&fp=chrome&pbk=PGccrEdFmBaB1rQFJqM-a9jJ1pFsxhUP2sD9KTw5Oz4&sid=f69d7af2d5fc5e0c&type=tcp&flow=xtls-rprx-vision#🇷🇺 [wLTE] Россия 2
+vless://50b95deb-6394-46c5-b88a-583e5b3ca7ee@fastcon-tg.harknmav.fun:443?encryption=none&security=reality&sni=max.ru&fp=firefox&pbk=PGccrEdFmBaB1rQFJqM-a9jJ1pFsxhUP2sD9KTw5Oz4&sid=f69d7af2d5fc5e0c&type=tcp&flow=xtls-rprx-vision#🇷🇺 [wLTE] Россия 3
+vless://57066b5c-0631-4d1c-874d-09459bf32112@51.250.40.206:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=random&sni=ads.x5.ru&pbk=66kZLshj9fxAIQA7NsABohNwgiOcY71enc6as_Frqw0&sid=3c1523da43287ec4&spx=%2F#🇩🇪 [wLTE] Германия 4
+
+// =-=-=-=-=-= WiFi =-=-=-=-=-=
+vless://0a1b22c4-4a4a-4b86-9492-242a25afba7d@5.42.107.14:443?security=reality&encryption=none&pbk=qB_eMu3ZO_wGITnyIqJ7Kt39-h9oHFnHlQQEqA-r3VA&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=ads.x5.ru#🇹🇷 [WiFi] Турция 1
+vless://0a1b22c4-4a4a-4b86-9492-242a25afba7d@5.42.105.13:443?security=reality&encryption=none&pbk=qB_eMu3ZO_wGITnyIqJ7Kt39-h9oHFnHlQQEqA-r3VA&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=ads.x5.ru#🌐 [WiFi] Unknown 2
+vless://96473cfb-5ca5-40d0-a65d-1132c87cc3a0@ru150.tcpnet.fun:5432?mode=gun&security=reality&encryption=none&pbk=WNsIqrfrK3gEmFFkeP2Ja8lvt9vGpFyxV612QdqYPC8&fp=firefox&type=grpc&serviceName=grpc&sni=www.samsung.com&sid=489da765#🇷🇺 [WiFi] Россия 3
+
+// =-=-=-=-=-= Резерв =-=-=-=-=-=
+vless://ab0c66c1-a2de-4f4e-9409-a65fe25b3540@193.233.231.94:8443?encryption=none&type=xhttp&security=reality&host=max.ru&path=%2F&mode=auto&extra=null&fp=firefox&sni=max.ru&pbk=c9Q1LXWCQWxz1ivPxFYKSccYb1b-JOA32O2ZBWGTyEU&sid=27&spx=%2F#[Резерв] Резерв 1 🪿
+vless://96473cfb-5ca5-40d0-a65d-1132c87cc3a0@ru150.tcpnet.fun:7443?mode=gun&security=reality&encryption=none&pbk=WNsIqrfrK3gEmFFkeP2Ja8lvt9vGpFyxV612QdqYPC8&fp=firefox&type=grpc&serviceName=grpc&sni=max.ru&sid=17518a3b#[Резерв] Резерв 2 🪿
+
+// =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
+warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🌐 [WARP] Global (Стабильный)
+
+// =-=-=-=-=-= WARP Ночной =-=-=-=-=-=
+warp://188.114.99.20:903?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Warp-IR&&detour=warp://188.114.98.237:1010?ifp=10-20&ifps=20-60&ifpd=5-10#🌐 [WARP] Global (Ночной)
+
