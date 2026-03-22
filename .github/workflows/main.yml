@@ -1,4 +1,4 @@
-name: Сборка конфигов
+name: Сборка GooseVPN 2.0
 
 on:
   workflow_dispatch:
@@ -7,44 +7,44 @@ permissions:
   contents: write
 
 jobs:
-  mainflow:
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
     steps:
-      - name: Скачивание кода
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Установка Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.14'
           cache: 'pip'
 
-      - name: Установка зависимостей
+      - name: Install deps
         run: |
           pip install --upgrade pip
-          pip install aiohttp maxminddb
+          pip install -r requirements.txt
 
-      - name: Запуск парсера
-        run: python main.py --out ./configs
+      - name: Run parser
+        run: python main.py -o configs
         timeout-minutes: 30
         env:
           PYTHONUNBUFFERED: '1'
 
-      - name: Валидация конфигов
+      - name: Validate configs
         run: python check.py
         timeout-minutes: 10
         env:
           PYTHONUNBUFFERED: '1'
 
-      - name: Коммит изменений
+      - name: Commit configs
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 Autocommit: обновление конфигов"
+          commit_message: "🤖 Autocommit: GooseVPN 2.0 обновление"
           file_pattern: "configs/*.txt"
           commit_user_name: "GitHub Actions Bot"
           commit_user_email: "actions@github.com"
