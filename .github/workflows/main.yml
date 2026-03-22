@@ -35,16 +35,16 @@ jobs:
         env:
           PYTHONUNBUFFERED: '1'
 
-      - name: Validate configs
+      - name: Validate
         run: python check.py
         timeout-minutes: 10
         env:
           PYTHONUNBUFFERED: '1'
 
-      - name: Commit configs
+      - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 Autocommit: update configs"
+          commit_message: "Autocommit: configs update"
           file_pattern: "configs/*.txt"
-          commit_user_name: "GitHub Actions Bot"
+          commit_user_name: "GitHub Actions"
           commit_user_email: "actions@github.com"
