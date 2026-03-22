@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sys, re, base64
+import sys, base64
 from pathlib import Path
 
 REQUIRED_HEADERS = [
@@ -18,9 +18,11 @@ def validate_file(filepath: str) -> tuple[bool, list[str]]:
         return False, [f"❌ Файл не найден: {filepath}"]
     content = path.read_text(encoding='utf-8')
     lines = content.strip().split('\n')
+    
     for header in REQUIRED_HEADERS:
         if not any(line.startswith(header) for line in lines):
-            errors.append(f"❌ Отсутствует заголовок: {header}")
+            errors.append(f"❌ Отсутствует: {header}")
+    
     title_line = [l for l in lines if l.startswith("//profile-title: base64:")]
     if title_line:
         try:
@@ -29,51 +31,49 @@ def validate_file(filepath: str) -> tuple[bool, list[str]]:
             if "GooseVPN" not in decoded:
                 errors.append(f"❌ Неверный title: {decoded}")
         except Exception as e:
-            errors.append(f"❌ Ошибка декодирования title: {e}")
-    vless_count = sum(1 for line in lines if line.startswith('vless://'))
-    warp_count = sum(1 for line in lines if line.startswith('warp://'))
-    total = vless_count + warp_count
-    if total == 0:
-        errors.append("❌ Нет ни одного конфига в файле")
-    config_lines = [l for l in lines if l.startswith(('vless://', 'warp://'))]
-    for line in config_lines[:10]:
+            errors.append(f"❌ Ошибка декодирования: {e}")
+    
+    vless = sum(1 for l in lines if l.startswith('vless://'))
+    warp = sum(1 for l in lines if l.startswith('warp://'))
+    if vless + warp == 0:
+        errors.append("❌ Нет конфигов в файле")
+    
+    for line in [l for l in lines if l.startswith(('vless://','warp://'))][:10]:
         if '#' not in line:
             errors.append(f"❌ Конфиг без имени: {line[:50]}...")
             break
-    sections = ['wLTE', 'WiFi', 'Резерв']
-    for sec in sections:
+    
+    for sec in ['wLTE', 'WiFi']:
         if not any(sec in line for line in lines):
-            if sec != 'Резерв':
-                errors.append(f"⚠️ Отсутствует секция: {sec}")
-    is_valid = len(errors) == 0
-    return is_valid, errors
+            errors.append(f"⚠️ Отсутствует секция: {sec}")
+    
+    return len(errors) == 0, errors
 
 def main():
     files = ['configs/balanced.txt', 'configs/plus.txt']
     all_ok = True
-    print("🔍 Валидация конфигов")
+    print("🔍 Валидация подписки")
     print("=" * 50)
-    for filepath in files:
-        if not Path(filepath).exists():
-            print(f"⏭️ Пропущен: {filepath} (не найден)")
+    for fp in files:
+        if not Path(fp).exists():
+            print(f"⏭️ Пропущен: {fp}")
             continue
-        is_valid, errors = validate_file(filepath)
-        if is_valid:
-            content = Path(filepath).read_text(encoding='utf-8')
+        ok, errs = validate_file(fp)
+        if ok:
+            content = Path(fp).read_text(encoding='utf-8')
             vless = sum(1 for l in content.split('\n') if l.startswith('vless://'))
             warp = sum(1 for l in content.split('\n') if l.startswith('warp://'))
-            print(f"✅ {filepath}: {vless} VLESS + {warp} WARP = {vless+warp} конфигов")
+            print(f"✅ {fp}: {vless} VLESS + {warp} WARP = {vless+warp}")
         else:
             all_ok = False
-            print(f"❌ {filepath}:")
-            for err in errors:
-                print(f"   {err}")
+            print(f"❌ {fp}:")
+            for e in errs: print(f"   {e}")
     print("=" * 50)
     if all_ok:
         print("🎉 Все проверки пройдены!")
         sys.exit(0)
     else:
-        print("⚠️ Есть ошибки. Проверьте вывод выше.")
+        print("⚠️ Есть ошибки")
         sys.exit(1)
 
 if __name__ == "__main__":
