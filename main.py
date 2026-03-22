@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import re, sys, asyncio, aiohttp, argparse, maxminddb, base64, json, random, os, socket
+import re, sys, asyncio, aiohttp, argparse, maxminddb, base64, json, random, os, socket, urllib.parse, html
 from urllib.parse import unquote, urlparse, parse_qs, unquote_plus
 from datetime import datetime, timedelta
 from typing import Optional, List, Dict, Tuple
@@ -9,7 +9,6 @@ from dataclasses import dataclass
 from enum import Enum, auto
 from pathlib import Path
 from functools import lru_cache
-import html
 
 @lru_cache(maxsize=1024)
 def cached_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
@@ -41,47 +40,35 @@ def try_decode_base64(text: str) -> str:
         pass
     return text
 
-def extract_configs_from_text(text: str) -> List[str]:
-    configs = []
-    text = unquote_plus(html.unescape(text))
-    
-    # Пробуем декодировать весь текст как base64 (если это подписка)
-    first_line = text.split('\n')[0].strip()
-    if not first_line.startswith(('vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://')):
-        decoded = try_decode_base64(first_line)
-        if decoded != first_line and decoded.startswith(('vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://')):
-            text = decoded
-    
-    # Разделяем на строки и ищем конфиги
-    for line in text.splitlines():
-        line = line.strip()
-        if not line or line.startswith('#'):
-            continue
-        
-        # Ищем протоколы в строке
-        for proto in ['vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://', 'tuic://', 'hysteria://', 'hysteria2://']:
-            if proto in line:
-                start = line.find(proto)
-                config = line[start:].split()[0]
-                config = config.rstrip('\x00')
-                if not is_insecure(config):
-                    configs.append(config)
-                break
-    
-    return configs
-
-def filter_insecure_configs(data: str) -> Tuple[str, int]:
+def filter_insecure_configs(data: str) -> Tuple[List[str], int]:
     result = []
     splitted = data.splitlines()
     for line in splitted:
         original_line = line
         processed = line.strip()
-        processed = unquote(html.unescape(processed))
+        processed = urllib.parse.unquote(html.unescape(processed))
+        
+        # Пробуем декодировать если это base64 подписка
+        if not processed.startswith(('vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://')):
+            decoded = try_decode_base64(processed)
+            if decoded != processed:
+                processed = decoded
+        
         if INSECURE_PATTERN.search(processed):
             continue
-        result.append(original_line)
+        
+        # Извлекаем конфиги из строки
+        for proto in ['vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://']:
+            if proto in processed:
+                start = processed.find(proto)
+                config = processed[start:].split()[0]
+                config = config.rstrip('\x00')
+                if config.startswith('vless://'):
+                    result.append(config)
+                break
+    
     filtered_count = len(splitted) - len(result)
-    return '\n'.join(result), filtered_count
+    return result, filtered_count
 
 COUNTRY_FLAGS = {
     'Россия': '🇷🇺', 'RU': '🇷🇺', 'Турция': '🇹🇷', 'TR': '🇹🇷',
@@ -378,14 +365,12 @@ class SourceFetcher:
                 async with session.get(url, timeout=15, headers=headers) as r:
                     text = await r.text()
                     total_raw += text.count('://')
-                    raw_configs = extract_configs_from_text(text)
-                    filtered_text, filtered_count = filter_insecure_configs('\n'.join(raw_configs))
+                    # Используем рабочую функцию фильтрации из Knowledge Base
+                    raw_configs, filtered_count = filter_insecure_configs(text)
                     total_filtered += filtered_count
-                    for config in filtered_text.splitlines():
-                        config = config.strip()
-                        if config.startswith('vless://'):
-                            if c := ConfigParser.parse_vless(config, self.ctype, geo):
-                                configs.append(c)
+                    for config in raw_configs:
+                        if c := ConfigParser.parse_vless(config, self.ctype, geo):
+                            configs.append(c)
             except Exception as e:
                 pass
         print(f"   📥 {self.ctype.name}: {len(configs)} конфигов (отфильтровано {total_filtered} небезопасных)")
@@ -547,7 +532,7 @@ class FunnelPingTester:
         return final_tested[:final_count]
 
 def parse_args():
-    p = argparse.ArgumentParser(description="GooseVPN Parser v2.5")
+    p = argparse.ArgumentParser(description="GooseVPN Parser v2.6")
     p.add_argument('-o','--out', type=str, default='configs', help='Output folder')
     p.add_argument('--geo', type=str, help='Path to GeoLite2')
     p.add_argument('--skip-funnel', action='store_true', help='Skip funnel test')
@@ -559,7 +544,7 @@ def parse_args():
     return p.parse_args()
 
 async def main_async(args):
-    print("GooseVPN Parser v2.5")
+    print("GooseVPN Parser v2.6")
     geo = GeoLocator(args.geo, auto_cleanup=True)
     cache = PingCache()
     async with aiohttp.ClientSession() as session:
