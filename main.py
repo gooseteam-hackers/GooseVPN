@@ -406,7 +406,7 @@ class SubscriptionGenerator:
         print(f"✅ {title}: {output} ({stats['total']} конфигов)")
 
 def parse_args():
-    p = argparse.ArgumentParser(description="🪿 GooseVPN Parser v2.1 — воронка отбора")
+    p = argparse.ArgumentParser(description="🪿 GooseVPN")
     p.add_argument('-o','--out', type=str, default='configs', help='Папка вывода')
     p.add_argument('--geo', type=str, help='Путь к GeoLite2')
     p.add_argument('--skip-funnel', action='store_true', help='Пропустить воронку, взять первые конфиги')
@@ -415,7 +415,7 @@ def parse_args():
     return p.parse_args()
 
 async def main_async(args):
-    print("🪿 GooseVPN Parser v2.1 — умная воронка отбора")
+    print("🪿 GooseVPN")
     geo = GeoLocator(args.geo, auto_cleanup=True)
     cache = PingCache()
     
