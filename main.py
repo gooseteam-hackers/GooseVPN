@@ -9,6 +9,7 @@ from dataclasses import dataclass
 from enum import Enum, auto
 from pathlib import Path
 from functools import lru_cache
+import html
 
 @lru_cache(maxsize=1024)
 def cached_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
@@ -30,6 +31,47 @@ def is_insecure(url: str) -> bool:
 
 def filter_insecure(configs: List[str]) -> List[str]:
     return [c for c in configs if not is_insecure(c)]
+
+def try_decode_base64(text: str) -> str:
+    try:
+        text = text.strip()
+        if len(text) % 4:
+            text += '=' * (4 - len(text) % 4)
+        decoded = base64.b64decode(text).decode('utf-8', errors='ignore')
+        if decoded.startswith(('vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://')):
+            return decoded
+    except:
+        pass
+    return text
+
+def extract_configs_from_text(text: str) -> List[str]:
+    configs = []
+    text = unquote_plus(html.unescape(text))
+    
+    # Пробуем декодировать весь текст как base64 (если это подписка)
+    if not text.startswith(('vless://', 'vmess://', 'trojan://', 'ss://')):
+        decoded = try_decode_base64(text.split('\n')[0].strip())
+        if decoded != text.split('\n')[0].strip():
+            text = decoded
+    
+    # Разделяем на строки и ищем конфиги
+    for line in text.splitlines():
+        line = line.strip()
+        if not line or line.startswith('#'):
+            continue
+        
+        # Ищем протоколы в строке
+        for proto in ['vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://', 'tuic://', 'hysteria://', 'hysteria2://']:
+            if proto in line:
+                # Извлекаем конфиг начиная с протокола
+                start = line.find(proto)
+                config = line[start:].split()[0]  # Берём до первого пробела
+                config = config.rstrip('\x00')  # Убираем null-символы
+                if not is_insecure(config):
+                    configs.append(config)
+                break
+    
+    return configs
 
 COUNTRY_FLAGS = {
     'Россия': '🇷🇺', 'RU': '🇷🇺', 'Турция': '🇹🇷', 'TR': '🇹🇷',
@@ -194,7 +236,7 @@ class ConfigParser:
     @classmethod
     def _extract_host(cls, url: str) -> Optional[str]:
         try:
-            rest = url.replace('vless://', '').split('#')[0]
+            rest = url.replace('vless://', '').replace('vmess://', '').replace('trojan://', '').split('#')[0]
             if '@' in rest:
                 _, hp = rest.split('@', 1)
                 host = hp.split(':')[0].split('?')[0]
@@ -303,7 +345,6 @@ class SourceFetcher:
         if self.sources_file.exists():
             content = self.sources_file.read_text(encoding='utf-8')
             urls = [line.strip() for line in content.split('\n') if line.strip().startswith('http')]
-        # Fallback на встроенные URL если файл пустой
         if not urls:
             print(f"⚠️ {self.sources_file} пустой, используем fallback URL")
             if self.ctype == ConfigType.WLTE:
@@ -324,13 +365,15 @@ class SourceFetcher:
             try:
                 async with session.get(url, timeout=15, headers=headers) as r:
                     text = await r.text()
-                    lines = [l.strip() for l in text.split('\n') if l.strip().startswith('vless://')]
-                    lines = filter_insecure(lines)
-                    for line in lines:
-                        if c := ConfigParser.parse_vless(line, self.ctype, geo):
-                            configs.append(c)
+                    # Извлекаем конфиги из текста (base64, mixed protocols, etc.)
+                    raw_configs = extract_configs_from_text(text)
+                    for config in raw_configs:
+                        if config.startswith('vless://'):
+                            if c := ConfigParser.parse_vless(config, self.ctype, geo):
+                                configs.append(c)
             except Exception as e:
                 pass
+        print(f"   📥 {self.ctype.name}: {len(configs)} конфигов")
         return configs
 
 class WarpSource:
@@ -424,8 +467,72 @@ class SubscriptionGenerator:
                 f.write('\n')
         print(f"✅ {title}: {output} ({stats['total']} конфигов)")
 
+class FunnelPingTester:
+    STAGES = [
+        {'name': 'Screen', 'concurrent': 25, 'timeout': 1.0, 'keep_ratio': 0.04},
+        {'name': 'Mid', 'concurrent': 15, 'timeout': 2.0, 'keep_ratio': 0.25},
+        {'name': 'Final', 'concurrent': 10, 'timeout': 3.0, 'keep_ratio': 1.0},
+    ]
+
+    def __init__(self, cache: PingCache = None):
+        self.cache = cache or PingCache()
+
+    async def _single_test(self, session: aiohttp.ClientSession, host: str, timeout: float) -> Optional[float]:
+        try:
+            for scheme in ['https', 'http']:
+                for attempt in range(3):
+                    try:
+                        start = asyncio.get_event_loop().time()
+                        async with session.get(f"{scheme}://{host}:443/", timeout=timeout, allow_redirects=False):
+                            return round((asyncio.get_event_loop().time() - start) * 1000, 1)
+                    except aiohttp.client_exceptions.ClientConnectorError as e:
+                        if "Temporary failure" in str(e) and attempt < 2:
+                            await asyncio.sleep(0.5 * (attempt + 1))
+                            continue
+                        break
+                    except Exception:
+                        break
+        except Exception:
+            pass
+        return None
+
+    async def _test_batch(self, configs: List[VPNConfig], concurrent: int, timeout: float) -> List[VPNConfig]:
+        async with aiohttp.ClientSession() as session:
+            sem = asyncio.Semaphore(concurrent)
+            async def test_one(cfg: VPNConfig):
+                async with sem:
+                    if cfg.ip:
+                        cached = self.cache.get(cfg.ip) if self.cache else None
+                        if cached:
+                            cfg.ping_ms = cached
+                        else:
+                            ping = await self._single_test(session, cfg.ip, timeout)
+                            if ping:
+                                cfg.ping_ms = ping
+                                if self.cache:
+                                    self.cache.set(cfg.ip, ping)
+                    cfg.speed_score = max(0, 100 - (cfg.ping_ms or 999))
+                    cfg.stability_score = random.uniform(0.8, 1.0) if cfg.ping_ms else 0
+                return cfg
+            return await asyncio.gather(*(test_one(c) for c in configs))
+
+    async def run_funnel(self, configs: List[VPNConfig], final_count: int = 8) -> List[VPNConfig]:
+        current = configs.copy()
+        for stage in self.STAGES[:-1]:
+            if not current:
+                break
+            tested = await self._test_batch(current, stage['concurrent'], stage['timeout'])
+            tested.sort(key=lambda x: x.composite_score(), reverse=True)
+            keep_count = max(int(len(tested) * stage['keep_ratio']), final_count * 2)
+            current = tested[:keep_count]
+            await asyncio.sleep(0.5)
+        final_stage = self.STAGES[-1]
+        final_tested = await self._test_batch(current, final_stage['concurrent'], final_stage['timeout'])
+        final_tested.sort(key=lambda x: x.composite_score(), reverse=True)
+        return final_tested[:final_count]
+
 def parse_args():
-    p = argparse.ArgumentParser(description="GooseVPN Parser v2.3")
+    p = argparse.ArgumentParser(description="GooseVPN Parser v2.4")
     p.add_argument('-o','--out', type=str, default='configs', help='Output folder')
     p.add_argument('--geo', type=str, help='Path to GeoLite2')
     p.add_argument('--skip-funnel', action='store_true', help='Skip funnel test')
@@ -436,7 +543,7 @@ def parse_args():
     return p.parse_args()
 
 async def main_async(args):
-    print("GooseVPN Parser v2.3")
+    print("GooseVPN Parser v2.4")
     geo = GeoLocator(args.geo, auto_cleanup=True)
     cache = PingCache()
     async with aiohttp.ClientSession() as session:
