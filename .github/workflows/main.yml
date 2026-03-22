@@ -33,11 +33,11 @@ jobs:
 
       - name: Download GeoIP database
         run: |
-          mkdir -p configs
+          mkdir -p configs system
           curl -L -o configs/GeoLite2-Country.mmdb "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb" || true
 
       - name: Run parser (skip funnel for speed)
-        run: python main.py -o configs --skip-funnel --debug
+        run: python main.py -o configs --skip-funnel --debug --cache-days 3
         timeout-minutes: 15
         env:
           PYTHONUNBUFFERED: '1'

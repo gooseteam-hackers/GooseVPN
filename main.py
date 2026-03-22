@@ -158,6 +158,14 @@ class VPNConfig:
 
     def to_subscription_line(self) -> str:
         name = unquote(self.format_name())
+        # Для warp:// URL с detour (&&) сохраняем оригинальный URL, заменяем только последнее имя
+        if self.url.startswith('warp://'):
+            # Находим последнюю часть после # для замены имени
+            if '#' in self.url:
+                # Сохраняем всё до последнего #, добавляем новое имя
+                base = self.url.rsplit('#', 1)[0]
+                return f"{base}#{name}"
+            return f"{self.url}#{name}"
         if '#' in self.url:
             parts = self.url.rsplit('#', 1)
             return f"{parts[0]}#{name}"
@@ -375,21 +383,42 @@ class SourceFetcher:
         return configs
 
 class WarpSource:
+    # Стабильный WARP обновляется редко
     WARP_STABLE = "warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#2"
     WARP_NIGHT_URL = "https://raw.githubusercontent.com/ByteMysticRogue/Hiddify-Warp/refs/heads/main/warp.json"
 
     async def fetch(self, session: aiohttp.ClientSession) -> List[VPNConfig]:
         configs = []
-        if c := ConfigParser.parse_warp(self.WARP_STABLE, ConfigType.WARP_STABLE):
-            configs.append(c)
+        # Парсим стабильный WARP вручную (имя содержит &)
+        warp_stable = VPNConfig(
+            url=self.WARP_STABLE,
+            config_type=ConfigType.WARP_STABLE,
+            country='Cloudflare',
+            original_name='WARP Стабильный'
+        )
+        configs.append(warp_stable)
+        
+        # Ночной WARP - скачиваем свежий каждый раз
         try:
             async with session.get(self.WARP_NIGHT_URL, timeout=10) as r:
                 text = await r.text()
                 for line in reversed([l.strip() for l in text.split('\n') if l.strip() and not l.startswith('//')]):
-                    if line.startswith('warp://') and (c := ConfigParser.parse_warp(line, ConfigType.WARP_NIGHT)):
-                        configs.append(c)
+                    if line.startswith('warp://'):
+                        # Извлекаем имя до первого &
+                        name = 'WARP Ночной'
+                        if '#' in line:
+                            name_part = line.split('#')[1].split('&')[0]
+                            if name_part:
+                                name = unquote(name_part)
+                        warp_night = VPNConfig(
+                            url=line,
+                            config_type=ConfigType.WARP_NIGHT,
+                            country='Cloudflare',
+                            original_name=name
+                        )
+                        configs.append(warp_night)
                         break
-        except:
+        except Exception as e:
             pass
         return configs
 
@@ -542,7 +571,7 @@ class FunnelPingTester:
         return final_tested[:final_count]
 
 def parse_args():
-    p = argparse.ArgumentParser(description="GooseVPN Parser v2.6")
+    p = argparse.ArgumentParser(description="GooseVPN Parser v2.7")
     p.add_argument('-o','--out', type=str, default='configs', help='Output folder')
     p.add_argument('--geo', type=str, help='Path to GeoLite2')
     p.add_argument('--skip-funnel', action='store_true', help='Skip funnel test')
@@ -551,12 +580,18 @@ def parse_args():
     p.add_argument('--only-balanced', action='store_true', help='Only balanced.txt')
     p.add_argument('--only-plus', action='store_true', help='Only plus.txt')
     p.add_argument('--debug', action='store_true', help='Show debug info')
+    p.add_argument('--cache-days', type=int, default=7, help='Cache TTL in days (default: 7)')
     return p.parse_args()
 
 async def main_async(args):
-    print("GooseVPN Parser v2.6")
-    geo = GeoLocator(args.geo, auto_cleanup=True)
-    cache = PingCache()
+    print("GooseVPN Parser v2.7")
+    geo = GeoLocator(args.geo, auto_cleanup=False)
+    
+    # Создаём system/ папку для кэша
+    system_dir = Path('system')
+    system_dir.mkdir(parents=True, exist_ok=True)
+    cache = PingCache(cache_file=str(system_dir / 'ping_cache.json'), ttl_hours=args.cache_days * 24)
+    
     async with aiohttp.ClientSession() as session:
         wlte_fetcher = SourceFetcher(args.wlte_sources, ConfigType.WLTE)
         wifi_fetcher = SourceFetcher(args.wifi_sources, ConfigType.WIFI)
@@ -583,16 +618,18 @@ async def main_async(args):
             # Берём по 24 каждого типа
             selected = wlte_cfgs_sorted[:24] + wifi_cfgs_sorted[:24]
             print(f"Quick select: {len(selected)} configs ({len(wlte_cfgs_sorted[:24])} wLTE + {len(wifi_cfgs_sorted[:24])} WiFi)")
+        
         out_dir = Path(args.out)
         out_dir.mkdir(parents=True, exist_ok=True)
+        
         if not args.only_plus:
-            # Balanced: 6 wLTE + 6 WiFi + 4 резерва = 16 конфигов + WARP
-            filter_b = ConfigFilter(main_wlte=6, main_wifi=6, reserve_wlte=2, reserve_wifi=2)
+            # Balanced: 5 wLTE + 5 WiFi + 3 резерва = 13 конфигов + WARP
+            filter_b = ConfigFilter(main_wlte=5, main_wifi=5, reserve_wlte=1, reserve_wifi=2)
             main_b, reserves_b = filter_b.select(selected)
             SubscriptionGenerator.generate(main_b, reserves_b, out_dir / "balanced.txt", "GooseVPN", include_warp=True, warp_configs=warp_cfgs, is_plus=False)
         if not args.only_balanced:
-            # Plus: 10 wLTE + 10 WiFi + 5 резервов = 25 конфигов + 2 WARP
-            filter_p = ConfigFilter(main_wlte=10, main_wifi=10, reserve_wlte=2, reserve_wifi=3)
+            # Plus: 8 wLTE + 8 WiFi + 4 резерва = 20 конфигов + 2 WARP
+            filter_p = ConfigFilter(main_wlte=8, main_wifi=8, reserve_wlte=2, reserve_wifi=2)
             main_p, reserves_p = filter_p.select(selected)
             SubscriptionGenerator.generate(main_p, reserves_p, out_dir / "plus.txt", "GooseVPN Plus", include_warp=True, warp_configs=warp_cfgs, is_plus=True)
     cache._save()

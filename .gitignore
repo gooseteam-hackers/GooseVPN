@@ -22,6 +22,7 @@ env/
 *~
 
 # Project specific
+system/
 configs/ping_cache.json
 *.log
 
