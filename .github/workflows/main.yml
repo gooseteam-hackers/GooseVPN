@@ -30,7 +30,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run parser
-        run: python goosevpn_parser.py -o configs
+        run: python main.py -o configs
         timeout-minutes: 300
         env:
           PYTHONUNBUFFERED: '1'
