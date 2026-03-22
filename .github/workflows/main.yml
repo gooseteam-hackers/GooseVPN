@@ -3,7 +3,7 @@ name: Сборка
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */12 * * *'  # Запуск каждые 12 часов
+    - cron: '0 */6 * * *'  # Запуск каждые 6 часов
 
 permissions:
   contents: write
@@ -11,7 +11,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -31,24 +31,20 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run parser (with funnel)
-        id: parser_funnel
-        continue-on-error: true
-        run: python main.py -o configs --debug
-        timeout-minutes: 45
-        env:
-          PYTHONUNBUFFERED: '1'
+      - name: Download GeoIP database
+        run: |
+          mkdir -p configs
+          curl -L -o configs/GeoLite2-Country.mmdb "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb" || true
 
-      - name: Run parser (fallback without funnel)
-        if: steps.parser_funnel.outcome == 'failure'
+      - name: Run parser (skip funnel for speed)
         run: python main.py -o configs --skip-funnel --debug
-        timeout-minutes: 10
+        timeout-minutes: 15
         env:
           PYTHONUNBUFFERED: '1'
 
       - name: Validate
         run: python check.py
-        timeout-minutes: 10
+        timeout-minutes: 5
         env:
           PYTHONUNBUFFERED: '1'
 

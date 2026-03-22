@@ -170,7 +170,7 @@ class VPNConfig:
 class GeoLocator:
     GEO_URL = "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb"
 
-    def __init__(self, db_path: Optional[str] = None, auto_cleanup: bool = True):
+    def __init__(self, db_path: Optional[str] = None, auto_cleanup: bool = False):
         self.reader = None
         self.cache = {}
         self.downloaded_path: Optional[Path] = None
@@ -217,11 +217,6 @@ class GeoLocator:
     def close(self):
         if self.reader:
             self.reader.close()
-        if self.auto_cleanup and self.downloaded_path and self.downloaded_path.exists():
-            try:
-                self.downloaded_path.unlink()
-            except:
-                pass
 
 class ConfigParser:
     @staticmethod
@@ -249,7 +244,8 @@ class ConfigParser:
     def parse_vless(cls, url: str, ctype: ConfigType, geo: Optional[GeoLocator] = None) -> Optional[VPNConfig]:
         try:
             rest = url.replace('vless://', '', 1)
-            name = unquote(rest.rsplit('#', 1)[1]) if '#' in rest else "Unnamed"
+            # Имя уже декодировано в filter_insecure_configs, просто извлекаем
+            name = rest.rsplit('#', 1)[1] if '#' in rest else "Unnamed"
             host = cls._extract_host(url)
             country = cls.extract_country(name)
             if country == 'Unknown' and host and geo:

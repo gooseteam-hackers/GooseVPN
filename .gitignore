@@ -22,7 +22,6 @@ env/
 *~
 
 # Project specific
-configs/GeoLite2-Country.mmdb
 configs/ping_cache.json
 *.log
 
