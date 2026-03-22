@@ -10,15 +10,6 @@ from enum import Enum, auto
 from pathlib import Path
 from functools import lru_cache
 
-@lru_cache(maxsize=1024)
-def cached_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
-    try:
-        return socket.getaddrinfo(host, port, family, type, proto, flags)
-    except socket.gaierror:
-        return []
-
-socket.getaddrinfo = cached_getaddrinfo
-
 INSECURE_PATTERN = re.compile(r'(?:[?&;]|3%[Bb])(allowinsecure|allow_insecure|insecure)=(?:1|true|yes)(?:[&;#]|$|(?=\s|$))', re.IGNORECASE)
 
 def is_insecure(url: str) -> bool:
@@ -40,33 +31,44 @@ def try_decode_base64(text: str) -> str:
         pass
     return text
 
+
 def filter_insecure_configs(data: str) -> Tuple[List[str], int]:
+    """
+    Извлекает vless:// конфиги из текста с обработкой:
+    - URL-decoding (unquote)
+    - HTML-unescape
+    - Base64 decoding для подписок
+    - Фильтрация insecure конфигов
+    """
     result = []
     splitted = data.splitlines()
+
     for line in splitted:
-        original_line = line
         processed = line.strip()
+        if not processed:
+            continue
+
+        # URL-decode и HTML-unescape
         processed = urllib.parse.unquote(html.unescape(processed))
-        
+
         # Пробуем декодировать если это base64 подписка
         if not processed.startswith(('vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://')):
             decoded = try_decode_base64(processed)
-            if decoded != processed:
+            if decoded.startswith(('vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://')):
                 processed = decoded
-        
+
+        # Пропускаем insecure конфиги
         if INSECURE_PATTERN.search(processed):
             continue
-        
-        # Извлекаем конфиги из строки
-        for proto in ['vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://']:
-            if proto in processed:
-                start = processed.find(proto)
-                config = processed[start:].split()[0]
-                config = config.rstrip('\x00')
-                if config.startswith('vless://'):
-                    result.append(config)
-                break
-    
+
+        # Извлекаем vless:// конфиги из строки
+        if 'vless://' in processed:
+            start = processed.find('vless://')
+            config = processed[start:].split()[0]
+            config = config.rstrip('\x00')
+            if config.startswith('vless://'):
+                result.append(config)
+
     filtered_count = len(splitted) - len(result)
     return result, filtered_count
 
@@ -476,6 +478,7 @@ class FunnelPingTester:
 
     def __init__(self, cache: PingCache = None):
         self.cache = cache or PingCache()
+        self._dns_cache = {}  # Быстрый DNS-кэш в памяти
 
     async def _single_test(self, session: aiohttp.ClientSession, host: str, timeout: float) -> Optional[float]:
         try:
@@ -497,7 +500,9 @@ class FunnelPingTester:
         return None
 
     async def _test_batch(self, configs: List[VPNConfig], concurrent: int, timeout: float) -> List[VPNConfig]:
-        async with aiohttp.ClientSession() as session:
+        # Используем aiohttp с DNS-кэшем
+        connector = aiohttp.TCPConnector(ttl_dns_cache=300, limit=concurrent * 2)
+        async with aiohttp.ClientSession(connector=connector) as session:
             sem = asyncio.Semaphore(concurrent)
             async def test_one(cfg: VPNConfig):
                 async with sem:
@@ -561,22 +566,28 @@ async def main_async(args):
                 print(f"   {c.country} - {c.original_name[:50]}")
         if not args.skip_funnel and all_cfgs:
             tester = FunnelPingTester(cache)
-            best_wlte = await tester.run_funnel([c for c in all_cfgs if c.config_type == ConfigType.WLTE], final_count=8)
-            best_wifi = await tester.run_funnel([c for c in all_cfgs if c.config_type == ConfigType.WIFI], final_count=8)
+            # Увеличил количество: 12 wLTE + 12 WiFi = 24 конфига для выбора
+            best_wlte = await tester.run_funnel([c for c in all_cfgs if c.config_type == ConfigType.WLTE], final_count=12)
+            best_wifi = await tester.run_funnel([c for c in all_cfgs if c.config_type == ConfigType.WIFI], final_count=12)
             selected = best_wlte + best_wifi
             print(f"After funnel: {len(selected)} best configs")
         else:
-            all_cfgs.sort(key=lambda x: x.speed_score, reverse=True)
-            selected = all_cfgs[:16]
-            print(f"Quick select: {len(selected)} configs")
+            # Без funnel выбираем поровну wLTE и WiFi для запаса
+            wlte_cfgs_sorted = sorted([c for c in all_cfgs if c.config_type == ConfigType.WLTE], key=lambda x: x.speed_score, reverse=True)
+            wifi_cfgs_sorted = sorted([c for c in all_cfgs if c.config_type == ConfigType.WIFI], key=lambda x: x.speed_score, reverse=True)
+            # Берём по 24 каждого типа
+            selected = wlte_cfgs_sorted[:24] + wifi_cfgs_sorted[:24]
+            print(f"Quick select: {len(selected)} configs ({len(wlte_cfgs_sorted[:24])} wLTE + {len(wifi_cfgs_sorted[:24])} WiFi)")
         out_dir = Path(args.out)
         out_dir.mkdir(parents=True, exist_ok=True)
         if not args.only_plus:
-            filter_b = ConfigFilter(main_wlte=3, main_wifi=3, reserve_wlte=1, reserve_wifi=2)
+            # Balanced: 6 wLTE + 6 WiFi + 4 резерва = 16 конфигов + WARP
+            filter_b = ConfigFilter(main_wlte=6, main_wifi=6, reserve_wlte=2, reserve_wifi=2)
             main_b, reserves_b = filter_b.select(selected)
-            SubscriptionGenerator.generate(main_b, reserves_b, out_dir / "balanced.txt", "GooseVPN", include_warp=False, is_plus=False)
+            SubscriptionGenerator.generate(main_b, reserves_b, out_dir / "balanced.txt", "GooseVPN", include_warp=True, warp_configs=warp_cfgs, is_plus=False)
         if not args.only_balanced:
-            filter_p = ConfigFilter(main_wlte=4, main_wifi=4, reserve_wlte=2, reserve_wifi=2)
+            # Plus: 10 wLTE + 10 WiFi + 5 резервов = 25 конфигов + 2 WARP
+            filter_p = ConfigFilter(main_wlte=10, main_wifi=10, reserve_wlte=2, reserve_wifi=3)
             main_p, reserves_p = filter_p.select(selected)
             SubscriptionGenerator.generate(main_p, reserves_p, out_dir / "plus.txt", "GooseVPN Plus", include_warp=True, warp_configs=warp_cfgs, is_plus=True)
     cache._save()

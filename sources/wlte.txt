@@ -1,6 +1,4 @@
 https://wlrus.lol/confs/selected.txt
-https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-https://raw.githubusercontent.com/sevcator/5ubscrpt10n/main/protocols/vl.txt
 https://raw.githubusercontent.com/yitong2333/proxy-minging/refs/heads/main/v2ray.txt
 https://raw.githubusercontent.com/acymz/AutoVPN/refs/heads/main/data/V2.txt
 https://raw.githubusercontent.com/miladtahanian/V2RayCFGDumper/refs/heads/main/sub.txt
