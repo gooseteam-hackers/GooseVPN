@@ -503,9 +503,8 @@ class FunnelPingTester:
         return None
 
     async def _test_batch(self, configs: List[VPNConfig], concurrent: int, timeout: float) -> List[VPNConfig]:
-        # Используем aiohttp с DNS-кэшем и надёжным resolver
-        resolver = aiohttp.AsyncResolver()
-        connector = aiohttp.TCPConnector(resolver=resolver, ttl_dns_cache=300, limit=concurrent * 2, family=socket.AF_INET)
+        # Используем aiohttp с DNS-кэшем (без aiodns для совместимости)
+        connector = aiohttp.TCPConnector(ttl_dns_cache=300, limit=concurrent * 2, family=socket.AF_INET)
         async with aiohttp.ClientSession(connector=connector) as session:
             sem = asyncio.Semaphore(concurrent)
             async def test_one(cfg: VPNConfig):
@@ -524,7 +523,7 @@ class FunnelPingTester:
                         cfg.speed_score = max(0, 100 - (cfg.ping_ms or 999))
                         cfg.stability_score = random.uniform(0.8, 1.0) if cfg.ping_ms else 0
                 except Exception:
-                    # При ошибке присваиваем низкий_score
+                    # При ошибке присваиваем низкий score
                     cfg.speed_score = 0
                     cfg.stability_score = 0
                 return cfg
