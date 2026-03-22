@@ -52,7 +52,7 @@ def validate_file(filepath: str) -> tuple[bool, list[str]]:
 def main():
     files = ['configs/balanced.txt', 'configs/plus.txt']
     all_ok = True
-    print("🔍 Валидация подписки")
+    print("🔍 Валидация")
     print("=" * 50)
     for fp in files:
         if not Path(fp).exists():
