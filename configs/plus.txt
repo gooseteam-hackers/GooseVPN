@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTiBQbHVz
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-03-22 19:11:02
+//last update on: 2026-03-22 17:11:55
 // 🪿 GooseVPN Plus - 27 конфигов, 10 wLTE, 10 WiFi, 5 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
