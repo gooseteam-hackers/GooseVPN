@@ -1,13 +1,32 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import re, sys, asyncio, aiohttp, argparse, maxminddb, base64, gzip, shutil
-from urllib.parse import unquote, urlparse, parse_qs
-from datetime import datetime
+import re, sys, asyncio, aiohttp, argparse, maxminddb, base64, json, random
+from urllib.parse import unquote, urlparse, parse_qs, unquote_plus
+from datetime import datetime, timedelta
 from typing import Optional
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum, auto
 from pathlib import Path
+from collections import defaultdict
+import threading
+
+INSECURE_PATTERN = re.compile(
+    r'(?:[?&;]|3%[Bb])(allowinsecure|allow_insecure|insecure)=(?:1|true|yes)(?:[&;#]|$|(?=\s|$))',
+    re.IGNORECASE
+)
+
+def is_insecure(url: str) -> bool:
+    """Проверяет конфиг на наличие allowInsecure=true"""
+    try:
+        decoded = unquote_plus(unquote(url))
+        return bool(INSECURE_PATTERN.search(decoded))
+    except:
+        return False
+
+def filter_insecure(configs: list[str]) -> list[str]:
+    """Фильтрует небезопасные конфиги"""
+    return [c for c in configs if not is_insecure(c)]
 
 COUNTRY_FLAGS = {
     'Россия': '🇷🇺', 'RU': '🇷🇺', 'Турция': '🇹🇷', 'TR': '🇹🇷',
@@ -16,6 +35,9 @@ COUNTRY_FLAGS = {
     'США': '🇺🇸', 'US': '🇺🇸', 'Япония': '🇯🇵', 'JP': '🇯🇵',
     'Корея': '🇰🇷', 'KR': '🇰🇷', 'Сингапур': '🇸🇬', 'SG': '🇸🇬',
     'Индия': '🇮🇳', 'IN': '🇮🇳', 'Грузия': '🇬🇪', 'GE': '🇬🇪',
+    'Казахстан': '🇰🇿', 'KZ': '🇰🇿', 'Финляндия': '🇫🇮', 'FI': '🇫🇮',
+    'Польша': '🇵🇱', 'PL': '🇵🇱', 'Украина': '🇺🇦', 'UA': '🇺🇦',
+    'Global': '🌐',
 }
 
 def get_flag(country: str) -> str:
@@ -72,9 +94,9 @@ class VPNConfig:
             if self.rank: base += f" {self.rank}"
             return base
         if self.config_type in [ConfigType.WARP_STABLE, ConfigType.WARP_NIGHT]:
-            base = f"{self.flag} [{self.type_label}] {self.country}"
+            base = f"🔥 [WARP]"
+            if self.warp_mode: base += f" {self.warp_mode}"
             if self.rank: base += f" {self.rank}"
-            if self.warp_mode: base += f" ({self.warp_mode})"
             return base
         base = f"{self.flag} [{self.type_label}] {self.country}"
         if self.rank: base += f" {self.rank}"
@@ -95,40 +117,27 @@ class GeoLocator:
         self.cache = {}
         self.downloaded_path: Optional[Path] = None
         self.auto_cleanup = auto_cleanup
-        
         paths = [db_path, "./GeoLite2-Country.mmdb", "./configs/GeoLite2-Country.mmdb", "/usr/share/GeoIP/GeoLite2-Country.mmdb"]
         for path in paths:
             if path and Path(path).exists():
                 try:
                     self.reader = maxminddb.open_database(path)
-                    print(f"✅ GeoLite2: {path}")
                     return
                 except: pass
-
-        print("⏬ Скачивание GeoLite2...")
-        if self._download_db():
-            print(f"✅ GeoLite2 готов к работе")
-        else:
-            print("⚠️ Геолокация будет работать в упрощённом режиме")
+        self._download_db()
     
-    def _download_db(self) -> bool:
+    def _download_db(self):
         try:
             import urllib.request
             self.downloaded_path = Path("./configs/GeoLite2-Country.mmdb")
             self.downloaded_path.parent.mkdir(parents=True, exist_ok=True)
-            
             urllib.request.urlretrieve(self.GEO_URL, self.downloaded_path)
-            
             if self.downloaded_path.exists() and self.downloaded_path.stat().st_size > 10000:
                 self.reader = maxminddb.open_database(self.downloaded_path)
-                return True
-            return False
-        except Exception as e:
-            print(f"⚠️ Ошибка загрузки GeoLite2: {e}")
-            return False
+        except: pass
     
     def get_country_by_ip(self, ip: str) -> Optional[str]:
-        if ip and any(ip.startswith(p) for p in ['10.', '192.168.', '172.16.', '172.17.', '172.18.', '172.19.', '172.2', '172.30.', '172.31.', '127.', '0.0.0.0']):
+        if ip and any(ip.startswith(p) for p in ['10.','192.168.','172.16.','172.17.','172.18.','172.19.','172.2','172.30.','172.31.','127.','0.0.0.0']):
             return None
         if ip in self.cache: return self.cache[ip]
         if not self.reader or not ip: return None
@@ -143,22 +152,16 @@ class GeoLocator:
         return None
     
     def close(self):
-        if self.reader:
-            self.reader.close()
-            self.reader = None
+        if self.reader: self.reader.close()
         if self.auto_cleanup and self.downloaded_path and self.downloaded_path.exists():
-            try:
-                self.downloaded_path.unlink()
-                print(f"🧹 GeoLite2 удалён: {self.downloaded_path}")
-            except Exception as e:
-                print(f"⚠️ Не удалось удалить GeoLite2: {e}")
-            self.downloaded_path = None
+            try: self.downloaded_path.unlink()
+            except: pass
 
 class ConfigParser:
     @staticmethod
     def extract_country(name: str) -> str:
         clean = re.sub(r'[^\w\s\u0400-\u04FF\u00C0-\u024F-]', ' ', name)
-        for country in ['Россия','Турция','Германия','Нидерланды','Франция','США','Великобритания','Япония','Корея','Сингапур','Индия','Грузия']:
+        for country in ['Россия','Турция','Германия','Нидерланды','Франция','США','Великобритания','Япония','Корея','Сингапур','Индия','Грузия','Казахстан']:
             if country.lower() in clean.lower(): return country
         return 'Unknown'
     
@@ -167,10 +170,9 @@ class ConfigParser:
         try:
             rest = url.replace('vless://', '').split('#')[0]
             if '@' in rest:
-                _, host_port = rest.split('@', 1)
-                host = host_port.split(':')[0].split('?')[0]
-                if host and not host.startswith('[') and len(host) > 3:
-                    return host
+                _, hp = rest.split('@', 1)
+                host = hp.split(':')[0].split('?')[0]
+                if host and len(host) > 3: return host
         except: pass
         return None
     
@@ -184,11 +186,6 @@ class ConfigParser:
             if country == 'Unknown' and host and geo:
                 detected = geo.get_country_by_ip(host)
                 if detected: country = detected
-            if country == 'Unknown':
-                for flag_code, flag in COUNTRY_FLAGS.items():
-                    if flag in name or flag_code.lower() in name.lower():
-                        country = flag_code if flag_code not in ['🇷🇺','🇹🇷','🇩🇪'] else flag_code
-                        break
             return VPNConfig(url=url, config_type=ctype, country=country if country != 'Unknown' else 'Global', original_name=name, ip=host)
         except: return None
     
@@ -196,33 +193,65 @@ class ConfigParser:
     def parse_warp(cls, url: str, ctype: ConfigType) -> Optional[VPNConfig]:
         return VPNConfig(url=url, config_type=ctype, country='Cloudflare', original_name='WARP')
 
-class DataSource:
-    async def fetch(self, session: aiohttp.ClientSession, **kw) -> list[VPNConfig]: raise NotImplementedError
+SOURCES_WLTE = [
+    "https://wlrus.lol/confs/selected.txt",  # Лучший
+    "https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt",
+    "https://raw.githubusercontent.com/sevcator/5ubscrpt10n/main/protocols/vl.txt",
+    "https://raw.githubusercontent.com/yitong2333/proxy-minging/refs/heads/main/v2ray.txt",
+    "https://raw.githubusercontent.com/acymz/AutoVPN/refs/heads/main/data/V2.txt",
+    "https://raw.githubusercontent.com/miladtahanian/V2RayCFGDumper/refs/heads/main/sub.txt",
+    "https://raw.githubusercontent.com/roosterkid/openproxylist/main/V2RAY_RAW.txt",
+    "https://raw.githubusercontent.com/CidVpn/cid-vpn-config/refs/heads/main/general.txt",
+    "https://raw.githubusercontent.com/mohamadfg-dev/telegram-v2ray-configs-collector/refs/heads/main/category/vless.txt",
+    "https://raw.githubusercontent.com/mheidari98/.proxy/refs/heads/main/vless",
+    "https://raw.githubusercontent.com/youfoundamin/V2rayCollector/main/mixed_iran.txt",
+    "https://raw.githubusercontent.com/expressalaki/ExpressVPN/refs/heads/main/configs3.txt",
+    "https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt",
+    "https://raw.githubusercontent.com/miladtahanian/Config-Collector/refs/heads/main/mixed_iran.txt",
+    "https://raw.githubusercontent.com/Pawdroid/Free-servers/refs/heads/main/sub",
+    "https://raw.githubusercontent.com/free18/v2ray/refs/heads/main/v.txt",
+]
 
-class TxtFileSource(DataSource):
-    def __init__(self, url: str, ctype: ConfigType):
-        self.url, self.ctype = url, ctype
-    async def fetch(self, session: aiohttp.ClientSession, geo=None, **kw) -> list[VPNConfig]:
+SOURCES_WIFI = [
+    "https://wlrus.lol/confs/blackl.txt",  # Лучший
+    "https://github.com/Epodonios/v2ray-configs/raw/main/Splitted-By-Protocol/trojan.txt",
+    "https://raw.githubusercontent.com/shabane/kamaji/master/hub/merged.txt",
+    "https://raw.githubusercontent.com/wuqb2i4f/xray-config-toolkit/main/output/base64/mix-uri",
+    "https://raw.githubusercontent.com/WhitePrime/xraycheck/refs/heads/main/configs/available",
+    "https://raw.githubusercontent.com/STR97/STRUGOV/refs/heads/main/STR.BYPASS",
+    "https://raw.githubusercontent.com/V2RayRoot/V2RayConfig/refs/heads/main/Config/vless.txt",
+]
+
+WARP_STABLE = "warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#2"
+WARP_NIGHT_URL = "https://raw.githubusercontent.com/ByteMysticRogue/Hiddify-Warp/refs/heads/main/warp.json"
+
+USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15",
+    "v2RayTun/1.5.0 (Android; 13)",
+    "okhttp/4.12.0",
+]
+
+class DataSource:
+    async def fetch(self, session: aiohttp.ClientSession, **kw) -> list[str]: raise NotImplementedError
+
+class TxtSource(DataSource):
+    def __init__(self, url: str): self.url = url
+    async def fetch(self, session: aiohttp.ClientSession, **kw) -> list[str]:
         try:
-            async with session.get(self.url, timeout=15) as r:
+            headers = {'User-Agent': random.choice(USER_AGENTS)}
+            async with session.get(self.url, timeout=15, headers=headers) as r:
                 text = await r.text()
-                configs = []
-                for line in text.strip().split('\n'):
-                    line = line.strip()
-                    if line.startswith('vless://'):
-                        if c := ConfigParser.parse_vless(line, self.ctype, geo):
-                            configs.append(c)
-                return configs
+                lines = [l.strip() for l in text.split('\n') if l.strip().startswith('vless://')]
+                return filter_insecure(lines)
         except: return []
 
-class WarpJsonSource(DataSource):
-    def __init__(self, url: str, stable: str):
-        self.url, self.stable = url, stable
+class WarpSource(DataSource):
     async def fetch(self, session: aiohttp.ClientSession, **kw) -> list[VPNConfig]:
         configs = []
-        if c := ConfigParser.parse_warp(self.stable, ConfigType.WARP_STABLE): configs.append(c)
+        if c := ConfigParser.parse_warp(WARP_STABLE, ConfigType.WARP_STABLE): configs.append(c)
         try:
-            async with session.get(self.url, timeout=10) as r:
+            async with session.get(WARP_NIGHT_URL, timeout=10) as r:
                 text = await r.text()
                 for line in reversed([l.strip() for l in text.split('\n') if l.strip() and not l.startswith('//')]):
                     if line.startswith('warp://') and (c := ConfigParser.parse_warp(line, ConfigType.WARP_NIGHT)):
@@ -245,7 +274,7 @@ class PingTester:
         return None
     
     @classmethod
-    async def test_configs(cls, configs: list[VPNConfig], max_concurrent: int = 15) -> list[VPNConfig]:
+    async def test_configs(cls, configs: list[VPNConfig], max_concurrent: int = 20) -> list[VPNConfig]:
         async with aiohttp.ClientSession() as session:
             sem = asyncio.Semaphore(max_concurrent)
             async def test(cfg: VPNConfig):
@@ -306,69 +335,60 @@ class SubscriptionGenerator:
                 for cfg in group: f.write(cfg.to_subscription_line() + '\n')
                 f.write('\n')
         print(f"✅ {title}: {output} ({stats['total']} конфигов)")
-        return stats
-
-def run_api(configs: list[VPNConfig], host: str, port: int):
-    try:
-        from fastapi import FastAPI; import uvicorn
-    except ImportError: return
-    app = FastAPI(title="🪿 GooseVPN Test")
-    @app.get("/")
-    async def root(): return {"message": "GooseVPN Test", "configs": len(configs)}
-    @app.get("/configs")
-    async def list_cfg(type: str = None, limit: int = 20):
-        result = configs
-        if type:
-            tmap = {'wlte':ConfigType.WLTE,'wifi':ConfigType.WIFI,'warp':[ConfigType.WARP_STABLE,ConfigType.WARP_NIGHT],'reserve':ConfigType.RESERVE}
-            ft = tmap.get(type.lower())
-            if ft: result = [c for c in result if c.config_type in (ft if isinstance(ft,list) else [ft])]
-        return [{"name":c.format_name(),"type":c.type_label,"country":c.country,"ping":c.ping_ms} for c in result[:limit]]
-    uvicorn.run(app, host=host, port=port, log_level="warning")
 
 def parse_args():
-    p = argparse.ArgumentParser(description="🪿 GooseVPN Parser v1.1")
-    p.add_argument('-o','--out', type=str, default='./configs', help='Папка вывода (по умолчанию: ./configs)')
-    p.add_argument('--geo', type=str, help='Путь к GeoLite2-Country.mmdb')
+    p = argparse.ArgumentParser(description="🪿 GooseVPN Parser v2.0")
+    p.add_argument('-o','--out', type=str, default='configs', help='Папка вывода')
+    p.add_argument('--geo', type=str, help='Путь к GeoLite2')
     p.add_argument('--no-ping', action='store_true', help='Без пинг-тестов')
-    p.add_argument('--ping-n', type=int, default=15, help='Параллельных пингов')
-    p.add_argument('--api', action='store_true', help='Запустить FastAPI тест')
-    p.add_argument('--api-host', default='127.0.0.1')
-    p.add_argument('--api-port', type=int, default=8000)
+    p.add_argument('--ping-n', type=int, default=20, help='Параллельных пингов')
     p.add_argument('--only-balanced', action='store_true', help='Только balanced.txt')
     p.add_argument('--only-plus', action='store_true', help='Только plus.txt')
     return p.parse_args()
 
 async def main_async(args):
-    print("🪿 GooseVPN Parser v1.1")
-    geo = GeoLocator(args.geo)
-    main_sources = [
-        TxtFileSource("https://xraynet.space/sub.txt", ConfigType.WLTE),
-        TxtFileSource("https://xraynet.space/vpn.txt", ConfigType.WIFI),
-        WarpJsonSource("https://raw.githubusercontent.com/ByteMysticRogue/Hiddify-Warp/refs/heads/main/warp.json", "warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#2"),
-    ]
-    all_cfgs = []
-    async with aiohttp.ClientSession() as s:
-        for src in main_sources: all_cfgs.extend(await src.fetch(s, geo=geo))
-    if not args.no_ping and all_cfgs:
-        print(f"⚡ Пинг-тест ({args.ping_n} параллельно)...")
-        all_cfgs = await PingTester.test_configs(all_cfgs, args.ping_n)
-    warp_cfgs = [c for c in all_cfgs if c.config_type in [ConfigType.WARP_STABLE, ConfigType.WARP_NIGHT]]
-    non_warp = [c for c in all_cfgs if c.config_type not in [ConfigType.WARP_STABLE, ConfigType.WARP_NIGHT]]
-    out_dir = Path(args.out)
-    out_dir.mkdir(parents=True, exist_ok=True)
-    if not args.only_plus:
-        filter_balanced = ConfigFilter(main_wlte=3, main_wifi=3, reserve_wlte=1, reserve_wifi=2)
-        main_b, reserves_b = filter_balanced.select(non_warp)
-        SubscriptionGenerator.generate(main_b, reserves_b, out_dir / "balanced.txt", "GooseVPN 🪿", include_warp=False, is_plus=False)
-    if not args.only_balanced:
-        filter_plus = ConfigFilter(main_wlte=4, main_wifi=4, reserve_wlte=2, reserve_wifi=2)
-        main_p, reserves_p = filter_plus.select(non_warp)
-        SubscriptionGenerator.generate(main_p, reserves_p, out_dir / "plus.txt", "GooseVPN Plus 🪿", include_warp=True, warp_configs=warp_cfgs, is_plus=True)
-    if args.api:
-        import threading
-        t = threading.Thread(target=run_api, args=(all_cfgs, args.api_host, args.api_port), daemon=True)
-        t.start()
-        await asyncio.sleep(2)
+    print("🪿 GooseVPN Parser v2.0 — новые источники + wlrus.lol приоритет")
+    geo = GeoLocator(args.geo, auto_cleanup=True)
+    
+    async with aiohttp.ClientSession() as session:
+        wlte_raw = []
+        for src in SOURCES_WLTE:
+            data = await TxtSource(src).fetch(session)
+            wlte_raw.extend(data)
+            print(f"📥 wLTE: {src.split('/')[-1]} → {len(data)}")
+        
+        wifi_raw = []
+        for src in SOURCES_WIFI:
+            data = await TxtSource(src).fetch(session)
+            wifi_raw.extend(data)
+            print(f"📥 WiFi: {src.split('/')[-1]} → {len(data)}")
+        
+        wlte_cfgs = [c for url in wlte_raw if (c := ConfigParser.parse_vless(url, ConfigType.WLTE, geo))]
+        wifi_cfgs = [c for url in wifi_raw if (c := ConfigParser.parse_vless(url, ConfigType.WIFI, geo))]
+        
+        warp_cfgs = await WarpSource().fetch(session)
+        
+        all_cfgs = wlte_cfgs + wifi_cfgs
+        
+        if not args.no_ping and all_cfgs:
+            print(f"⚡ Пинг-тест ({args.ping_n} параллельно)...")
+            all_cfgs = await PingTester.test_configs(all_cfgs, args.ping_n)
+        
+        non_warp = [c for c in all_cfgs if c.config_type not in [ConfigType.WARP_STABLE, ConfigType.WARP_NIGHT]]
+        
+        out_dir = Path(args.out)
+        out_dir.mkdir(parents=True, exist_ok=True)
+        
+        if not args.only_plus:
+            filter_b = ConfigFilter(main_wlte=3, main_wifi=3, reserve_wlte=1, reserve_wifi=2)
+            main_b, reserves_b = filter_b.select(non_warp)
+            SubscriptionGenerator.generate(main_b, reserves_b, out_dir / "balanced.txt", "GooseVPN 🪿", include_warp=False, is_plus=False)
+        
+        if not args.only_balanced:
+            filter_p = ConfigFilter(main_wlte=4, main_wifi=4, reserve_wlte=2, reserve_wifi=2)
+            main_p, reserves_p = filter_p.select(non_warp)
+            SubscriptionGenerator.generate(main_p, reserves_p, out_dir / "plus.txt", "GooseVPN Plus 🪿", include_warp=True, warp_configs=warp_cfgs, is_plus=True)
+    
     geo.close()
     print("✨ Готово!")
 
