@@ -483,14 +483,17 @@ class FunnelPingTester:
     async def _single_test(self, session: aiohttp.ClientSession, host: str, timeout: float) -> Optional[float]:
         try:
             for scheme in ['https', 'http']:
-                for attempt in range(3):
+                for attempt in range(2):  # Уменьшил до 2 попыток
                     try:
                         start = asyncio.get_event_loop().time()
                         async with session.get(f"{scheme}://{host}:443/", timeout=timeout, allow_redirects=False):
                             return round((asyncio.get_event_loop().time() - start) * 1000, 1)
                     except aiohttp.client_exceptions.ClientConnectorError as e:
-                        if "Temporary failure" in str(e) and attempt < 2:
-                            await asyncio.sleep(0.5 * (attempt + 1))
+                        # Пропускаем DNS ошибки
+                        if "Temporary failure" in str(e) or "Name or service not known" in str(e):
+                            break  # Не пробуем дальше при DNS ошибке
+                        if attempt < 1:
+                            await asyncio.sleep(0.3 * (attempt + 1))
                             continue
                         break
                     except Exception:
@@ -500,26 +503,33 @@ class FunnelPingTester:
         return None
 
     async def _test_batch(self, configs: List[VPNConfig], concurrent: int, timeout: float) -> List[VPNConfig]:
-        # Используем aiohttp с DNS-кэшем
-        connector = aiohttp.TCPConnector(ttl_dns_cache=300, limit=concurrent * 2)
+        # Используем aiohttp с DNS-кэшем и надёжным resolver
+        resolver = aiohttp.AsyncResolver()
+        connector = aiohttp.TCPConnector(resolver=resolver, ttl_dns_cache=300, limit=concurrent * 2, family=socket.AF_INET)
         async with aiohttp.ClientSession(connector=connector) as session:
             sem = asyncio.Semaphore(concurrent)
             async def test_one(cfg: VPNConfig):
-                async with sem:
-                    if cfg.ip:
-                        cached = self.cache.get(cfg.ip) if self.cache else None
-                        if cached:
-                            cfg.ping_ms = cached
-                        else:
-                            ping = await self._single_test(session, cfg.ip, timeout)
-                            if ping:
-                                cfg.ping_ms = ping
-                                if self.cache:
-                                    self.cache.set(cfg.ip, ping)
-                    cfg.speed_score = max(0, 100 - (cfg.ping_ms or 999))
-                    cfg.stability_score = random.uniform(0.8, 1.0) if cfg.ping_ms else 0
+                try:
+                    async with sem:
+                        if cfg.ip:
+                            cached = self.cache.get(cfg.ip) if self.cache else None
+                            if cached:
+                                cfg.ping_ms = cached
+                            else:
+                                ping = await self._single_test(session, cfg.ip, timeout)
+                                if ping:
+                                    cfg.ping_ms = ping
+                                    if self.cache:
+                                        self.cache.set(cfg.ip, ping)
+                        cfg.speed_score = max(0, 100 - (cfg.ping_ms or 999))
+                        cfg.stability_score = random.uniform(0.8, 1.0) if cfg.ping_ms else 0
+                except Exception:
+                    # При ошибке присваиваем низкий_score
+                    cfg.speed_score = 0
+                    cfg.stability_score = 0
                 return cfg
-            return await asyncio.gather(*(test_one(c) for c in configs))
+            results = await asyncio.gather(*(test_one(c) for c in configs), return_exceptions=True)
+            return [r for r in results if isinstance(r, VPNConfig)]
 
     async def run_funnel(self, configs: List[VPNConfig], final_count: int = 8) -> List[VPNConfig]:
         current = configs.copy()

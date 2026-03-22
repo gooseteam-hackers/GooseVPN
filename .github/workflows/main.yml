@@ -2,6 +2,8 @@ name: Сборка
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 */12 * * *'  # Запуск каждые 12 часов
 
 permissions:
   contents: write
@@ -9,7 +11,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    timeout-minutes: 60
 
     steps:
       - name: Checkout
@@ -29,9 +31,18 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run parser
+      - name: Run parser (with funnel)
+        id: parser_funnel
+        continue-on-error: true
         run: python main.py -o configs --debug
-        timeout-minutes: 300
+        timeout-minutes: 45
+        env:
+          PYTHONUNBUFFERED: '1'
+
+      - name: Run parser (fallback without funnel)
+        if: steps.parser_funnel.outcome == 'failure'
+        run: python main.py -o configs --skip-funnel --debug
+        timeout-minutes: 10
         env:
           PYTHONUNBUFFERED: '1'
 
@@ -41,10 +52,26 @@ jobs:
         env:
           PYTHONUNBUFFERED: '1'
 
+      - name: Check configs changed
+        id: git_status
+        run: |
+          if git diff --quiet configs/; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Commit
+        if: steps.git_status.outputs.changed == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Autocommit: configs update"
+          commit_message: "🔄 Auto-update: configs $(date +'%Y-%m-%d %H:%M')"
           file_pattern: "configs/*.txt"
           commit_user_name: "GitHub Actions"
           commit_user_email: "actions@github.com"
+          skip_fetch: true
+          skip_checkout: true
+
+      - name: No update needed
+        if: steps.git_status.outputs.changed == 'false'
+        run: echo "Configs not changed, skipping commit"
