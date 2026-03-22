@@ -33,11 +33,11 @@ def filter_insecure(configs: List[str]) -> List[str]:
 
 COUNTRY_FLAGS = {
     'Россия': '🇷🇺', 'RU': '🇷🇺', 'Турция': '🇹🇷', 'TR': '🇹🇷',
-    'Германия': '🇩', 'DE': '🇪', 'Нидерланды': '🇳🇱', 'NL': '🇳🇱',
+    'Германия': '🇩🇪', 'DE': '🇩🇪', 'Нидерланды': '🇳🇱', 'NL': '🇳🇱',
     'Франция': '🇫🇷', 'FR': '🇫🇷', 'Великобритания': '🇬🇧', 'GB': '🇬🇧',
     'США': '🇺🇸', 'US': '🇺🇸', 'Япония': '🇯🇵', 'JP': '🇯🇵',
-    'Корея': '🇰🇷', 'KR': '🇰', 'Сингапур': '🇸🇬', 'SG': '🇸🇬',
-    'Индия': '🇮🇳', 'IN': '🇮', 'Грузия': '🇬🇪', 'GE': '🇬🇪',
+    'Корея': '🇰🇷', 'KR': '🇰🇷', 'Сингапур': '🇸🇬', 'SG': '🇸🇬',
+    'Индия': '🇮🇳', 'IN': '🇮🇳', 'Грузия': '🇬🇪', 'GE': '🇬🇪',
     'Казахстан': '🇰🇿', 'KZ': '🇰🇿', 'Global': '🌐',
 }
 
@@ -258,70 +258,6 @@ class PingCache:
         except:
             pass
 
-class FunnelPingTester:
-    STAGES = [
-        {'name': 'Screen', 'concurrent': 25, 'timeout': 1.0, 'keep_ratio': 0.04},
-        {'name': 'Mid', 'concurrent': 15, 'timeout': 2.0, 'keep_ratio': 0.25},
-        {'name': 'Final', 'concurrent': 10, 'timeout': 3.0, 'keep_ratio': 1.0},
-    ]
-
-    def __init__(self, cache: PingCache = None):
-        self.cache = cache or PingCache()
-
-    async def _single_test(self, session: aiohttp.ClientSession, host: str, timeout: float) -> Optional[float]:
-        try:
-            for scheme in ['https', 'http']:
-                for attempt in range(3):
-                    try:
-                        start = asyncio.get_event_loop().time()
-                        async with session.get(f"{scheme}://{host}:443/", timeout=timeout, allow_redirects=False):
-                            return round((asyncio.get_event_loop().time() - start) * 1000, 1)
-                    except aiohttp.client_exceptions.ClientConnectorError as e:
-                        if "Temporary failure" in str(e) and attempt < 2:
-                            await asyncio.sleep(0.5 * (attempt + 1))
-                            continue
-                        break
-                    except Exception:
-                        break
-        except Exception:
-            pass
-        return None
-
-    async def _test_batch(self, configs: List[VPNConfig], concurrent: int, timeout: float) -> List[VPNConfig]:
-        async with aiohttp.ClientSession() as session:
-            sem = asyncio.Semaphore(concurrent)
-            async def test_one(cfg: VPNConfig):
-                async with sem:
-                    if cfg.ip:
-                        cached = self.cache.get(cfg.ip) if self.cache else None
-                        if cached:
-                            cfg.ping_ms = cached
-                        else:
-                            ping = await self._single_test(session, cfg.ip, timeout)
-                            if ping:
-                                cfg.ping_ms = ping
-                                if self.cache:
-                                    self.cache.set(cfg.ip, ping)
-                    cfg.speed_score = max(0, 100 - (cfg.ping_ms or 999))
-                    cfg.stability_score = random.uniform(0.8, 1.0) if cfg.ping_ms else 0
-                return cfg
-            return await asyncio.gather(*(test_one(c) for c in configs))
-
-    async def run_funnel(self, configs: List[VPNConfig], final_count: int = 8) -> List[VPNConfig]:
-        current = configs.copy()
-        for stage in self.STAGES[:-1]:
-            if not current:
-                break
-            tested = await self._test_batch(current, stage['concurrent'], stage['timeout'])
-            tested.sort(key=lambda x: x.composite_score(), reverse=True)
-            keep_count = max(int(len(tested) * stage['keep_ratio']), final_count * 2)
-            current = tested[:keep_count]
-            await asyncio.sleep(0.5)
-        final_stage = self.STAGES[-1]
-        final_tested = await self._test_batch(current, final_stage['concurrent'], final_stage['timeout'])
-        final_tested.sort(key=lambda x: x.composite_score(), reverse=True)
-        return final_tested[:final_count]
-
 class SourceFetcher:
     USER_AGENTS = [
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0",
@@ -330,15 +266,52 @@ class SourceFetcher:
         "okhttp/4.12.0",
     ]
 
+    DEFAULT_WLTE_URLS = [
+        "https://wlrus.lol/confs/selected.txt",
+        "https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt",
+        "https://raw.githubusercontent.com/sevcator/5ubscrpt10n/main/protocols/vl.txt",
+        "https://raw.githubusercontent.com/yitong2333/proxy-minging/refs/heads/main/v2ray.txt",
+        "https://raw.githubusercontent.com/acymz/AutoVPN/refs/heads/main/data/V2.txt",
+        "https://raw.githubusercontent.com/miladtahanian/V2RayCFGDumper/refs/heads/main/sub.txt",
+        "https://raw.githubusercontent.com/roosterkid/openproxylist/main/V2RAY_RAW.txt",
+        "https://raw.githubusercontent.com/CidVpn/cid-vpn-config/refs/heads/main/general.txt",
+        "https://raw.githubusercontent.com/mohamadfg-dev/telegram-v2ray-configs-collector/refs/heads/main/category/vless.txt",
+        "https://raw.githubusercontent.com/mheidari98/.proxy/refs/heads/main/vless",
+        "https://raw.githubusercontent.com/youfoundamin/V2rayCollector/main/mixed_iran.txt",
+        "https://raw.githubusercontent.com/expressalaki/ExpressVPN/refs/heads/main/configs3.txt",
+        "https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt",
+        "https://raw.githubusercontent.com/miladtahanian/Config-Collector/refs/heads/main/mixed_iran.txt",
+        "https://raw.githubusercontent.com/Pawdroid/Free-servers/refs/heads/main/sub",
+        "https://raw.githubusercontent.com/free18/v2ray/refs/heads/main/v.txt",
+    ]
+
+    DEFAULT_WIFI_URLS = [
+        "https://wlrus.lol/confs/blackl.txt",
+        "https://raw.githubusercontent.com/shabane/kamaji/master/hub/merged.txt",
+        "https://raw.githubusercontent.com/wuqb2i4f/xray-config-toolkit/main/output/base64/mix-uri",
+        "https://raw.githubusercontent.com/WhitePrime/xraycheck/refs/heads/main/configs/available",
+        "https://raw.githubusercontent.com/STR97/STRUGOV/refs/heads/main/STR.BYPASS",
+        "https://raw.githubusercontent.com/V2RayRoot/V2RayConfig/refs/heads/main/Config/vless.txt",
+    ]
+
     def __init__(self, sources_file: str, ctype: ConfigType):
         self.sources_file = Path(sources_file)
         self.ctype = ctype
 
     def _load_urls(self) -> List[str]:
-        if not self.sources_file.exists():
-            return []
-        content = self.sources_file.read_text(encoding='utf-8')
-        urls = [line.strip() for line in content.split('\n') if line.strip().startswith('http')]
+        urls = []
+        if self.sources_file.exists():
+            content = self.sources_file.read_text(encoding='utf-8')
+            urls = [line.strip() for line in content.split('\n') if line.strip().startswith('http')]
+        # Fallback на встроенные URL если файл пустой
+        if not urls:
+            print(f"⚠️ {self.sources_file} пустой, используем fallback URL")
+            if self.ctype == ConfigType.WLTE:
+                urls = self.DEFAULT_WLTE_URLS
+            elif self.ctype == ConfigType.WIFI:
+                urls = self.DEFAULT_WIFI_URLS
+        else:
+            print(f"✅ {self.sources_file}: {len(urls)} URL")
         return urls
 
     async def fetch_all(self, session: aiohttp.ClientSession, geo: Optional[GeoLocator] = None) -> List[VPNConfig]:
@@ -452,7 +425,7 @@ class SubscriptionGenerator:
         print(f"✅ {title}: {output} ({stats['total']} конфигов)")
 
 def parse_args():
-    p = argparse.ArgumentParser(description="GooseVPN Parser v2.2")
+    p = argparse.ArgumentParser(description="GooseVPN Parser v2.3")
     p.add_argument('-o','--out', type=str, default='configs', help='Output folder')
     p.add_argument('--geo', type=str, help='Path to GeoLite2')
     p.add_argument('--skip-funnel', action='store_true', help='Skip funnel test')
@@ -463,7 +436,7 @@ def parse_args():
     return p.parse_args()
 
 async def main_async(args):
-    print("GooseVPN Parser v2.2")
+    print("GooseVPN Parser v2.3")
     geo = GeoLocator(args.geo, auto_cleanup=True)
     cache = PingCache()
     async with aiohttp.ClientSession() as session:
