@@ -1,31 +1,31 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTg==
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-03-23 07:11:25
+//last update on: 2026-03-23 13:08:47
 // 🪿 GooseVPN - 15 конфигов, 5 wLTE, 5 WiFi, 3 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
-vless://a22f6494-f371-03e8-bad0-8df9594b8e45@5.188.142.9:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=ads.x5.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#🇷🇺 [wLTE] Россия 1
-vless://001a44d7-69e6-1f40-8d11-828fe2119621@5.188.142.9:443?type=tcp&security=reality&encryption=none&flow=xtls-rprx-vision&fp=qq&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323&sni=ads.x5.ru#🇷🇺 [wLTE] Россия 2
-vless://001a44d7-69e6-1f40-8d11-828fe2119621@5.188.141.186:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=ads.x5.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#🇷🇺 [wLTE] Россия 3
-vless://fd37be2f-f8d1-47de-97e8-13c28107d31e@5.188.142.15:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=chrome&sni=yandex.ru&pbk=SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw&sid=513b0a#🇷🇺 [wLTE] Россия 4
-vless://a22f6494-f371-1f40-bad0-8df9594b8e45@109.120.191.199:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=qq&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323&sni=ads.x5.ru&path=&host=#🇷🇺 [wLTE] Россия 5
+vless://a22f6494-f371-07d0-bad0-8df9594b8e45@109.120.188.160:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=tls&fp=qq&sni=anti-vpn.ru&alpn=h2,http/1.1#🇷🇺 [wLTE] Россия 1
+vless://a22f6494-f371-07d0-bad0-8df9594b8e45@109.120.191.199:443?type=tcp&security=reality&encryption=none&flow=xtls-rprx-vision&fp=qq&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323&sni=ads.x5.ru#🇷🇺 [wLTE] Россия 2
+vless://001a44d7-69e6-1f40-8d11-828fe2119621@5.188.142.9:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=ads.x5.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#🇷🇺 [wLTE] Россия 3
+vless://148c2937-fb6d-1f40-93a8-369b1fbc9791@5.188.142.9:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=ads.x5.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#🇷🇺 [wLTE] Россия 4
+vless://001a44d7-69e6-1f40-8d11-828fe2119621@5.188.142.9:443?type=tcp&security=reality&encryption=none&flow=xtls-rprx-vision&fp=chrome&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323&sni=ads.x5.ru#🇷🇺 [wLTE] Россия 5
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
-vless://aead6961-8924-417b-85af-b6ddc8bcdc0e@82.97.252.129:8443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&sni=apple.com&pbk=i5a8i2AWUSMZ-rYA6hGBRCBBoe7W5ah33SCdF5JkMk4&sid=8bcfe256cf216fd8#🇷🇺 [WiFi] Россия 1
-vless://1f0a8364-ae34-07d0-b999-34a723111ebd@84.252.100.122:52006?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#🇷🇺 [WiFi] Россия 2
-vless://aead6961-8924-417b-85af-b6ddc8bcdc0e@217.60.12.103:8443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&sni=apple.com&pbk=i5a8i2AWUSMZ-rYA6hGBRCBBoe7W5ah33SCdF5JkMk4&sid=8bcfe256cf216fd8#🇯🇵 [WiFi] Япония 3
-vless://aead6961-8924-417b-85af-b6ddc8bcdc0e@217.60.12.102:8443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&sni=apple.com&pbk=i5a8i2AWUSMZ-rYA6hGBRCBBoe7W5ah33SCdF5JkMk4&sid=8bcfe256cf216fd8#🇯🇵 [WiFi] Япония 4
-vless://6ad51558-76cf-4865-8da4-c91fff28b158@85.239.37.39:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=chrome&sni=ads.x5.ru&pbk=-tePObR3oZwGAUOb5kqTYkNWl6rtUKl0RFuzuu06wgw&sid=50#🇷🇺 [WiFi] Россия 5
+vless://dff99fb4-09ff-4f48-8f48-937aac342254@152.53.152.198:7443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=chrome&sni=chat.deepseek.com&pbk=5QAO98ot2U7TcGs_f6EEaQjCzNOJLNHqPf6smYsdFVI&sid=d82fb387#🌐 [WiFi] ФРГ 1
+vless://dff99fb4-09ff-4f48-8f48-937aac342254@152.53.152.198:7443?security=reality&type=tcp&flow=xtls-rprx-vision&sni=chat.deepseek.com&fp=chrome&pbk=5QAO98ot2U7TcGs_f6EEaQjCzNOJLNHqPf6smYsdFVI&sid=d82fb387#🌐 [WiFi] ФРГ 2
+vless://dff99fb4-09ff-4f48-8f48-937aac342254@94.139.251.91:7443?security=reality&type=tcp&flow=xtls-rprx-vision&sni=chat.deepseek.com&fp=chrome&pbk=5QAO98ot2U7TcGs_f6EEaQjCzNOJLNHqPf6smYsdFVI&sid=be0ce047#🇷🇺 [WiFi] Россия 3
+vless://d3a7cefe-fc40-403c-b97d-5a87f4594905@msk3.frostbot.ru:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=chrome&pbk=jdua-L9jgUfUe_7lPh72TV4JJALvOmdwH68C8pMP8RQ&sid=245f5b3b3f48dcd8&sni=msk3.frostbot.ru&path=&host=#🌐 [WiFi] Global 4
+vless://2563b829-866c-4c0f-8270-a91cffbfe852@nl46.tcpdoor.net:443?encryption=none&fp=chrome&pbk=LqynVfAjnMUlYGKRYjIXT-pj-E64SwbenXWsnr0ApXc&security=reality&sid=21b5d71c&sni=nl46.tcpdoor.net&type=tcp#🌐 [WiFi] Global 5
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
-vless://a22f6494-f371-03e8-bad0-8df9594b8e45@5.188.141.186:443?type=tcp&security=reality&encryption=none&flow=xtls-rprx-vision&fp=qq&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323&sni=ads.x5.ru#🪿 [Резерв] Резерв 1
-vless://aead6961-8924-417b-85af-b6ddc8bcdc0e@217.60.12.68:8443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&sni=apple.com&pbk=i5a8i2AWUSMZ-rYA6hGBRCBBoe7W5ah33SCdF5JkMk4&sid=8bcfe256cf216fd8#🪿 [Резерв] Резерв 2
-vless://8153a965-34bf-0258-99a6-99a9390fd38a@83.217.201.7:52006?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#🪿 [Резерв] Резерв 3
+vless://a22f6494-f371-07d0-bad0-8df9594b8e45@109.120.191.199:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=chrome&sni=ads.x5.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#🪿 [Резерв] Резерв 1
+vless://dff99fb4-09ff-4f48-8f48-937aac342254@84.32.110.223:7443?security=reality&type=tcp&flow=xtls-rprx-vision&sni=chat.deepseek.com&fp=chrome&pbk=5QAO98ot2U7TcGs_f6EEaQjCzNOJLNHqPf6smYsdFVI&sid=d82fb387#🪿 [Резерв] Резерв 2
+vless://dff99fb4-09ff-4f48-8f48-937aac342254@5.199.173.206:7443?security=reality&type=tcp&flow=xtls-rprx-vision&sni=chat.deepseek.com&fp=chrome&pbk=5QAO98ot2U7TcGs_f6EEaQjCzNOJLNHqPf6smYsdFVI&sid=be0ce047#🪿 [Резерв] Резерв 3
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
 
 // =-=-=-=-=-= WARP Ночной =-=-=-=-=-=
-warp://188.114.98.250:4198?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Warp-IR&&detour=warp://188.114.97.209:1070?ifp=10-20&ifps=20-60&ifpd=5-10#🔥 [WARP] Ночной
+warp://188.114.96.120:890?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Warp-IR&&detour=warp://162.159.195.196:8319?ifp=10-20&ifps=20-60&ifpd=5-10#🔥 [WARP] Ночной
 
