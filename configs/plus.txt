@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTiBQbHVz
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-04-17 19:01:25
+//last update on: 2026-04-18 02:27:30
 // 🪿 GooseVPN Plus - 22 конфигов, 8 wLTE, 8 WiFi, 4 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -25,8 +25,8 @@ vless://75807638-6f19-01f4-ae08-38492ee85c88@cluster-de-1.firstvideocdn.ru:52006
 vless://c5bbdac7-6ff5-4762-87bf-870f55a03581@ge.pink-world.ru:443?security=reality&sni=ge.pink-world.ru&fp=chrome&pbk=_wJJxZfV51dD72qGexYZIyqeKDFXWDGClp5D-gF1lVk&sid=5bb4c3a77963e3fa&type=tcp&flow=xtls-rprx-vision&packetEncoding=xudp&encryption=none#🌐 [WiFi] Global 8
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
-vless://a233d76b-f4af-4390-8455-e5ed7ac93ef1@89.208.222.248:5443?type=tcp&security=reality&encryption=none&fp=qq&pbk=fNTq5EC6OsQ5y_FWhTUodJJy_ftKIA4zpdWJ3-V5dn4&sid=a3df&sni=ads.x5.ru#🪿 [Резерв] Резерв 1
-vless://b960ed61-d7b0-4c6d-a39f-484726e2ad66@217.16.23.87:443?type=tcp&security=reality&encryption=none&flow=xtls-rprx-vision&fp=chrome&pbk=PZajgWT2dtEu0Avc2QWiZELK9wDQW9p9vvcckfQBfCE&sid=632cd48001bdb09a&sni=sun6-21.userapi.com#🪿 [Резерв] Резерв 2
+vless://b960ed61-d7b0-4c6d-a39f-484726e2ad66@217.16.23.87:443?type=tcp&security=reality&encryption=none&flow=xtls-rprx-vision&fp=chrome&pbk=PZajgWT2dtEu0Avc2QWiZELK9wDQW9p9vvcckfQBfCE&sid=632cd48001bdb09a&sni=sun6-21.userapi.com#🪿 [Резерв] Резерв 1
+vless://032d5fd5-1e11-4628-97e4-04307f20040b@158.160.255.74:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=5post-gate.x5.ru&pbk=OCRYYq4e92sQ-wWFRX6WX9pdvuFBWOqybLhpSiv3nFA&sid=111111#🪿 [Резерв] Резерв 2
 vless://1ae2e5de-6404-452a-96cb-54f315fd71f6@91.243.86.229:443?type=tcp&security=reality&sni=eh.vk.com&fp=chrome&flow=xtls-rprx-vision&pbk=10j87nLqnOZMhNJYf12A_DXRBSWCim--lsG_wO1ceBA&sid=445ce93e7aa6#🪿 [Резерв] Резерв 3
 vless://322ffd77-9adc-4e10-8302-a8bcc14555a0@rc11.alexanderoff.ru:443?encryption=none&flow=xtls-rprx-vision&type=tcp&security=reality&sni=gateway.icloud.com&fp=chrome&pbk=-ZIDWF9CykNoZYNpO6Vi7BdDyZl_hJUYxuIRmPnuxBk&sid=c6118398#🪿 [Резерв] Резерв 4
 
@@ -34,5 +34,5 @@ vless://322ffd77-9adc-4e10-8302-a8bcc14555a0@rc11.alexanderoff.ru:443?encryption
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
 
 // =-=-=-=-=-= WARP Ночной =-=-=-=-=-=
-warp://188.114.97.184:1010?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Warp-IR&&detour=warp://188.114.99.52:3581?ifp=10-20&ifps=20-60&ifpd=5-10#🔥 [WARP] Ночной
+warp://188.114.99.251:1180?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Warp-IR&&detour=warp://188.114.97.49:1002?ifp=10-20&ifps=20-60&ifpd=5-10#🔥 [WARP] Ночной
 
