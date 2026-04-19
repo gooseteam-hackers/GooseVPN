@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTiBQbHVz
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-04-19 13:02:40
+//last update on: 2026-04-19 18:52:44
 // 🪿 GooseVPN Plus - 22 конфигов, 8 wLTE, 8 WiFi, 4 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -15,20 +15,20 @@ vless://fbe02c0b-775f-4431-8615-a9497255c876@four.felinetest.site:443/?type=tcp&
 vless://783164cb-6410-4a96-e432-832489e4848c@ec76.kiava.fun:8443/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=coinmarketcap.com&fp=chrome&security=reality&pbk=wQGZ3Ppa4ajV1HrQUYdpZF9D6yejNt84iWv2fV3kVHc&sid=5e#🌐 [wLTE] Global 8
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
-vless://75807638-6f19-07d0-ae08-38492ee85c88@80.93.187.2:52006?flow=xtls-rprx-vision&encryption=none&type=tcp&security=tls#🇷🇺 [WiFi] Россия 1
-vless://75807638-6f19-07d0-ae08-38492ee85c88@cluster-russia-1.firstvideocdn.ru:52006?flow=xtls-rprx-vision&fp=chrome&security=tls&type=tcp#🌐 [WiFi] Global 2
-vless://75807638-6f19-07d0-ae08-38492ee85c88@80.93.187.2:52006?flow=xtls-rprx-vision&encryption=none&type=tcp&security=tls&fp=chrome#🇷🇺 [WiFi] Россия 3
-vless://75807638-6f19-2710-ae08-38492ee85c88@cluster-de-2.firstvideocdn.ru:52006?type=tcp&security=tls&fp=chrome&flow=xtls-rprx-vision#🌐 [WiFi] Global 4
-vless://90c9c25c-df6c-4438-83d3-ef97166a9184@72.56.112.213:443/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=5post-gate.x5.ru&fp=qq&security=reality&pbk=A3PWLCRX9oeSyPvrmrwj2jUXcLo2uCwAISRBHtNE1Xw&sid=&packetEncoding=xudp#🌐 [WiFi] ФРГ 5
-vless://1ae2e5de-6404-452a-96cb-54f315fd71f6@91.243.86.229:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=chrome&sni=max.ru&pbk=10j87nLqnOZMhNJYf12A_DXRBSWCim--lsG_wO1ceBA&sid=06506a055a82905d#🇷🇺 [WiFi] Россия 6
-vless://75807638-6f19-01f4-ae08-38492ee85c88@cluster-de-1.firstvideocdn.ru:52006?flow=xtls-rprx-vision&fp=chrome&security=tls&type=tcp#🌐 [WiFi] Global 7
-vless://c5bbdac7-6ff5-4762-87bf-870f55a03581@ge.pink-world.ru:443?security=reality&sni=ge.pink-world.ru&fp=chrome&pbk=_wJJxZfV51dD72qGexYZIyqeKDFXWDGClp5D-gF1lVk&sid=5bb4c3a77963e3fa&type=tcp&flow=xtls-rprx-vision&packetEncoding=xudp&encryption=none#🌐 [WiFi] Global 8
+vless://75807638-6f19-01f4-ae08-38492ee85c88@178.72.181.83:52006?flow=xtls-rprx-vision&encryption=none&type=tcp&security=tls#🇷🇺 [WiFi] Россия 1
+vless://75807638-6f19-2710-ae08-38492ee85c88@178.72.181.83:52006?flow=xtls-rprx-vision&encryption=none&type=tcp&security=tls#🇷🇺 [WiFi] Россия 2
+vless://75807638-6f19-07d0-ae08-38492ee85c88@tegr.firstvideocdn.ru:52006?type=tcp&security=tls&fp=chrome&flow=xtls-rprx-vision#🌐 [WiFi] Global 3
+vless://75807638-6f19-2710-ae08-38492ee85c88@178.72.181.83:52006?flow=xtls-rprx-vision&encryption=none&type=tcp&security=tls&fp=chrome#🇷🇺 [WiFi] Россия 4
+vless://75807638-6f19-01f4-ae08-38492ee85c88@cluster-de-1.firstvideocdn.ru:52006?type=tcp&security=tls&encryption=none&flow=xtls-rprx-vision#🌐 [WiFi] Global 5
+vless://19ff5f84-32b8-4a57-8537-2e3ac345927c@83.220.175.17:443?type=tcp&security=reality&flow=xtls-rprx-vision&sni=api-maps.yandex.ru&pbk=RoJveMb0kdNvXHCmyyIxGJFEO4U06mqiibrLN1Hmcgk&fp=qq#🇷🇺 [WiFi] Россия 6
+vless://75807638-6f19-2710-ae08-38492ee85c88@cluster-de-1.firstvideocdn.ru:52006?type=tcp&security=tls&encryption=none&flow=xtls-rprx-vision#🌐 [WiFi] Global 7
+vless://dd09a21b-c1ac-4fde-83bb-dc09f85416b6@fi1.pineappled.org:443?encryption=none&flow=xtls-rprx-vision&fp=chrome&packetEncoding=xudp&pbk=V6FabatADtcX7aO9KMjGCadJC4LuQ_5nRViab-z-nFQ&security=reality&sid=23&sni=www.apple.com&type=tcp#🌐 [WiFi] Global 8
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://1b5648b6-da73-4ffb-b964-46c6d3d52136@159.69.23.6:22531/?type=grpc&encryption=none&sni=zula.ir&fp=chrome&security=reality&pbk=jb36M2GejuMVpv36Tx0zEAq5qPgF7Ux1pHoWre7moHE&sid=4638b111#🪿 [Резерв] Резерв 1
 vless://698a1505-b335-4ce2-97bc-8a4ffd67da4b@195.201.130.7:57706/?type=tcp&encryption=none&sni=google.com&fp=chrome&security=reality&pbk=F6wV-NlEVPipP6-0IXq4gM9UEbXB2XAUCrGyFS0_1wU&sid=fdc11189#🪿 [Резерв] Резерв 2
-vless://1ae2e5de-6404-452a-96cb-54f315fd71f6@91.243.86.229:443?type=tcp&security=reality&sni=eh.vk.com&fp=chrome&flow=xtls-rprx-vision&pbk=10j87nLqnOZMhNJYf12A_DXRBSWCim--lsG_wO1ceBA&sid=445ce93e7aa6#🪿 [Резерв] Резерв 3
-vless://322ffd77-9adc-4e10-8302-a8bcc14555a0@rc11.alexanderoff.ru:443?encryption=none&flow=xtls-rprx-vision&type=tcp&security=reality&sni=gateway.icloud.com&fp=chrome&pbk=-ZIDWF9CykNoZYNpO6Vi7BdDyZl_hJUYxuIRmPnuxBk&sid=c6118398#🪿 [Резерв] Резерв 4
+vless://75807638-6f19-07d0-ae08-38492ee85c88@cluster-russia-1.firstvideocdn.ru:52006?type=tcp&security=tls&encryption=none&flow=xtls-rprx-vision&fp=chrome#🪿 [Резерв] Резерв 3
+vless://75807638-6f19-2710-ae08-38492ee85c88@cluster-de-2.firstvideocdn.ru:52006?type=tcp&security=tls&flow=xtls-rprx-vision&fp=chrome#🪿 [Резерв] Резерв 4
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
