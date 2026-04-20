@@ -1,34 +1,34 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTiBQbHVz
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-04-20 02:42:53
+//last update on: 2026-04-20 08:08:18
 // 🪿 GooseVPN Plus - 22 конфигов, 8 wLTE, 8 WiFi, 4 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
-vless://75807638-6f19-07d0-ae08-38492ee85c88@5.188.158.225:52006?flow=xtls-rprx-vision&encryption=none&type=tcp&security=tls&fp=chrome#🇷🇺 [wLTE] Россия 1
-vless://75807638-6f19-07d0-ae08-38492ee85c88@5.188.158.225:52006?flow=xtls-rprx-vision&encryption=none&type=tcp&security=tls#🇷🇺 [wLTE] Россия 2
-vless://adb97b6a-4b14-4dac-a38c-aca89cf47245@95.163.209.168:443?type=tcp&security=reality&encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=djTtGqd0XWqtt_WHukU7BTPQSn9o7gIpAosAxMy8tUo&sid=ea1058117be12087&sni=ads.x5.ru#🇷🇺 [wLTE] Россия 3
-vless://19ff5f84-32b8-4a57-8537-2e3ac345927c@158.160.120.38:443?type=tcp&security=reality&flow=xtls-rprx-vision&sni=api-maps.yandex.ru&pbk=OUTme8tBK1dzVY4volPJ-FcMpGuVbc-E0ssp1XnuVHk&fp=chrome#🇷🇺 [wLTE] Россия 4
-vless://e0e062be-e77b-4568-9477-512388d65bc8@51.250.23.54:443?type=tcp&security=reality&encryption=none&fp=qq&pbk=-tpEyDuFARd0Lvo6l6g25xCNK9tBiVMhpymAJY_gO2I&sid=7405645f&sni=max.ru#🇷🇺 [wLTE] Россия 5
-vless://0dab2822-054e-4783-aba9-74f2ee037eb4@158.160.109.133:12337?type=raw&security=reality&encryption=none&flow=xtls-rprx-vision&fp=chrome&pbk=5jQJSmCZ4BCq0O-cHV4TTwMjk0kYaatT88ucVGGjoQo&sid=6ba85179e30d4fc2&sni=www.google.com#🇷🇺 [wLTE] Россия 6
-vless://d84d4779-8071-4beb-b727-6910a894fdc9@51.250.27.136:443?type=tcp&security=reality&encryption=none&fp=random&pbk=RivqWpaTYsjjZ1cGX8xa2njjbB1k5vWYijNvq0hBkWI&sid=7f&sni=www.google.com&spx=/#🇷🇺 [wLTE] Россия 7
-vless://51a73dce-9950-4214-bd22-e8b191da3bd4@51.250.27.136:443?encryption=none&type=raw&headerType=none&security=reality&fp=chrome&pbk=RivqWpaTYsjjZ1cGX8xa2njjbB1k5vWYijNvq0hBkWI&sni=www.google.com&sid=7f#🇷🇺 [wLTE] Россия 8
+vless://telegram-id-Arfilter@156.243.83.167:443?path=/-Arfilter-TEL--@Arfilter-TEL--@Arfilter-TEL--@ArFilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@ArFilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEl--@Arfilter?ed=2048&security=tls&encryption=none&host=cdn-alman1.arfilter2.blog&fp=firefox&type=ws&sni=cdn-alman1.arfilter2.blog#🌐 [wLTE] Сейшельские о-ва 1
+vless://telegram-id-ArV2ray@185.234.65.232:4423?mode=gun&security=reality&encryption=none&pbk=D4fo-UBIrSlLx3R8qu3iWSoynAvArdXpn5uZoDEt3Uc&fp=chrome&type=grpc&serviceName=telegram-ArV2ray,telegram-ArV2ray,telegram-ArV2ray,telegram-ArV2ray,telegram-ArV2ray,telegram-ArV2ray,telegram-ArV2ray,telegram-ArV2ray,telegram-ArV2ray,telegram-ArV2ray,telegram-ArV2rayy&sni=animejs.com&sid=b740#🌐 [wLTE] Молдова 2
+vless://telegram-id-Arfilter@156.243.83.167:443?path=/-Arfilter-TEL--@Arfilter-TEL--@Arfilter-TEL--@ArFilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@ArFilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEl--@Arfilter?ed=2048&security=tls&encryption=none&host=cdn-alman1.arfilter2.blog&fp=firefox&type=ws&sni=cdn-alman1.arfilter2.blog#🌐 [wLTE] Сейшельские о-ва 3
+vless://telegram-id-Arfilter@156.243.83.167:443?path=/-Arfilter-TEL--@Arfilter-TEL--@Arfilter-TEL--@ArFilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@ArFilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEl--@Arfilter?ed=2048&security=tls&encryption=none&host=cdn-alman1.arfilter2.blog&fp=firefox&type=ws&sni=cdn-alman1.arfilter2.blog#🌐 [wLTE] Сейшельские о-ва 4
+vless://telegram-id-ArV2ray@25.129.197.233:2052?mode=auto&path=/-Arfilter@Arfilter-TEL--@Arfilter-TEL--@ArFilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@Arfilter?ed=80&security=none&encryption=none&host=cdn-alman5.arfilter2.blog&type=xhttp#🇬🇧 [wLTE] Британия 5
+vless://80c0f29f-850e-4044-a4ee-0b0697d8ca26@127.0.0.1:40443?encryption=none&security=tls&sni=dl1.speedysho.com.&fp=chrome&insecure=0&allowInsecure=0&type=xhttp&host=dl1.speedysho.com&path=dl?ed=2560&mode=auto#🌐 [wLTE] Global 6
+vless://fbe02c0b-775f-4431-8615-a9497255c876@four.felinetest.site:443/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=none.felinetest.site&fp=chrome&security=reality&pbk=fabWUdBWxh7NsMaqOF35petD3ljQbKf6OSDnROV9jDs&sid=6f9deca7#🌐 [wLTE] Global 7
+vless://783164cb-6410-4a96-e432-832489e4848c@ec76.kiava.fun:8443/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=coinmarketcap.com&fp=chrome&security=reality&pbk=wQGZ3Ppa4ajV1HrQUYdpZF9D6yejNt84iWv2fV3kVHc&sid=5e#🌐 [wLTE] Global 8
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
-vless://aaaaaabb-4ddd-4eee-9fff-ffffffffffff@104.16.2.90:443?path=/43.218.77.16=1443&security=tls&encryption=none&insecure=0&host=afrcloud22.mmv.kr&fp=chrome&type=ws&allowInsecure=0&sni=Pulavpn11.afrcloud22.mmv.kr#🌐 [WiFi] Global 1
-vless://3f0f36f5-f091-45c5-88c9-4bcc545b922c@104.17.147.22:2096?path=/45.76.183.217=49292&security=tls&encryption=none&insecure=0&host=hetz.x-smm.com&type=ws&allowInsecure=0&sni=hetz.x-smm.com#🌐 [WiFi] Global 2
+vless://hello@127.0.0.1:4443?type=tcp&security=reality&encryption=none&fp=qq&sid=65c60f75d0e00a&sni=max.ru&spx=/#🌐 [WiFi] Global 1
+vless://aaaaaabb-4ddd-4eee-9fff-ffffffffffff@104.16.2.90:443?path=/43.218.77.16=1443&security=tls&encryption=none&insecure=0&host=afrcloud22.mmv.kr&fp=chrome&type=ws&allowInsecure=0&sni=Pulavpn11.afrcloud22.mmv.kr#🌐 [WiFi] Global 2
 vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@104.26.15.69:2096?path=/proxyip=zani.yaemiko.ggff.net&security=tls&encryption=none&host=carlotta.shoorekeeper.cloudns.org&type=ws&sni=carlotta.shoorekeeper.cloudns.org#🌐 [WiFi] Global 3
-vless://aaaaaabb-4ddd-4eee-9fff-ffffffffffff@104.16.2.90:443?path=/43.218.77.16=1443&security=tls&encryption=none&insecure=0&host=afrcloud22.mmv.kr&fp=chrome&type=ws&allowInsecure=0&sni=Pulavpn11.afrcloud22.mmv.kr#🌐 [WiFi] Global 4
-vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@104.26.15.69:2096?path=/proxyip=zani.yaemiko.ggff.net&security=tls&encryption=none&host=carlotta.shoorekeeper.cloudns.org&type=ws&sni=carlotta.shoorekeeper.cloudns.org#🌐 [WiFi] Global 5
-vless://a8846b47-4eb9-4646-a69c-c04de0c1a798@185.143.233.250:8880?path=/&security=&encryption=none&host=mah.zabuza.ir&type=httpupgrade#🌐 [WiFi] Иран 6
-vless://72005558-6498-4925-a005-98583360d500@snapp.ir:2052?path=/rsvpn&security=&encryption=none&host=rsvpn2.xchitozx.org&type=ws#🌐 [WiFi] Global 7
-vless://388a6c57-87e7-420b-afe2-b3eb670fd7da@8.6.112.0:80?encryption=none&host=vip.yaml7.ggff.net&security=none&type=ws#🌐 [WiFi] Global 8
+vless://3f0f36f5-f091-45c5-88c9-4bcc545b922c@104.17.147.22:2096?path=/45.76.183.217=49292&security=tls&encryption=none&insecure=0&host=hetz.x-smm.com&type=ws&allowInsecure=0&sni=hetz.x-smm.com#🌐 [WiFi] Global 4
+vless://aaaaaabb-4ddd-4eee-9fff-ffffffffffff@104.16.2.90:443?path=/43.218.77.16=1443&security=tls&encryption=none&insecure=0&host=afrcloud22.mmv.kr&fp=chrome&type=ws&allowInsecure=0&sni=Pulavpn11.afrcloud22.mmv.kr#🌐 [WiFi] Global 5
+vless://47cb67c7-00ec-49b5-cd2b-a3edbcfcae2c@172.233.57.233:54538?security=none&encryption=none&host=fast.com&headerType=http&type=tcp#🌐 [WiFi] Global 6
+vless://a642fe4b-3326-40af-8929-71616eb9052f@lion.lionforpeople.site:443/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=ns.cloudflare.com&fp=chrome&security=reality&pbk=H2GPj9jI13FyXVB0NLOhSAUimkI5pQmln9gEA3ynWgo&sid=4aeebc87#🌐 [WiFi] Global 7
+vless://72005558-6498-4925-a005-98583360d500@snapp.ir:2052?path=/rsvpn&security=&encryption=none&host=rsvpn2.xchitozx.org&type=ws#🌐 [WiFi] Global 8
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
-vless://51a73dce-9950-4214-bd22-e8b191da3bd4@51.250.27.136:443?type=tcp&security=reality&encryption=none&fp=chrome&pbk=RivqWpaTYsjjZ1cGX8xa2njjbB1k5vWYijNvq0hBkWI&sid=7f&sni=www.google.com#🪿 [Резерв] Резерв 1
-vless://a233d76b-f4af-4390-8455-e5ed7ac93ef1@89.208.222.248:5443?type=tcp&security=reality&encryption=none&fp=chrome&pbk=fNTq5EC6OsQ5y_FWhTUodJJy_ftKIA4zpdWJ3-V5dn4&sid=a3df&sni=ads.x5.ru#🪿 [Резерв] Резерв 2
-vless://aaaaaabb-4ddd-4eee-9fff-ffffffffffff@104.16.2.90:443?path=/43.218.77.16=1443&security=tls&encryption=none&insecure=0&host=afrcloud22.mmv.kr&type=ws&allowInsecure=0&sni=Pulavpn11.afrcloud22.mmv.kr#🪿 [Резерв] Резерв 3
-vless://931a52bd-8a65-4df7-a50a-c758f19d010c@193.23.194.32:5443?encryption=none&fp=&pbk=lA2s-Trf3ZL92OgmBL9ML0odq6W4ruDaOKqMzeXTPRY&security=reality&sid=bc49bac5926c3284&sni=google.com&type=tcp#🪿 [Резерв] Резерв 4
+vless://1b5648b6-da73-4ffb-b964-46c6d3d52136@159.69.23.6:22531/?type=grpc&encryption=none&sni=zula.ir&fp=chrome&security=reality&pbk=jb36M2GejuMVpv36Tx0zEAq5qPgF7Ux1pHoWre7moHE&sid=4638b111#🪿 [Резерв] Резерв 1
+vless://698a1505-b335-4ce2-97bc-8a4ffd67da4b@195.201.130.7:57706/?type=tcp&encryption=none&sni=google.com&fp=chrome&security=reality&pbk=F6wV-NlEVPipP6-0IXq4gM9UEbXB2XAUCrGyFS0_1wU&sid=fdc11189#🪿 [Резерв] Резерв 2
+vless://71271480-04bd-45ae-9de5-fb7eb15b57be@vzbw.piko-network.top:1433?path=/&security=none&encryption=none&type=ws#🪿 [Резерв] Резерв 3
+vless://caf9d5f7-77f2-4033-823e-d55a1996fc4a@95.85.248.65:30086?encryption=none&security=none&serviceName=gprc&type=grpc#🪿 [Резерв] Резерв 4
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
