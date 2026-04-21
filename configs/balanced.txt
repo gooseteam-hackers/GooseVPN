@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTg==
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-04-21 02:37:12
+//last update on: 2026-04-21 07:51:26
 // 🪿 GooseVPN - 15 конфигов, 5 wLTE, 5 WiFi, 3 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -12,16 +12,16 @@ vless://telegram-id-Arfilter@156.243.83.167:443?path=/-Arfilter-TEL--@Arfilter-T
 vless://telegram-id-ArV2ray@25.129.197.233:2052?mode=auto&path=/-Arfilter@Arfilter-TEL--@Arfilter-TEL--@ArFilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@Arfilter?ed=80&security=none&encryption=none&host=cdn-alman5.arfilter2.blog&type=xhttp#🇬🇧 [wLTE] Британия 5
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
-vless://3f0f36f5-f091-45c5-88c9-4bcc545b922c@104.17.147.22:2096?path=/45.76.183.217=49292&security=tls&encryption=none&insecure=0&host=hetz.x-smm.com&type=ws&allowInsecure=0&sni=hetz.x-smm.com#🌐 [WiFi] Global 1
-vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@104.26.15.69:2096?path=/proxyip=zani.yaemiko.ggff.net&security=tls&encryption=none&host=carlotta.shoorekeeper.cloudns.org&type=ws&sni=carlotta.shoorekeeper.cloudns.org#🌐 [WiFi] Global 2
-vless://aaaaaabb-4ddd-4eee-9fff-ffffffffffff@104.16.2.90:443?path=/43.218.77.16=1443&security=tls&encryption=none&insecure=0&host=afrcloud22.mmv.kr&fp=chrome&type=ws&allowInsecure=0&sni=Pulavpn11.afrcloud22.mmv.kr#🌐 [WiFi] Global 3
-vless://6fd98b96-9dd2-442c-92a4-a449cdf0fd1e@5.239.245.250:443?path=/api/v1/uuid/9e97a8c9-fdb0-4dfb-9557-2a90a554aee4&security=tls&alpn=http/1.1&encryption=none&insecure=0&host=ef88878e-c5a7-412f-82f1-0b09c6792d29.hollowspot.ir&fp=safari&type=ws&allowInsecure=0#🌐 [WiFi] Иран 4
-vless://6fd98b96-9dd2-442c-92a4-a449cdf0fd1e@5.239.245.250:443?path=/api/v1/uuid/9e97a8c9-fdb0-4dfb-9557-2a90a554aee4&security=tls&alpn=http/1.1&encryption=none&insecure=0&host=ef88878e-c5a7-412f-82f1-0b09c6792d29.hollowspot.ir&fp=safari&type=ws&allowInsecure=0#🌐 [WiFi] Иран 5
+vless://6fd98b96-9dd2-442c-92a4-a449cdf0fd1e@5.239.245.250:443?path=/api/v1/uuid/9e97a8c9-fdb0-4dfb-9557-2a90a554aee4&security=tls&alpn=http/1.1&encryption=none&insecure=0&host=ef88878e-c5a7-412f-82f1-0b09c6792d29.hollowspot.ir&fp=safari&type=ws&allowInsecure=0#🌐 [WiFi] Иран 1
+vless://aaaaaabb-4ddd-4eee-9fff-ffffffffffff@104.16.2.90:443?path=/43.218.77.16=1443&security=tls&encryption=none&insecure=0&host=afrcloud22.mmv.kr&fp=chrome&type=ws&allowInsecure=0&sni=Pulavpn11.afrcloud22.mmv.kr#🌐 [WiFi] Global 2
+vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@104.26.15.69:2096?path=/proxyip=zani.yaemiko.ggff.net&security=tls&encryption=none&host=carlotta.shoorekeeper.cloudns.org&type=ws&sni=carlotta.shoorekeeper.cloudns.org#🌐 [WiFi] Global 3
+vless://3f0f36f5-f091-45c5-88c9-4bcc545b922c@104.17.147.22:2096?path=/45.76.183.217=49292&security=tls&encryption=none&insecure=0&host=hetz.x-smm.com&type=ws&allowInsecure=0&sni=hetz.x-smm.com#🌐 [WiFi] Global 4
+vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@104.26.15.69:2096?path=/proxyip=zani.yaemiko.ggff.net&security=tls&encryption=none&host=carlotta.shoorekeeper.cloudns.org&type=ws&sni=carlotta.shoorekeeper.cloudns.org#🌐 [WiFi] Global 5
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://bee93b9a-8295-486c-9fb9-f28d108d77a9@188.114.98.0:443?encryption=none&security=tls&sni=dll1.rangsardi13.ir&fp=chrome&insecure=0&allowInsecure=0&type=xhttp&host=dll1.rangsardi13.ir&path=dl?ed=2560&mode=auto#🪿 [Резерв] Резерв 1
 vless://aaaaaabb-4ddd-4eee-9fff-ffffffffffff@104.16.2.90:443?path=/43.218.77.16=1443&security=tls&encryption=none&insecure=0&host=afrcloud22.mmv.kr&fp=chrome&type=ws&allowInsecure=0&sni=Pulavpn11.afrcloud22.mmv.kr#🪿 [Резерв] Резерв 2
-vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@104.26.15.69:2096?path=/proxyip=zani.yaemiko.ggff.net&security=tls&encryption=none&host=carlotta.shoorekeeper.cloudns.org&type=ws&sni=carlotta.shoorekeeper.cloudns.org#🪿 [Резерв] Резерв 3
+vless://6fd98b96-9dd2-442c-92a4-a449cdf0fd1e@5.239.245.250:443?path=/api/v1/uuid/9e97a8c9-fdb0-4dfb-9557-2a90a554aee4&security=tls&alpn=http/1.1&encryption=none&insecure=0&host=ef88878e-c5a7-412f-82f1-0b09c6792d29.hollowspot.ir&fp=safari&type=ws&allowInsecure=0#🪿 [Резерв] Резерв 3
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный

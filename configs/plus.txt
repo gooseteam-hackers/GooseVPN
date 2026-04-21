@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTiBQbHVz
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-04-21 02:37:12
+//last update on: 2026-04-21 07:51:26
 // 🪿 GooseVPN Plus - 22 конфигов, 8 wLTE, 8 WiFi, 4 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -15,20 +15,20 @@ vless://fbe02c0b-775f-4431-8615-a9497255c876@four.felinetest.site:443/?type=tcp&
 vless://783164cb-6410-4a96-e432-832489e4848c@ec76.kiava.fun:8443/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=coinmarketcap.com&fp=chrome&security=reality&pbk=wQGZ3Ppa4ajV1HrQUYdpZF9D6yejNt84iWv2fV3kVHc&sid=5e#🌐 [wLTE] Global 8
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
-vless://3f0f36f5-f091-45c5-88c9-4bcc545b922c@104.17.147.22:2096?path=/45.76.183.217=49292&security=tls&encryption=none&insecure=0&host=hetz.x-smm.com&type=ws&allowInsecure=0&sni=hetz.x-smm.com#🌐 [WiFi] Global 1
-vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@104.26.15.69:2096?path=/proxyip=zani.yaemiko.ggff.net&security=tls&encryption=none&host=carlotta.shoorekeeper.cloudns.org&type=ws&sni=carlotta.shoorekeeper.cloudns.org#🌐 [WiFi] Global 2
-vless://aaaaaabb-4ddd-4eee-9fff-ffffffffffff@104.16.2.90:443?path=/43.218.77.16=1443&security=tls&encryption=none&insecure=0&host=afrcloud22.mmv.kr&fp=chrome&type=ws&allowInsecure=0&sni=Pulavpn11.afrcloud22.mmv.kr#🌐 [WiFi] Global 3
-vless://6fd98b96-9dd2-442c-92a4-a449cdf0fd1e@5.239.245.250:443?path=/api/v1/uuid/9e97a8c9-fdb0-4dfb-9557-2a90a554aee4&security=tls&alpn=http/1.1&encryption=none&insecure=0&host=ef88878e-c5a7-412f-82f1-0b09c6792d29.hollowspot.ir&fp=safari&type=ws&allowInsecure=0#🌐 [WiFi] Иран 4
-vless://6fd98b96-9dd2-442c-92a4-a449cdf0fd1e@5.239.245.250:443?path=/api/v1/uuid/9e97a8c9-fdb0-4dfb-9557-2a90a554aee4&security=tls&alpn=http/1.1&encryption=none&insecure=0&host=ef88878e-c5a7-412f-82f1-0b09c6792d29.hollowspot.ir&fp=safari&type=ws&allowInsecure=0#🌐 [WiFi] Иран 5
+vless://6fd98b96-9dd2-442c-92a4-a449cdf0fd1e@5.239.245.250:443?path=/api/v1/uuid/9e97a8c9-fdb0-4dfb-9557-2a90a554aee4&security=tls&alpn=http/1.1&encryption=none&insecure=0&host=ef88878e-c5a7-412f-82f1-0b09c6792d29.hollowspot.ir&fp=safari&type=ws&allowInsecure=0#🌐 [WiFi] Иран 1
+vless://aaaaaabb-4ddd-4eee-9fff-ffffffffffff@104.16.2.90:443?path=/43.218.77.16=1443&security=tls&encryption=none&insecure=0&host=afrcloud22.mmv.kr&fp=chrome&type=ws&allowInsecure=0&sni=Pulavpn11.afrcloud22.mmv.kr#🌐 [WiFi] Global 2
+vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@104.26.15.69:2096?path=/proxyip=zani.yaemiko.ggff.net&security=tls&encryption=none&host=carlotta.shoorekeeper.cloudns.org&type=ws&sni=carlotta.shoorekeeper.cloudns.org#🌐 [WiFi] Global 3
+vless://3f0f36f5-f091-45c5-88c9-4bcc545b922c@104.17.147.22:2096?path=/45.76.183.217=49292&security=tls&encryption=none&insecure=0&host=hetz.x-smm.com&type=ws&allowInsecure=0&sni=hetz.x-smm.com#🌐 [WiFi] Global 4
+vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@104.26.15.69:2096?path=/proxyip=zani.yaemiko.ggff.net&security=tls&encryption=none&host=carlotta.shoorekeeper.cloudns.org&type=ws&sni=carlotta.shoorekeeper.cloudns.org#🌐 [WiFi] Global 5
 vless://3f0f36f5-f091-45c5-88c9-4bcc545b922c@104.17.147.22:2096?path=/45.76.183.217=49292&security=tls&encryption=none&insecure=0&host=hetz.x-smm.com&type=ws&allowInsecure=0&sni=hetz.x-smm.com#🌐 [WiFi] Global 6
-vless://6202b230-417c-4d8e-b624-0f71afa9c75d@141.95.127.132:2053?path=/?ed=2560&Telegram🇨🇳#🇫🇷 [WiFi] Франция 7
-vless://c048bd88-3e84-4f98-9699-8379f690ac7b@185.112.59.4:8446?security=reality&encryption=none&pbk=Az7yi4Q-UKI-hsYKtO4wvn1iW4JVW5ivrIXO0ICYtE0&host=/?BIA_TELEGRAM@MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI&headerType=none&fp=random&spx=/&type=tcp&flow=xtls-rprx-vision&sni=ads.x5.ru#🇳🇱 [WiFi] Нидерланды 8
+vless://afc9ee95-1d3f-4abd-968d-7230a34fdfbd@packetnet.vianabeauty.ir:45359?encryption=none&type=tcp&security=none#🌐 [WiFi] Global 7
+vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@104.21.67.12:443?path=/@V2rayBaaz---@V2rayBaaz---@V2rayBaaz---@V2rayBaaz---@V2rayBaaz---@V2rayBaaz---@V2rayBaaz---@V2rayBaaz---@V2rayBaaz?ed=2560&security=tls&encryption=none&host=carlotta.shoorekeeper.cloudns.org&type=ws&sni=carlotta.shoorekeeper.cloudns.org#🌐 [WiFi] Global 8
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://1b5648b6-da73-4ffb-b964-46c6d3d52136@159.69.23.6:22531/?type=grpc&encryption=none&sni=zula.ir&fp=chrome&security=reality&pbk=jb36M2GejuMVpv36Tx0zEAq5qPgF7Ux1pHoWre7moHE&sid=4638b111#🪿 [Резерв] Резерв 1
 vless://698a1505-b335-4ce2-97bc-8a4ffd67da4b@195.201.130.7:57706/?type=tcp&encryption=none&sni=google.com&fp=chrome&security=reality&pbk=F6wV-NlEVPipP6-0IXq4gM9UEbXB2XAUCrGyFS0_1wU&sid=fdc11189#🪿 [Резерв] Резерв 2
-vless://Parsashonam-295@[2a01:4f8:1c1a:dc2b::1]:8888?security=none&encryption=none&host=TELEGRAM--V2XAY--V2XAY--V2XAY--V2XAY--V2XAY--V2XAY--V2XAY--V2XAY--V2XAY--V2XAY--V2XAY--V2XAY--V2XAY--V2XAY--V2XAY&headerType=none&type=tcp#🪿 [Резерв] Резерв 3
-vless://05519058-d2ac-4f28-9e4a-2b2a1386749e@15.188.200.62:22224?type=ws&security=tls&path=/telegram-channel-vlessconfig&sni=trojan.burgerip.co.uk#🪿 [Резерв] Резерв 4
+vless://f667f7f1-6794-4918-8aca-d3b2401ede5c@snapp.ir:80?path=/?ed=2080&security=none&encryption=none&host=1.jojo.avenflow.ir&type=ws#🪿 [Резерв] Резерв 3
+vless://telegram-id-ArV2ray@www.speedtest.net:8080?path=/telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry?ed=8080&security=none&encryption=none&host=www.speedtest.net.3.U.mehpow.iR.&type=ws#🪿 [Резерв] Резерв 4
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
