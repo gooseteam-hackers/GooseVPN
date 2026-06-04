@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTiBQbHVz
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-06-04 04:01:38
+//last update on: 2026-06-04 09:55:51
 // 🪿 GooseVPN Plus - 22 конфигов, 8 wLTE, 8 WiFi, 4 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -10,7 +10,7 @@ vless://7e7452f2-1004-45ed-a55a-f9d474e152c7@176.114.122.24:4436?type=tcp&securi
 vless://39e282e0-5ae4-4ff4-8848-4b9346505c78@217.16.21.98:27472?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.samsung.com&fp=chrome&pbk=tfBYj32NRb7oc8lmVjr0nlote_rqpe_vd367HlcwxVs&sid=b0&type=tcp&headerType=none#🇷🇺 [wLTE] Россия 3
 vless://4734b6d0-1306-4792-bed0-6b834aa851a8@79.174.95.135:5443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=ads.x5.ru&fp=random&pbk=OtGux0Ty5TSzfIvlHVd4q_TdYbRUHKbS8WCxmpHJx18&sid=93072393e9e92346&spx=/&type=tcp&headerType=none#🇷🇺 [wLTE] Россия 4
 vless://7937bd2c-b783-45a2-8674-9f825ecb0b7c@79.174.95.135:5447?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=random&sni=st.okcdn.ru&pbk=OtGux0Ty5TSzfIvlHVd4q_TdYbRUHKbS8WCxmpHJx18&sid=542c8ba8f82ea453#🇷🇺 [wLTE] Россия 5
-vless://fc835978-8121-414f-b3dd-2dc2ec56b8f7@185.73.193.68:4355?type=tcp&security=reality&encryption=none&flow=xtls-rprx-vision&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sni=yandex.ru#🌐 [wLTE] ЮАР 6
+vless://fc835978-8121-414f-b3dd-2dc2ec56b8f7@185.73.193.68:4355?type=tcp&security=reality&encryption=none&flow=xtls-rprx-vision&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sni=yandex.ru#🇷🇺 [wLTE] Россия 6
 vless://aef9ff3f-9c4a-4c42-a0dd-e82709b4c36f@95.163.211.240:8444?encryption=none&type=tcp&security=reality&fp=chrome&sni=max.ru&pbk=Z84J2IelR9ch3k8VtlVhhs5ycBUlXA7wHBWcBrjqnAw&sid=7dbf7d3233971d5c#🇷🇺 [wLTE] Россия 7
 vless://2a5d0347-9898-4e28-ba75-8ec7887d3155@79.174.92.31:3443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=random&sni=ads.x5.ru&pbk=y8Xef3AIk7TEbLdu2WkC1NX0jtdxrSs9xsAxLqkSXA8&sid=822d4a48d7c4cbf4&spx=/#🇷🇺 [wLTE] Россия 8
 
