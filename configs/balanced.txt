@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTg==
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-07-14 13:42:10
+//last update on: 2026-07-14 19:19:24
 // 🪿 GooseVPN - 15 конфигов, 5 wLTE, 5 WiFi, 3 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -12,16 +12,16 @@ vless://telegram-id-Arfilter@156.243.83.167:443?path=/-Arfilter-TEL--@Arfilter-T
 vless://telegram-id-ArV2ray@25.129.197.233:2052?mode=auto&path=/-Arfilter@Arfilter-TEL--@Arfilter-TEL--@ArFilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@Arfilter?ed=80&security=none&encryption=none&host=cdn-alman5.arfilter2.blog&type=xhttp#🇬🇧 [wLTE] Британия 5
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
-vless://1a25f8ad-cad2-4e93-b5bf-34e42bcac02a@172.64.146.20:2096?encryption=none&type=tcp&path=/?ed=2560&Telegram🇨🇳#🌐 [WiFi] Global 1
-vless://1d399c5a-1c32-4fff-a4d0-d78fd3328a4c@162.159.153.88:443?security=tls&sni=pages.teasalo.cloudns.org&type=ws&host=pages.teasalo.cloudns.org&fp=random&alpn=h3#🌐 [WiFi] Global 2
-vless://c82f8880-bdd8-4a35-b8e7-ad5aa880f7d0@192.200.160.214:443?security=tls&sni=ve.ylkszy.eu.org&type=ws&path=/?proxyip#🇺🇸 [WiFi] США 3
-vless://bbbeae7c-13df-498b-8ba3-298c17e3b4bc@172.64.152.179:443?encryption=none&security=tls&type=ws&sni=www.stjohn8899.link&host=www.stjohn8899.link&path=/#🌐 [WiFi] Global 4
-vless://eab915bc-d2df-73d1-47d0-6eb240497055@fn.fifapes.monster:2090?security=none&encryption=none&headerType=http&type=tcp#🌐 [WiFi] Global 5
+vless://3824fba1-352a-44f6-89c3-66bacce658eb@104.18.26.90:443?encryption=none&security=tls&sni=S4.MaiN-2.WORkErS.Dev&alpn=http/1.1&fp=randomized&type=ws&host=s4.main-2.workers.dev&path=/kBoXBiT5qlTK5H01?ed#🌐 [WiFi] Global 1
+vless://bb83cd54-e6c0-441d-823a-71443ff34686@203.28.8.85:2052?path=/&security=none&encryption=none&host=tau.configs.sbs&type=ws#🌐 [WiFi] Кипр 2
+vless://f690c2da-bdc3-4538-999e-d2bb8a541188@104.16.161.143:2096?path=/fp=chrome?ed=#TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512&security=tls&encryption=none&host=baomei.pages.dev&type=ws&sni=baomei.pages.dev#🌐 [WiFi] Global 3
+vless://348f10d0-f97e-4183-c7be-8433ead395cf@htamiz4.radarmarkazi.site:80?path=/&security=none&encryption=none&host=iranembassy.org.faradars.org.fa.wordpress.org.fa.wordpress.org.maktabkhooneh.org.iranembassy.org.iau-arak.org.amirkabir.org.iran.org.tgju.org.fa.wordpress.org.iran.org.isfahan.org.iran-hormozgan.org.tehranairquality.org.aynehpaziraei.cfd&type=ws#🌐 [WiFi] Global 4
+vless://c83014e0-ad3e-4ebd-9e8f-8f7a1f6088d6@whatismyipaddress.com:443?security=tls&sni=buhnp.amazon-funder.info&path=/majara&type=ws&host=buhnp.amazon-funder.info#🌐 [WiFi] Global 5
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://94498f1a-26c1-4d86-a38c-fb33e0eb1ded@45.130.125.66:443?path=/cloud-vps&security=tls&alpn=http/1.1&encryption=none&fm={"udp":[{"settings":{"header":"","value":""},"type":"mkcp-legacy"}]}&insecure=0&fp=chrome&type=ws&allowInsecure=0&sni=cloud.yas-nowin.ir#🪿 [Резерв] Резерв 1
-vless://05519058-d2ac-4f28-9e4a-2b2a1386749e@3.76.0.39:22222?security=tls&sni=telegram-channel-vlessconfig.sohala.uk&type=ws&host=telegram-channel-vlessconfig.sohala.uk&path=/telegram-channel-vlessconfig-ws#🪿 [Резерв] Резерв 2
-vless://b63f2edd-690c-4f7d-92c5-16397ca98ea8@104.17.148.22:8880?security=none&type=ws&host=www.speedtest.net.A.lightning-6.LiVE.&path=/-LiV2ry@LIGHTNING6-TEL--@LIGHTNING6-TEL--@LIGHTNING6-TEL--@LIGHTNING6-JOIN-@LIGHTNING6-TEL--@LIGHTNING6-JOIN-@LIGHTNING6-TEL-@LIGHTNING6-TEL--@LIGHTNING6-JOIN-@LIGHTNING6-TEL--@LIGHTNING6?ed=2056#🪿 [Резерв] Резерв 3
+vless://65fe56c2-78ec-417a-a666-9f393eac8b61@172.66.128.70:80?encryption=none&security=none&type=ws&host=everlASTinG-oFfERC4S5Mg1918.SpoRTLand.COMpaNy.&path=/?ed#🪿 [Резерв] Резерв 2
+vless://33cd0733-c749-4af1-bea1-c2e58d8b289e@178.162.164.140:28835?encryption=none&security=none&type=ws&path=/fg56Htyr#🪿 [Резерв] Резерв 3
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
