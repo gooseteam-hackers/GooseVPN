@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTg==
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-07-15 02:26:38
+//last update on: 2026-07-15 08:09:12
 // 🪿 GooseVPN - 15 конфигов, 5 wLTE, 5 WiFi, 3 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -12,16 +12,16 @@ vless://telegram-id-Arfilter@156.243.83.167:443?path=/-Arfilter-TEL--@Arfilter-T
 vless://telegram-id-ArV2ray@25.129.197.233:2052?mode=auto&path=/-Arfilter@Arfilter-TEL--@Arfilter-TEL--@ArFilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@Arfilter?ed=80&security=none&encryption=none&host=cdn-alman5.arfilter2.blog&type=xhttp#🇬🇧 [wLTE] Британия 5
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
-vless://3824fba1-352a-44f6-89c3-66bacce658eb@104.18.26.90:443?encryption=none&security=tls&sni=S4.MaiN-2.WORkErS.Dev&alpn=http/1.1&fp=randomized&type=ws&host=s4.main-2.workers.dev&path=/kBoXBiT5qlTK5H01?ed#🌐 [WiFi] Global 1
-vless://bb83cd54-e6c0-441d-823a-71443ff34686@203.28.8.85:2052?path=/&security=none&encryption=none&host=tau.configs.sbs&type=ws#🌐 [WiFi] Кипр 2
-vless://f690c2da-bdc3-4538-999e-d2bb8a541188@104.16.161.143:2096?path=/fp=chrome?ed=#TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512&security=tls&encryption=none&host=baomei.pages.dev&type=ws&sni=baomei.pages.dev#🌐 [WiFi] Global 3
-vless://348f10d0-f97e-4183-c7be-8433ead395cf@htamiz4.radarmarkazi.site:80?path=/&security=none&encryption=none&host=iranembassy.org.faradars.org.fa.wordpress.org.fa.wordpress.org.maktabkhooneh.org.iranembassy.org.iau-arak.org.amirkabir.org.iran.org.tgju.org.fa.wordpress.org.iran.org.isfahan.org.iran-hormozgan.org.tehranairquality.org.aynehpaziraei.cfd&type=ws#🌐 [WiFi] Global 4
-vless://c83014e0-ad3e-4ebd-9e8f-8f7a1f6088d6@whatismyipaddress.com:443?security=tls&sni=buhnp.amazon-funder.info&path=/majara&type=ws&host=buhnp.amazon-funder.info#🌐 [WiFi] Global 5
+vless://6a8ee307-a1fb-4801-92e2-86253ecdd88d@5.181.21.152:24170?security=reality&encryption=none&pbk=rhEEZAZBX-seWl5f0JmyE19Iwxb5zTNH5yT-FhaS8Hw&headerType=none&fp=chrome&type=tcp&sni=yahoo.com&sid=200f99e321#🇬🇧 [WiFi] Британия 1
+vless://2cd6ed0f-636e-4e6c-9449-5a263d7a0fa5@45.159.218.109:443?path=tg@zdyz2&security=tls&encryption=none&type=ws&sni=cfed.tgzdyz2.top#🇺🇸 [WiFi] США 2
+vless://f90b7a19-0b71-44b6-b95b-baab85af4d51@ge.sepshoping.de:8016?encryption=none&security=none&type=tcp&headerType=http&host=skyroom.online,gharar.ir,igap.net#🌐 [WiFi] Global 3
+vless://c4c65307-1245-4061-95d6-5172c1130903@194.182.79.240:22730?mode=gun&security=none&encryption=none&type=grpc&serviceName=ZEDMODEON-ZEDMODEON-bia-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON#🌐 [WiFi] Чехия 4
+vless://d6f79630-aa94-4536-b2ef-899b5acb3b49@172.67.156.27:443?encryption=none&security=tls&sni=unmanliest.appreviewcenter.com&alpn=h2,http/1.1&fp=chrome&type=ws&host=unmanliest.appreviewcenter.com&path=/nimws#🌐 [WiFi] Global 5
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://94498f1a-26c1-4d86-a38c-fb33e0eb1ded@45.130.125.66:443?path=/cloud-vps&security=tls&alpn=http/1.1&encryption=none&fm={"udp":[{"settings":{"header":"","value":""},"type":"mkcp-legacy"}]}&insecure=0&fp=chrome&type=ws&allowInsecure=0&sni=cloud.yas-nowin.ir#🪿 [Резерв] Резерв 1
-vless://65fe56c2-78ec-417a-a666-9f393eac8b61@172.66.128.70:80?encryption=none&security=none&type=ws&host=everlASTinG-oFfERC4S5Mg1918.SpoRTLand.COMpaNy.&path=/?ed#🪿 [Резерв] Резерв 2
-vless://33cd0733-c749-4af1-bea1-c2e58d8b289e@178.162.164.140:28835?encryption=none&security=none&type=ws&path=/fg56Htyr#🪿 [Резерв] Резерв 3
+vless://efdee8af-7ca2-46fc-822b-d653de5cc442@www.speedtest.net:8880?path=/Telegram:@vmessorg?ed&security=none&encryption=none&host=vmessorg.xn--54qv00ez5ar77g.co.&type=ws#🪿 [Резерв] Резерв 2
+vless://df0680ca-e43c-498d-ed86-8e196eedd012@638934019837083133.lisbon-drc-tusaby.info:8880?security=&encryption=none&type=grpc#🪿 [Резерв] Резерв 3
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
