@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTiBQbHVz
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-07-27 19:26:12
+//last update on: 2026-07-28 02:30:49
 // 🪿 GooseVPN Plus - 22 конфигов, 8 wLTE, 8 WiFi, 4 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -16,23 +16,23 @@ vless://94498f1a-26c1-4d86-a38c-fb33e0eb1ded@188.114.97.6:443?path=/cloud-vps&se
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
 vless://00000000-0000-0000-0000-000000000000@0.0.0.0:1080?encryption=none&security=none&type=tcp#🌐 [WiFi] Global 1
-vless://f775978b-6e22-41a8-ae5e-5f9779e6745f@188.42.145.90:8443?sni=juzibaipiao.5112233.xyz&type=ws&host=juzibaipiao.5112233.xyz&path=/?edfp=chrome&security=tls#🌐 [WiFi] Люксембург 2
-vless://0417be58-2ea8-49de-8083-9eff9b0137e5@v2ray.codefyinc.com:443?path=/vlessws&security=tls&encryption=none&host=v2ray.codefyinc.com&type=ws&sni=v2ray.codefyinc.com#🌐 [WiFi] Global 3
-vless://VPNCUSTOMIZE@tel.VPNCUSTOMIZE.cam:8080?type=ws&host=VPNCUSTOMIZE-V2ray.列列男事的事列上赛男78.tech&path=/?ed=2048&security=none#🌐 [WiFi] Global 4
-vless://0417be58-2ea8-49de-8083-9eff9b0137e5@v2ray.codefyinc.com:443?path=/vlessws&security=tls&encryption=none&host=v2ray.codefyinc.com&type=ws&sni=v2ray.codefyinc.com#🌐 [WiFi] Global 5
+vless://bb5b4296-e7fa-42f9-9f65-64306413e00a@62.60.156.35:8081?security=none&encryption=mlkem768x25519plus.native.0rtt.w0d5QDh2kFXtrCcljpe6uvJfI7FKPavrpo1OLIJEnAE&host=MTMVPN--MTMVPN--MTMVPN&headerType=none&type=tcp&flow=xtls-rprx-vision#🇫🇷 [WiFi] Франция 2
+vless://e82b679c-0084-4877-9364-a088503b3dea@91.107.135.249:55219?encryption=none&security=none&type=tcp#🌐 [WiFi] ФРГ 3
+vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@104.26.15.69:2096?path=/proxyip=zani.yaemiko.ggff.net&security=tls&encryption=none&host=carlotta.shoorekeeper.cloudns.org&type=ws&sni=carlotta.shoorekeeper.cloudns.org#🌐 [WiFi] Global 4
+vless://7968c546-02dc-4f8c-b791-934591a94cb2@cf.levikogjgfdd.ir:443?path=/cbasur&security=tls&encryption=none&insecure=0&host=hhvl.hhapp.kdns.fr&type=ws&allowInsecure=0&sni=hhvl.hhapp.kdns.fr#🌐 [WiFi] Global 5
 vless://0ff7989d-59b3-4cbd-a2e4-960ac02fb2f1@46.137.225.209:32946?security=reality&encryption=none&pbk=zdEghV1Mt50wCSUBZSd601DSMoX4KBTfcKWZ2_mYTBk&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=www.amd.com&sid=984d9ea72b9e81#🇸🇬 [WiFi] Сингапур 6
-vless://7a5a4624-df8d-4955-bccc-b3fa6161411f@172.67.139.111:443?path=/Telegram-XV2ry2?ed=512&security=tls&encryption=none=/@mehrosaboran,--@mehrosaboran,--@mehrosaboran,--@mehrosaboran,--@mehrosaboran,--@mehrosaboran,--@mehrosaboran&host=Telegram-w-XV2ray--XV2ray-XV2ray-XV2ray-XV2ray-XV2ray.pages.dev&type=ws&sni=Pages.dev#🌐 [WiFi] Global 7
-vless://5df7962e-f9fe-41e6-ab49-ed96ccb856a7@172.66.44.135:80?path=/&security=none&encryption=none&host=v2ra1.ecrgpk.workers.dev&type=ws#🌐 [WiFi] Global 8
+vless://VPNCUSTOMIZE@tel.VPNCUSTOMIZE.cam:8080?type=ws&host=VPNCUSTOMIZE-V2ray.列列男事的事列上赛男78.tech&path=/?ed=2048&security=none#🌐 [WiFi] Global 7
+vless://7e544a9d-7667-413b-bbb0-b3bb1aac6d77@one-for-all.levikogjgfdd.ir:443?path=/rsedgws&security=tls&encryption=none&insecure=0&host=shegeftihaaa.net&fp=chrome&type=ws&allowInsecure=0&sni=shegeftihaaa.net#🌐 [WiFi] Global 8
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://94498f1a-26c1-4d86-a38c-fb33e0eb1ded@188.114.97.6:443?path=/cloud-vps&security=tls&alpn=http/1.1&encryption=none&fm={"udp":[{"settings":{"header":"","value":""},"type":"mkcp-legacy"}]}&insecure=0&fp=chrome&type=ws&allowInsecure=0&sni=amiiin.yas-nowin.ir#🪿 [Резерв] Резерв 1
 vless://94498f1a-26c1-4d86-a38c-fb33e0eb1ded@188.114.97.6:443?path=/cloud-vps&security=tls&alpn=http/1.1&encryption=none&fm={"udp":[{"settings":{"header":"","value":""},"type":"mkcp-legacy"}]}&insecure=0&fp=chrome&type=ws&allowInsecure=0&sni=amiiiin.yas-nowin.ir#🪿 [Резерв] Резерв 2
-vless://768e854b-2498-48e5-f8af-7011bfddc9fc@47.252.35.253:11329?encryption=none&security=tls&type=ws&path=/#🪿 [Резерв] Резерв 3
-vless://2cd6ed0f-636e-4e6c-9449-5a263d7a0fa5@188.42.145.178:443?allowInsecure=0&sni=cfed.tgzdyz2.top&type=ws&host=cfed.tgzdyz2.top&path=tg@zdyz2fp=chrome&security=tls#🪿 [Резерв] Резерв 4
+vless://48ff2b70-e180-582f-8866-d9a2edeed5f5@57.129.53.181:23576?security=reality&amp;encryption=none&amp;pbk=1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s&amp;headerType=none&amp;fp=chrome&amp;type=tcp&amp;flow=xtls-rprx-vision&amp;sni=fuck.rkn&amp;sid=01#🪿 [Резерв] Резерв 3
+vless://358f44f0-2686-46c8-9cc6-ec52abd66df4@65.109.219.124:10485?security=&encryption=none&headerType=&type=tcp#🪿 [Резерв] Резерв 4
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
 
 // =-=-=-=-=-= WARP Ночной =-=-=-=-=-=
-warp://188.114.96.45:3854?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Warp-IR&&detour=warp://188.114.97.67:7103?ifp=10-20&ifps=20-60&ifpd=5-10#🔥 [WARP] Ночной
+warp://188.114.99.10:859?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Warp-IR&&detour=warp://188.114.96.64:987?ifp=10-20&ifps=20-60&ifpd=5-10#🔥 [WARP] Ночной
 
