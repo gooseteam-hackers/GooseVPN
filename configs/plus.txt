@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTiBQbHVz
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-08-05 08:34:45
+//last update on: 2026-08-05 14:07:58
 // 🪿 GooseVPN Plus - 22 конфигов, 8 wLTE, 8 WiFi, 4 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -34,5 +34,5 @@ vless://435bda4c-fe5e-42c9-a3ad-15334943b38a@104.22.49.13:80?security=none&type=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
 
 // =-=-=-=-=-= WARP Ночной =-=-=-=-=-=
-warp://188.114.97.193:1018?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Warp-IR&&detour=warp://188.114.98.19:7281?ifp=10-20&ifps=20-60&ifpd=5-10#🔥 [WARP] Ночной
+warp://162.159.192.93:878?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Warp-IR&&detour=warp://162.159.195.65:988?ifp=10-20&ifps=20-60&ifpd=5-10#🔥 [WARP] Ночной
 
