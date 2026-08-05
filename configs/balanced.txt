@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTg==
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-08-04 19:36:54
+//last update on: 2026-08-05 02:29:04
 // 🪿 GooseVPN - 15 конфигов, 5 wLTE, 5 WiFi, 3 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -13,19 +13,19 @@ vless://telegram-id-ArV2ray@25.129.197.233:2052?mode=auto&path=/-Arfilter@Arfilt
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
 vless://00000000-0000-0000-0000-000000000000@0.0.0.0:1080?encryption=none&security=none&type=tcp#🌐 [WiFi] Global 1
-vless://92344f52-e7b2-497a-98d8-3bb65b904e83@104.18.31.6:443?security=tls&sni=us2.vless.site&type=ws&host=us2.vless.site&path=/Telegram-@freeiranweb#🌐 [WiFi] Global 2
-vless://a13df940-020c-465f-bc89-ee5279b5cd6a@45.159.216.147:443?security=tls&sni=kke.ylks.xyz&type=ws&path=/blue#🇺🇸 [WiFi] США 3
-vless://dc8eccdb-ecfa-435f-9ac1-5dc4882e7b51@162.19.228.119:80?security=none&type=ws&host=Telegram+id:+@V2raySeven&path=/http#🇫🇷 [WiFi] Франция 4
-vless://d9eb0df3-3190-4447-86b6-656fe5ff1119@190.93.245.96:443?security=tls&sni=mmdv2.pages.dev&type=ws&host=mmdv2.pages.dev#🌐 [WiFi] Global 5
+vless://9a88c105-9cb0-4092-acde-723eba07d762@ua1.levikogjgfdd.ir:31090?security=none&encryption=none&host=Telegram-Leviko_v2ray&headerType=none&type=tcp#🌐 [WiFi] Global 2
+vless://0417be58-2ea8-49de-8083-9eff9b0137e5@v2ray.codefyinc.com:443?path=/vlessws&security=tls&encryption=none&host=v2ray.codefyinc.com&type=ws&sni=v2ray.codefyinc.com#🌐 [WiFi] Global 3
+vless://baccaba-baca-acba-dcba-cbabacaaccbb@127.0.0.1:8080?security=tls&type=tcp#🌐 [WiFi] Global 4
+vless://0ff7989d-59b3-4cbd-a2e4-960ac02fb2f1@46.137.225.209:32946?security=reality&encryption=none&pbk=zdEghV1Mt50wCSUBZSd601DSMoX4KBTfcKWZ2_mYTBk&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=www.amd.com&sid=984d9ea72b9e81#🇸🇬 [WiFi] Сингапур 5
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://94498f1a-26c1-4d86-a38c-fb33e0eb1ded@188.114.97.6:443?path=/cloud-vps&security=tls&alpn=http/1.1&encryption=none&fm={"udp":[{"settings":{"header":"","value":""},"type":"mkcp-legacy"}]}&insecure=0&fp=chrome&type=ws&allowInsecure=0&sni=cloud.yas-nowin.ir#🪿 [Резерв] Резерв 1
-vless://435bda4c-fe5e-42c9-a3ad-15334943b38a@104.17.121.138:80?security=none&type=ws&host=us3.rtacg.com&path=/#🪿 [Резерв] Резерв 2
-vless://89b3cbba-e6ac-485a-9481-976a0415eab9@162.159.249.112:443?security=tls&sni=EA6530e9.nXZu-61iuaN-xD.PageS.DEV&type=ws&host=EA6530e9.nXzu-61iuAn-XD.PaGEs.dEV&path=JOIN-FILTERK0SH/?ed=2048&fp=randomized&alpn=h2,http/1.1#🪿 [Резерв] Резерв 3
+vless://a13df940-020c-465f-bc89-ee5279b5cd6a@216.24.57.141:443?security=tls&sni=zdye.kpcloud.eu.org&type=ws&path=/blue#🪿 [Резерв] Резерв 2
+vless://5dc23bba-0e31-4016-895f-517ce4b7ccc0@172.67.178.12:443?security=tls&sni=glassiest.toptechnonews.com&type=ws&host=glassiest.toptechnonews.com&path=/nimws&fp=chrome#🪿 [Резерв] Резерв 3
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
 
 // =-=-=-=-=-= WARP Ночной =-=-=-=-=-=
-warp://188.114.99.1:934?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Warp-IR&&detour=warp://188.114.98.156:4177?ifp=10-20&ifps=20-60&ifpd=5-10#🔥 [WARP] Ночной
+warp://188.114.97.193:1018?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Warp-IR&&detour=warp://188.114.98.19:7281?ifp=10-20&ifps=20-60&ifpd=5-10#🔥 [WARP] Ночной
 
