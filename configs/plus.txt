@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTiBQbHVz
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-08-10 01:45:37
+//last update on: 2026-08-10 07:39:58
 // 🪿 GooseVPN Plus - 22 конфигов, 8 wLTE, 8 WiFi, 4 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -16,19 +16,19 @@ vless://94498f1a-26c1-4d86-a38c-fb33e0eb1ded@188.114.97.6:443?path=/cloud-vps&se
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
 vless://00000000-0000-0000-0000-000000000000@0.0.0.0:1080?encryption=none&security=none&type=tcp#🌐 [WiFi] Global 1
-vless://19791a56-54a5-47bf-a7c7-5cb3d3dce904@t.telewebion.ir.varzesh3.com.de:443?security=reality&alpn=http/1.1&encryption=none&pbk=JtA0d5K6Jnmg35oWP9SDOsc1ceuqaxOsNg33fiPHJQs&host=play.google.com&headerType=none&fp=firefox&type=tcp&flow=xtls-rprx-vision&sni=play.google.com&sid=e915#🌐 [WiFi] Global 2
-vless://598d2298-5e1f-4d07-bc4b-6d1949693852@162.19.250.117:25921?security=&encryption=none&headerType=none&type=tcp#🇫🇷 [WiFi] Франция 3
-vless://bb5b4296-e7fa-42f9-9f65-64306413e00a@62.60.156.35:8081?security=none&encryption=mlkem768x25519plus.native.0rtt.w0d5QDh2kFXtrCcljpe6uvJfI7FKPavrpo1OLIJEnAE&host=MTMVPN--MTMVPN--MTMVPN&headerType=none&type=tcp&flow=xtls-rprx-vision#🇫🇷 [WiFi] Франция 4
-vless://af309ad2-c943-48ea-b570-2e51a2f079d9@185.146.173.152:2095?path=/DSDaswd22!11*fdfm55247.COM.&security=none&encryption=none&host=NOxdB1.BisTaiR.orG&type=ws#🌐 [WiFi] Швеция 5
-vless://SVNTEAM@speedtest.net:443?type=ws&host=torb.com&path=/?ed=1024&security=tls&fp=firefox&sni=speedtest.net&alpn=h2,http/1.1#🌐 [WiFi] Global 6
-vless://d03d8815-a06f-408f-a62f-6c84869b96a9@elegant-corporation.seotoolsforyou.co.uk:80?path=/&security=&encryption=none&type=ws#🌐 [WiFi] Global 7
-vless://afa7ac72-cae2-47a2-992d-e93f36fe065d@e11.maindns.site:32611?security=none&encryption=none&headerType=none&type=tcp#🌐 [WiFi] Global 8
+vless://2079ecde-938d-4c45-bf6d-a43de1b3993d@www.speedtest.net:80?type=ws&path=/?ed=2048&host=www.speedtest.net.xn--fhq0la447aac5504dea701axr1g.18.buybikeshop.COM.&security=none#🌐 [WiFi] Global 2
+vless://Telegram-ipV2Ray-saq@www.speedtest.net:80?path=/Telegram-ipV2Ray?ed=2048&security=none&encryption=none&host=c.2.www.speedtest.net.zula.ir.zemestanil.ir&type=ws#🌐 [WiFi] Global 3
+vless://5e3f974b-06fc-4555-907a-6681391b7c17@us2.levikogjgfdd.ir:40443?security=reality&encryption=none&pbk=oc9uweln_cqyaJnlRMnhhhKrGNP7RrYOsuYtaIOIQDE&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=deepl.com&sid=2bc0#🌐 [WiFi] Global 4
+vless://1ee1f28d-4975-4d7c-95c7-76172c20eed5@185.143.234.238:2086?path=/&security=none&encryption=none&host=parsi.parsi.sbs&type=ws#🌐 [WiFi] Иран 5
+vless://82fdc77c-5def-4930-89a6-afb5cc609d4b@185.146.173.237:8880?type=ws&host=github_vpn_proxy66_marg_bar_khamenei.proxy66.shop.&path=VPNPROXY?ed=8080#🌐 [WiFi] Швеция 6
+vless://acbabac-acba-abac-dabc-bcbbcacabaca@127.0.0.1:1080?security=tls&type=tcp#🌐 [WiFi] Global 7
+vless://d9eb0df3-3190-4447-86b6-656fe5ff1119@162.159.241.8:443?security=tls&sni=mmdv2.pages.dev&type=ws&host=mmdv2.pages.dev#🌐 [WiFi] Global 8
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://94498f1a-26c1-4d86-a38c-fb33e0eb1ded@188.114.97.6:443?path=/cloud-vps&security=tls&alpn=http/1.1&encryption=none&fm={"udp":[{"settings":{"header":"","value":""},"type":"mkcp-legacy"}]}&insecure=0&fp=chrome&type=ws&allowInsecure=0&sni=amiiiin.yas-nowin.ir#🪿 [Резерв] Резерв 1
 vless://94498f1a-26c1-4d86-a38c-fb33e0eb1ded@188.114.97.6:443?path=/cloud-vps&security=tls&alpn=http/1.1&encryption=none&fm={"udp":[{"settings":{"header":"","value":""},"type":"mkcp-legacy"}]}&insecure=0&fp=chrome&type=ws&allowInsecure=0&sni=icloud-ios-chrome.yas-nowin.ir#🪿 [Резерв] Резерв 2
-vless://652ae64c-d370-4edb-a271-0fbb0a72fc30@198.41.193.160:80?security=none&type=ws&host=Sub-D0A1f0cHYm-rubika.ir.google.com.xn--cr8haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.xn--cr8haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.apaspeedtest.netrat.com.eu.com.shw814.ir.xn--cr8haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.xn--g28h.PicoFile.Org.&path=/#🪿 [Резерв] Резерв 3
-vless://e6d41d6f-d58a-7650-bba4-d7f0dde3ba4d@170.168.97.3:993?security=reality&encryption=none&pbk=D2SXHZRRYM0WcFChGWd57XB-U73aIsGfMpe2-Gq5XSs&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=download.nvidia.com#🪿 [Резерв] Резерв 4
+vless://89b3cbba-e6ac-485a-9481-976a0415eab9@45.159.218.51:443?security=tls&sni=vj.ylks.link&type=ws&path=/#🪿 [Резерв] Резерв 3
+vless://e82b679c-0084-4877-9364-a088503b3dea@91.107.135.249:55219?encryption=none&security=none&type=tcp#🪿 [Резерв] Резерв 4
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
