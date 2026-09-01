@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTg==
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-08-31 22:32:14
+//last update on: 2026-09-01 03:49:10
 // 🪿 GooseVPN - 15 конфигов, 5 wLTE, 5 WiFi, 3 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -13,15 +13,15 @@ vless://94498f1a-26c1-4d86-a38c-fb33e0eb1ded@188.114.97.6:443?path=/cloud-vps&se
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
 vless://00000000-0000-0000-0000-000000000000@0.0.0.0:1080?encryption=none&security=none&type=tcp#🌐 [WiFi] Global 1
-vless://1dcf8b3a-8c9e-42fc-bb99-c8749604127c@104.17.53.246:2052?security=none&type=ws&host=www.speedtest.net.zula.com.aparat.com.seyyedmt.bloG.#🌐 [WiFi] Global 2
-vless://435bda4c-fe5e-42c9-a3ad-15334943b38a@104.17.24.210:80?security=none&type=ws&host=us3.rtacg.com&path=/#🌐 [WiFi] Global 3
-vless://845a492d-21e6-4cc0-abbb-b66813a163c0@65.109.215.50:39633?security=none&encryption=none&headerType=none&type=tcp#🌐 [WiFi] Финляндия 4
-vless://a6f6d9c9-9d43-4d0e-bf95-4b87cc5bbaac@164.37.104.234:443?security=reality&encryption=none&pbk=-nB-tCeZ4Zr72ArHUKnbUphbs4PlBS6iId6PkrPQQTE&headerType=none&fp=firefox&type=tcp&flow=xtls-rprx-vision&sni=gb1.murhost.network&sid=84f9881951050a30#🇬🇧 [WiFi] Британия 5
+vless://cae7b931-eef6-4637-a782-5537bca137f1@trp.soundfiy.ir:61169?security=none&encryption=none&host=amp-api-edge.apps.apple.com&headerType=http&type=tcp#🌐 [WiFi] Global 2
+vless://d11613a1-2e1f-4209-a275-aabd986b7ad1@194.93.61.95:443?security=reality&encryption=none&pbk=0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY&headerType=none&fp=qq&type=tcp&flow=xtls-rprx-vision&sni=cdnjs.com&sid=58fbcddfaae3ade9#🇳🇱 [WiFi] Нидерланды 3
+vless://1a25f8ad-cad2-4e93-b5bf-34e42bcac02a@172.64.146.20:2096?encryption=none&type=tcp&path=/?ed=2560&Telegram🇨🇳#🌐 [WiFi] Global 4
+vless://845a492d-21e6-4cc0-abbb-b66813a163c0@65.109.215.50:39633?security=none&encryption=none&headerType=none&type=tcp#🌐 [WiFi] Финляндия 5
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://94498f1a-26c1-4d86-a38c-fb33e0eb1ded@188.114.97.6:443?path=/cloud-vps&security=tls&alpn=http/1.1&encryption=none&fm={"udp":[{"settings":{"header":"","value":""},"type":"mkcp-legacy"}]}&insecure=0&fp=chrome&type=ws&allowInsecure=0&sni=amiin.yas-nowin.ir#🪿 [Резерв] Резерв 1
-vless://89b3cbba-e6ac-485a-9481-976a0415eab9@199.232.5.79:443?security=tls&sni=mefa.ir&type=ws&host=mefa.ir&path=/H?ed=2560&fp=randomized&alpn=h2,http/1.1#🪿 [Резерв] Резерв 2
-vless://4bc8ff7a-20b4-41b2-9751-dfca869f0553@gb1.wba-pn.ru:443?path=/&security=tls&encryption=none&insecure=0&fp=qq&type=ws&allowInsecure=0&sni=gb1.wba-pn.ru#🪿 [Резерв] Резерв 3
+vless://2f35965a-9a9b-45fd-ba32-987296dfb6be@md5.univesalsrv.com:443?mode=gun&security=reality&encryption=none&pbk=99MRki6b93wC-hhDHe9yq3IXE3KtPGw4RkFAnpI-8gg&fp=firefox&type=grpc&serviceName=app.v1.PushService&sni=md5.univesalsrv.com&sid=aa9884f2982b7d3c#🪿 [Резерв] Резерв 2
+vless://d9eb0df3-3190-4447-86b6-656fe5ff1119@104.19.108.172:443?security=tls&sni=mmdv2.pages.dev&type=ws&host=mmdv2.pages.dev#🪿 [Резерв] Резерв 3
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
