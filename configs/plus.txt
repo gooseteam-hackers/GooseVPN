@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTiBQbHVz
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-09-09 20:30:15
+//last update on: 2026-09-10 03:20:00
 // 🪿 GooseVPN Plus - 22 конфигов, 8 wLTE, 8 WiFi, 4 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -16,19 +16,19 @@ vless://8e9cbf76-b74a-46b3-8270-9453e281e613@199.232.237.245:443?mode=auto&path=
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
 vless://00000000-0000-0000-0000-000000000000@0.0.0.0:1080?encryption=none&security=none&type=tcp#🌐 [WiFi] Global 1
-vless://f798a2c4-c51b-409d-b349-ca8455b36796@104.26.14.85:8443?path=/download.php&security=tls&encryption=none&insecure=0&host=chopin.adaspoloandco.com&fp=chrome&type=ws&allowInsecure=0&sni=chopin.adaspoloandco.com#🌐 [WiFi] Global 2
-vless://768e854b-2498-48e5-f8af-7011bfddc9fc@47.252.35.253:11329?encryption=none&security=tls&type=ws&path=/#🇺🇸 [WiFi] США 3
-vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@104.26.15.69:2096?path=/proxyip=zani.yaemiko.ggff.net&security=tls&encryption=none&host=carlotta.shoorekeeper.cloudns.org&type=ws&sni=carlotta.shoorekeeper.cloudns.org#🌐 [WiFi] Global 4
-vless://d03d8815-a06f-408f-a62f-6c84869b96a9@elegant-corporation.seotoolsforyou.co.uk:80?path=/&security=&encryption=none&type=ws#🌐 [WiFi] Global 5
-vless://a6f6d9c9-9d43-4d0e-bf95-4b87cc5bbaac@164.37.104.234:443?security=reality&encryption=none&pbk=-nB-tCeZ4Zr72ArHUKnbUphbs4PlBS6iId6PkrPQQTE&headerType=none&fp=firefox&type=tcp&flow=xtls-rprx-vision&sni=gb1.murhost.network&sid=84f9881951050a30#🇬🇧 [WiFi] Британия 6
-vless://e951ae39-2240-40ca-be13-9f862c3de3ce@65.109.211.136:30551?security=&encryption=none&headerType=&type=tcp#🌐 [WiFi] Финляндия 7
-vless://14b48651-3738-4926-bc09-4c04e87ff80b@static.lotussec.com:443?mode=stream-one&path=/Join-JavidnamanIran-on-Telegram&security=tls&alpn=h2&encryption=none&insecure=0&host=static.lotussec.com&fp=firefox&type=xhttp&allowInsecure=0&sni=static.lotussec.com#🌐 [WiFi] Global 8
+vless://0417be58-2ea8-49de-8083-9eff9b0137e5@v2ray.codefyinc.com:443?path=/vlessws&security=tls&encryption=none&host=v2ray.codefyinc.com&type=ws&sni=v2ray.codefyinc.com#🌐 [WiFi] Global 2
+vless://b5ca5ab3-8cbc-4ac3-89da-9cd360589ecb@213.130.137.40:443?mode=auto&path=/&security=reality&encryption=none&pbk=BvR2i3CJEL9QwNAWKqkkHY3rnqJdOFLyKw5DZ9sA2C8&host=panel.freesavesafe.com&fp=firefox&type=xhttp&sni=panel.freesavesafe.com&sid=812609fa663c57fb#🇫🇷 [WiFi] Франция 3
+vless://1d5a3836-1c2b-7b87-25db-917f29701da6@rvg-production-6c78.up.railway.app:443?mode=stream-up&path=/xhttp-siz10/stream-up/1d5a3836-1c2b-7b87-25db-917f29701da6&security=tls&alpn=h2,http/1.1&encryption=none&insecure=0&host=rvg-production-6c78.up.railway.app&fp=chrome&type=xhttp&allowInsecure=0&sni=rvg-production-6c78.up.railway.app#🌐 [WiFi] Global 4
+vless://56ba5d34-ef22-4ba6-8090-4188b807df54@163.8.195.241:2087?path=/29c8fed7ca22&security=none&encryption=none&type=ws#🌐 [WiFi] ФРГ 5
+vless://f300338b-c2e3-46dd-9d3f-d54c010dc989@vall.codefyinc.com:8443?path=/vlessws&security=tls&encryption=none&host=vall.codefyinc.com&type=ws&sni=vall.codefyinc.com#🌐 [WiFi] Global 6
+vless://1046683b-e4c6-4b5d-a32f-b19a56eade15@49.12.45.2:443?security=reality&encryption=none&pbk=I_9XlI6n-7ZTND49cztVVeQMPjstFEY6IzwhxOj8HH8&headerType=none&fp=chrome&spx=/GLPM2Sdn97K26fx&type=tcp&flow=xtls-rprx-vision&sni=amp-api-edge.apps.apple.com&sid=5f23c3d33634905e#🌐 [WiFi] ФРГ 7
+vless://22199ed8-5f22-4906-9917-67e3609d8776@95.216.165.65:443?security=reality&encryption=none&pbk=XS_4X8Ti1WuBEYbWCFuN2gEc-YG0EwN3cNPRV4dAvCg&headerType=none&fp=firefox&spx=/&type=tcp&sni=www.cloudflare.com&sid=29fd3dc0210c#🌐 [WiFi] Финляндия 8
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://d98c757d-2be3-49ff-8b9f-76ffdc924a61@188.114.97.6:443?path=/cloud-vps&security=tls&alpn=http/1.1&encryption=none&fm={"udp":[{"settings":{"header":"","value":""},"type":"mkcp-legacy"}]}&insecure=0&fp=chrome&type=ws&allowInsecure=0&sni=chrome.yas-nowin.ir#🪿 [Резерв] Резерв 1
 vless://d98c757d-2be3-49ff-8b9f-76ffdc924a61@45.130.125.66:443?path=/cloud-vps&security=tls&alpn=http/1.1&encryption=none&fm={"udp":[{"settings":{"header":"","value":""},"type":"mkcp-legacy"}]}&insecure=0&fp=chrome&type=ws&allowInsecure=0&sni=chrome.yas-nowin.ir#🪿 [Резерв] Резерв 2
-vless://255386a8-aec5-4425-bfe7-ca49b7448deb@144.225.65.111:46142?security=reality&encryption=none&pbk=l-OE7EwER1Z_jAifGE_UZ3FqHDMGzaR0jQHFYj5RNAk&headerType=none&fp=chrome&type=tcp&sni=www.yahoo.com&sid=39feeba3085c#🪿 [Резерв] Резерв 3
-vless://b5ca5ab3-8cbc-4ac3-89da-9cd360589ecb@213.130.137.80:443?mode=auto&path=/&security=reality&encryption=none&pbk=BvR2i3CJEL9QwNAWKqkkHY3rnqJdOFLyKw5DZ9sA2C8&host=panel.freesavesafe.com&fp=firefox&type=xhttp&sni=panel.freesavesafe.com&sid=812609fa663c57fb#🪿 [Резерв] Резерв 4
+vless://bbbeae7c-13df-498b-8ba3-298c17e3b4bc@172.64.152.179:443?encryption=none&security=tls&type=ws&sni=www.stjohn8899.link&host=www.stjohn8899.link&path=/#🪿 [Резерв] Резерв 3
+vless://f300338b-c2e3-46dd-9d3f-d54c010dc989@vall.codefyinc.com:8443?path=/vlessws&security=tls&encryption=none&host=vall.codefyinc.com&type=ws&sni=vall.codefyinc.com#🪿 [Резерв] Резерв 4
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
