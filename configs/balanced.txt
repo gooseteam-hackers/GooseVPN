@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTg==
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-10-15 20:58:44
+//last update on: 2026-10-16 03:22:01
 // 🪿 GooseVPN - 15 конфигов, 5 wLTE, 5 WiFi, 3 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -13,15 +13,15 @@ vless://94498f1a-26c1-4d86-a38c-fb33e0eb1ded@188.114.97.6:443?path=/cloud-vps&se
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
 vless://00000000-0000-0000-0000-000000000000@0.0.0.0:1080?encryption=none&security=none&type=tcp#🌐 [WiFi] Global 1
-vless://bc659d88-a1e0-4c65-a49a-7b51b26a7a7f@87.192.47.10:52006?security=tls&alpn=h2,http/1.1&encryption=none&insecure=0&headerType=none&type=tcp&allowInsecure=0&flow=xtls-rprx-vision&sni=grok.setlisting.ru#🇬🇧 [WiFi] Британия 2
-vless://7a394851-1d60-4f99-a10b-adbc1c81b4e2@185.146.173.5:8880?security=none&type=ws&path=/Telegram-Mainv2ray,Telegram-Mainv2ray,Telegram-Mainv2ray,Telegram-Mainv2ray,Telegram-Mainv2ray,Telegram-Mainv2ray,Telegram-Mainv2ray,Telegram-Mainv2ray,Telegram-Mainv2ray,Telegram-Mainv2ray,Telegram-Mainv2ray,Telegram-Mainv2ray,Telegram-Mainv2ray?ed#🌐 [WiFi] Швеция 3
-vless://05caca6c-9e97-4c0f-8edf-7b88a6e572c5@85.17.145.65:12068?path=/&security=none&encryption=none&host=mypanel.unixzone.us&type=ws#🇳🇱 [WiFi] Нидерланды 4
-vless://924fe46b-b6e0-479e-ae7f-a3661680e706@95.111.212.241:443?security=reality&encryption=none&pbk=BSTnEthBXhb_UyuWpLBDxg82-C-wcpU2_kOD5ohS12g&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=www.samsung.com&sid=3a697adb4c58d495#🌐 [WiFi] Финляндия 5
+vless://Bia_too_VPNCUSTOMIZE@VPNCUSTOMIZE.Elmahstyle.ir:8080?path=/Join--VPNCUSTOMIZE.V2ray.re?ed=8080&security=none&encryption=none&host=VPNCUSTOMIZE.V2ray.Community.&type=ws#🌐 [WiFi] Global 2
+vless://768e854b-2498-48e5-f8af-7011bfddc9fc@47.252.35.253:11329?encryption=none&security=tls&type=ws&path=/#🇺🇸 [WiFi] США 3
+vless://7858128a-6b5e-4f86-9bff-52c1f1e6439d@sino.bestsellers1.site:2083?path=/&security=tls&alpn=h3,h2,http/1.1&encryption=none&insecure=0&fp=chrome&type=ws&allowInsecure=0&sni=sino.bestsellers1.site#🌐 [WiFi] Global 4
+vless://85fe968d-fbb5-40dc-8422-30635eccb149@c20s5.portablesubmarines.com:443?security=reality&encryption=none&pbk=BlSccfT5tvDIOS7v9VaPd0ulUNhUdvlMjGiNzDNDUHE&host=portal.citygrainla.com&headerType=none&fp=qq&type=tcp&flow=xtls-rprx-vision&sni=portal.citygrainla.com&sid=051f20c2344a2dfd#🌐 [WiFi] Global 5
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://8e9cbf76-b74a-46b3-8270-9453e281e613@199.232.237.245:443?mode=auto&path=/@Alfred_Config/@Alfred_Config/@Alfred_Config&security=tls&alpn=h2&encryption=none&insecure=0&host=alfred-13.global.ssl.fastly.net&fp=chrome&type=xhttp&allowInsecure=0&sni=global.fastly.com#🪿 [Резерв] Резерв 1
-vless://f8681dba-d368-4bab-a3c2-a8dc712ba368@142.91.106.31:43000?security=reality&encryption=none&pbk=onJvbzSx_vZUyycafvPuhsiSQsr9tw4zotyVMSWCvm4&headerType=none&fp=chrome&spx=/&type=tcp&flow=xtls-rprx-vision&sid=8d66106f#🪿 [Резерв] Резерв 2
-vless://9f309ae0-172e-4b6e-d382-b2a70be59823@kala.fortresshost.ir:443?mode=auto&path=/Meh?di=443&security=tls&alpn=h2&encryption=mlkem768x25519plus.native.0rtt.0Vh97j6xS7KWSt0KJUlPGDqvOnB6YEWo0xWQ3HQgYm4&extra={"scMaxBufferedPosts":30,"scMaxEachPostBytes":"1000000","scStreamUpServerSecs":"20-80","xPaddingBytes":"100-1000","scMinPostsIntervalMs":"30","xmux":{"maxConcurrency":"16-32","maxConnections":0,"cMaxReuseTimes":0,"hMaxRequestTimes":"600-900","hMaxReusableSecs":"1800-3000","hKeepAlivePeriod":0}}&insecure=0&host=kala.fortresshost.ir&fp=chrome&type=xhttp&allowInsecure=0&sni=kala.fortresshost.ir#🪿 [Резерв] Резерв 3
+vless://729dd5f2-f5ff-4070-8c10-863eceded0b1@195.123.235.177:443?security=reality&encryption=none&pbk=5B83otQ5ZQwtBFhR7xzsGJRXflkFKRJpQguYbE5JWGI&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=gateway.icloud.com&sid=c85d029f5e8eb393#🪿 [Резерв] Резерв 2
+vless://a6ce17dd-b5a7-4a83-a60f-bd0f772216e7@po.tajpiex.ir:2083?alpn=h2,http/1.1,h3&fp=chrome&ech=cloudflare-ech.com+udp://1.1.1.1&type=xhttp&sni=po.tajpiex.ir&mode=auto&path=/&security=tls&encryption=none&extra={"mode":"auto","xPaddingBytes":"100-1000"}&insecure=0&host=po.tajpiex.ir&allowInsecure=0#🪿 [Резерв] Резерв 3
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
