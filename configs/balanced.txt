@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTg==
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-10-31 21:02:51
+//last update on: 2026-11-01 04:39:36
 // 🪿 GooseVPN - 15 конфигов, 5 wLTE, 5 WiFi, 3 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -13,15 +13,15 @@ vless://94498f1a-26c1-4d86-a38c-fb33e0eb1ded@188.114.97.6:443?path=/cloud-vps&se
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
 vless://00000000-0000-0000-0000-000000000000@0.0.0.0:1080?encryption=none&security=none&type=tcp#🌐 [WiFi] Global 1
-vless://5e243126-4a2a-84b6-782a-73b14797fb5f@62.233.39.3:8443?mode=gun&security=reality&encryption=none&pbk=oHaUPZiESTQQ89DMd4uIcPWgsyeFFy58iZYX_8mbvWk&fp=chrome&type=grpc&serviceName=TunService&sni=dl.google.com#🇷🇺 [WiFi] Россия 2
-vless://c60cd62f-8dc5-415f-826b-abb7856027d1@kala.fortresshost.ir:443?mode=auto&path=/Meh?di&security=tls&alpn=h2&encryption=mlkem768x25519plus.native.0rtt.0Vh97j6xS7KWSt0KJUlPGDqvOnB6YEWo0xWQ3HQgYm4&insecure=0&host=kala.fortresshost.ir&fp=chrome&type=xhttp&allowInsecure=0&sni=kala.fortresshost.ir#🌐 [WiFi] Global 3
-vless://6c688f63-fad4-45d8-a6a1-1e978ed26b8b@static.86.39.13.49.clients.your-server.de:443?security=tls&alpn=h2,http/1.1&encryption=none&insecure=0&host=/?&headerType=none&fp=chrome&type=tcp&allowInsecure=0&flow=xtls-rprx-vision&sni=static.75.209.109.65.clients.your-server.de#🌐 [WiFi] Global 4
-vless://34851fc1-c4bb-4b17-a815-bc17c09e11a0@82.202.157.123:5002?path=media.playback.v1.SessionGateway&security=tls&alpn=http/1.1&encryption=none&insecure=0&fp=qq&type=ws&allowInsecure=0&sni=br1.centermass.net#🇷🇺 [WiFi] Россия 5
+vless://1806567a-fdd6-47dd-d0fd-b1459853a240@156.238.18.221:8880?security=none&type=ws&host=inaslnyekosshernist.borogomsho12pa34.kiling-spoooky---dude.spikevpn.cfd.&path=/telegram-@spikevpn,telegram-spikevpn,telegram-spikevpn,telegram-spikevpn,telegram-spikevpn,telegram-spikevpn,telegram-spikevpn,telegram-spikevpn,telegram-spikevpn,telegram-spikevpn,spikev2rayng-V2raynspike-telegram-spike-vpn?ed=2056#🌐 [WiFi] Сейшельские о-ва 2
+vless://03993135-ae86-433f-94d4-7bad33d7fc22@172.64.84.146:443?security=tls&sni=AZaDnEt-sTm-uSa.PagES.dev&type=ws&host=AZaDNEt-sTM-USA.PAgeS.DeV&fp=chrome&alpn=h2,http/1.1#🌐 [WiFi] Global 3
+vless://a16a3e32-8d63-4dec-8c67-1361388a64ca@46.246.125.153:443?security=reality&encryption=none&pbk=ftglT-Ghp2FPiPlwyEAldfiAE1IL_AJ9UCkfCj0zk2I&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=res.cdn.office.net&sid=a83b77e064761e3c#🌐 [WiFi] Швеция 4
+vless://37ca5f34-2531-4fda-a781-20f3845fea88@94.228.167.12:443?security=reality&encryption=none&pbk=dCaQHVtwEPBeiH3ivVU9ycGJZ8uCO2JaIVjYBnfaTWY&headerType=none&fp=firefox&type=tcp&flow=xtls-rprx-vision&sni=washingphonicseatable.solsticedigest.me&sid=c13c9bd7bd45847d#🇷🇺 [WiFi] Россия 5
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://8e9cbf76-b74a-46b3-8270-9453e281e613@199.232.237.245:443?mode=auto&path=/@Alfred_Config/@Alfred_Config/@Alfred_Config&security=tls&alpn=h2&encryption=none&insecure=0&host=alfred-13.global.ssl.fastly.net&fp=chrome&type=xhttp&allowInsecure=0&sni=global.fastly.com#🪿 [Резерв] Резерв 1
-vless://d7bbfe83-b037-48ae-996c-b98ed0441ba2@188.114.97.141:443?path=/?ed&security=tls&encryption=none&host=e10c0e4b.oodaeq2.pages.dev&fp=randomized&type=ws&sni=e10c0e4b.oodaeq2.pages.dev#🪿 [Резерв] Резерв 2
-vless://48ff2b70-e180-582f-8866-d9a2edeed5f5@51.158.206.12:23576?security=reality&encryption=none&pbk=1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=fuck.rkn&sid=01#🪿 [Резерв] Резерв 3
+vless://d342d11e-d224-4463-b982-532309285094@104.18.35.15:443?path=/fp=chrome&security=tls&encryption=none&host=ccc.010304.xyz&fp=chrome&type=ws&sni=ccc.010304.xyz#🪿 [Резерв] Резерв 2
+vless://e4514801-0d5a-42ba-869f-39bd605aef9e@3.11.145.4:22223?security=none&encryption=none&headerType=none&type=tcp#🪿 [Резерв] Резерв 3
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
