@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTg==
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-11-06 22:45:21
+//last update on: 2026-11-07 04:51:26
 // 🪿 GooseVPN - 15 конфигов, 5 wLTE, 5 WiFi, 3 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -13,15 +13,15 @@ vless://---Bug-vpn---@bugvpn-chtelegram.ddns.net:443?mode=gun&security=reality&e
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
 vless://00000000-0000-0000-0000-000000000000@0.0.0.0:1080?encryption=none&security=none&type=tcp#🌐 [WiFi] Global 1
-vless://f28ce4eb-62cd-45f5-b3b3-be1c1a95e335@157.22.240.20:443?security=reality&encryption=none&pbk=T1BWBw3lq9G1LiQ7eQSPfdNQic7bUMEbdFNJBewAwB8&headerType=none&fp=firefox&type=tcp&flow=xtls-rprx-vision&sni=yandex.ru&sid=6ad3c0f1e9b2478a#🇷🇺 [WiFi] Россия 2
-vless://2cd6ed0f-636e-4e6c-9449-5a263d7a0fa5@38.180.150.193:8443?path=/tg@zdyz2&security=tls&encryption=none&type=ws&sni=cfed.tgzdyz2.top#🌐 [WiFi] Гонконг 3
-vless://34851fc1-c4bb-4b17-a815-bc17c09e11a0@82.202.157.123:5002?path=media.playback.v1.SessionGateway&security=tls&alpn=http/1.1&encryption=none&insecure=0&fp=qq&type=ws&allowInsecure=0&sni=br1.centermass.net#🇷🇺 [WiFi] Россия 4
-vless://48ff2b70-e180-582f-8866-d9a2edeed5f5@51.158.206.8:23576?security=reality&encryption=none&pbk=1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=fuck.rkn&sid=01#🇳🇱 [WiFi] Нидерланды 5
+vless://88281d02-b387-4fe3-918e-26ed331e6d08@95.129.234.113:8443?mode=auto&path=/ccxf5snr06b8xxb6&security=tls&alpn=h2&encryption=none&insecure=0&host=is-tw-relay.cdn.cachefleet.com&fp=firefox&type=xhttp&allowInsecure=0&sni=tansy-wharf.cdn.cachefleet.com#🇷🇺 [WiFi] Россия 2
+vless://48ff2b70-e180-582f-8866-d9a2edeed5f5@51.158.206.96:23576?security=reality&encryption=none&pbk=1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=fuck.rkn&sid=01#🇳🇱 [WiFi] Нидерланды 3
+vless://541d46d8-5fc6-4d57-a7c4-9ccd3b5966eb@51.75.118.5:20222?path=/parham-confing-ws?u=6991fbdd-51e0-4970-b159-f9af46890c43-beda239a407a7eed66f791c6&security=none&encryption=none&host=51.75.118.5&type=ws#🇫🇷 [WiFi] Франция 4
+vless://97c4ab6b-f683-4f8a-9807-1ce9ae3e89f2@chatgpt.com:8080?path=/466022-iran-cyberspace-regulation-bill/&security=none&encryption=mlkem768x25519plus.native.0rtt.uGST6XiPIHW_nyEABv2yTLdR4hH2hWmsetJJX0iIAGI&host=account.pecasoou.ir&type=httpupgrade#🌐 [WiFi] Global 5
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://---DIGIV2RAY--@185.146.173.68:2095?type=ws&host=QUENTIN--_--DiG.radiotehran.org.&path=/DigiconnecT?ed=1024&security=none#🪿 [Резерв] Резерв 1
-vless://214bf4c5-045a-4ddb-944b-e2eef9b33338@172.67.130.159:2096?path=/9hf8a67dhf&security=tls&encryption=none&insecure=0&host=cdn-fr.skyvora.app&fp=chrome&type=ws&allowInsecure=0&sni=cdn-fr.skyvora.app#🪿 [Резерв] Резерв 2
-vless://2446e2e2-1ce3-4502-9050-1dd32bacc68c@tr2.h1cloud.net:25021?security=reality&encryption=none&pbk=od79bUkYtqQtsGrrTdhmkDflx5c9al4vqxwWApvc-Dg&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=www.samsung.com&sid=17fa3af0924c88b3#🪿 [Резерв] Резерв 3
+vless://48198295-b7ba-4b5c-8d85-085d55a6c869@192.200.160.89:443?path=/blue&security=tls&encryption=none&type=ws&sni=xind.ylks.link#🪿 [Резерв] Резерв 2
+vless://b18d5990-96eb-4587-a386-7f8ef7591e6a@31.77.149.194:2063?security=reality&encryption=none&pbk=MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM&headerType=none&fp=firefox&type=tcp&flow=xtls-rprx-vision&sni=rusbid.de#🪿 [Резерв] Резерв 3
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
