@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTiBQbHVz
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-11-12 23:14:56
+//last update on: 2026-11-13 05:20:01
 // 🪿 GooseVPN Plus - 22 конфигов, 8 wLTE, 8 WiFi, 4 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -16,19 +16,19 @@ vless://---DIGIV2RAY--@zula.ir:2095?type=ws&host=QUENTIN--_--DiG.radiotehran.org
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
 vless://00000000-0000-0000-0000-000000000000@0.0.0.0:1080?encryption=none&security=none&type=tcp#🌐 [WiFi] Global 1
-vless://20b98028-53c9-4f76-9bc9-b6b16b8a9152@[2607:5300:205:200::8aeb]:8080?security=reality&encryption=mlkem768x25519plus.native.0rtt.0cZmlMSQIp7uBKaQQDqR-2yxKGuPi6HYUkOoTFfqBVo&pbk=sQ_YHzotqhVJoUDAZl5kTzUqVN6ksh-MTikz_ixsZWc&host=/?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&headerType=none&fp=chrome&spx=/b53ffbda568617f&type=tcp&flow=xtls-rprx-vision&sni=icloud.com&sid=2b30#🌐 [WiFi] Global 2
-vless://52d2187c-34e1-40fd-a6f5-0a74ff7d3e9a@526.150333.xyz:21003?security=reality&encryption=none&pbk=EXU8eOS1kf_ROqC68NO-zbzRFGx7U5zE6WvjxRzYeTo&headerType=none&fp=chrome&type=tcp&sni=www.cloudflare.com&sid=eb9539689690d35c#🌐 [WiFi] Global 3
-vless://a8edc260-6ec3-4316-8eec-cf1a391e9267@cf.koomeh.net:443?path=/71a5d8d9ca56&security=tls&alpn=http/1.1&encryption=none&insecure=0&host=tr1.dideman.com&fp=chrome&type=ws&allowInsecure=0&sni=tr1.dideman.com#🌐 [WiFi] Global 4
-vless://768e854b-2498-48e5-f8af-7011bfddc9fc@47.252.35.253:11329?encryption=none&security=tls&type=ws&path=/#🇺🇸 [WiFi] США 5
-vless://48ff2b70-e180-582f-8866-d9a2edeed5f5@51.158.206.86:23576?security=reality&encryption=none&pbk=1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=fuck.rkn&sid=01#🇳🇱 [WiFi] Нидерланды 6
-vless://cfb6d9ad-7a14-4061-b159-8902fd73bb58@188.114.98.223:2095?path=/DIGIV2RAY--DigiV2ray--digiv2ray--DIGIV2RAY--DigiV2ray--digiv2ray--DigiV2ray--DigiV2ray?ed=1024&security=none&encryption=none&host=DigiV2ray---_-_---DIGIq.radioTehran.org.&type=ws#🌐 [WiFi] Global 7
-vless://a18f7c2d-9e45-4b8a-af3c-1d5e7f9c8b2a@tg.riotvpn.eu:443?security=reality&encryption=none&pbk=8h8t5eBWL9oERK7xWHQLFJE5j6sZdgNDQAs3EGnNbho&headerType=none&fp=chrome&type=tcp&sni=ads.x5.ru&sid=2f49bccf11150ef2#🌐 [WiFi] Global 8
+vless://64c5f924-1c24-44a5-acff-2e3ebcd2f807@188.114.98.0:443?mode=auto&security=tls&alpn=h3,h2,http/1.1&encryption=none&insecure=0&fp=ios&type=xhttp&allowInsecure=0&sni=nl29.dr-ping.ir#🌐 [WiFi] Global 2
+vless://185e2bb3-2934-48d0-bbd5-dd20d16e83ee@93.89.220.37:443?security=reality&encryption=none&pbk=lwKaUQ81wJUJRsqAPsfTPj5V_f9N50UYEwzRI_nuq2g&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=ibm.com&sid=e88cb983f3c97528#🌐 [WiFi] Эстония 3
+vless://d342d11e-d224-4463-b982-532309285094@188.164.248.216:443?path=/fp=chrome&security=tls&encryption=none&insecure=0&host=ccc.010304.xyz&fp=edge&type=ws&allowInsecure=0&sni=ccc.010304.xyz#🇳🇱 [WiFi] Нидерланды 4
+vless://f07b2e36-b533-4cdd-9a70-58d5e0e6eeee@fast.sabzipoloo.com:443?mode=packet-up&pcs=cd6e838b9bfe31cab8b3d5c858b0d6223fe84ece236c1fdb281be93c302e1e6e&path=/&security=tls&alpn=h2&encryption=mlkem768x25519plus.native.0rtt.4E1rDZb9ct_aSfu-z0dFkCHtdD62mvK1nNL22xXU0B0&insecure=0&host=factually-trusting-doe.global.ssl.fastly.net&fp=edge&type=xhttp&allowInsecure=0&sni=cdn.akamai.steamstatic.com#🌐 [WiFi] Global 5
+vless://893845c5-8e4a-48d5-8a85-622f5b7ea950@206.1.101.85:42654?path=/&security=tls&alpn=http/1.1&encryption=none&insecure=0&fp=chrome&ech=AF/+DQBbAAAgACBb8JqRW2W15k7NBWlU1CsW+VWNy8KlDwgiz446okqPIgAkAAEAAQABAAIAAQADAAIAAQACAAIAAgADAAMAAQADAAIAAwADAAwyMDYuMS4xMDEuODUAAA==&type=ws&allowInsecure=0&sni=206.1.101.85#🇹🇷 [WiFi] Турция 6
+vless://BD1F7E5E-9E0B-4919-A7F1-84BC9E69426D@51.194.251.172:31068?security=reality&encryption=none&pbk=jnu0rNHECTe_v7H9Fmgg0iUSepHz4QQQRPW0XpX5URs&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=snapshot.apple-mapkit.com&sid=1359c9bf9f7442e5#🇬🇧 [WiFi] Британия 7
+vless://a13df940-020c-465f-bc89-ee5279b5cd6a@160.123.255.50:443?security=tls&sni=zdyd.kpcloud.eu.org&type=ws&path=/?proxyip#🌐 [WiFi] ЮАР 8
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://---ID-womanlifefreedom13---@rogers.yahoo.freedns.site:443?type=tcp&security=reality&headerType=none&fp=firefox&sni=www.yahoo.com&flow=xtls-rprx-vision&pbk=GAUjNf1wQnDm5ziCGqRmb3yVfU9bg_UPwZ2_QU4JWRU&sid=6bb85179e30d4fc2#🪿 [Резерв] Резерв 1
 vless://---MsV2ray---@162.55.219.106:443?mode=gun&security=reality&encryption=none&pbk=IcV8j9q-2ZWu0kmgMvnsv-u1-R4U34g3wKZD3FX4zWI&fp=chrome&spx=/&type=grpc&serviceName=@MsV2ray,@MsV2ray,@MsV2ray,@MsV2ray,@MsV2ray,@MsV2ray&sni=ghbi.ir#🪿 [Резерв] Резерв 2
-vless://0417be58-2ea8-49de-8083-9eff9b0137e5@v2ray.codefyinc.com:443?path=/vlessws&security=tls&encryption=none&host=v2ray.codefyinc.com&type=ws&sni=v2ray.codefyinc.com#🪿 [Резерв] Резерв 3
-vless://bbbeae7c-13df-498b-8ba3-298c17e3b4bc@172.64.152.179:443?encryption=none&security=tls&type=ws&sni=www.stjohn8899.link&host=www.stjohn8899.link&path=/#🪿 [Резерв] Резерв 4
+vless://5fcdc9b7-e70f-4a5c-85c3-e018ad818326@82.24.203.20:2087?path=/fd5ba98a3970&security=none&encryption=none&host=82.24.203.20&type=ws#🪿 [Резерв] Резерв 3
+vless://Bia_too_VPNCUSTOMIZE@VPNCUSTOMIZE.Elmahstyle.ir:8080?path=/Join--VPNCUSTOMIZE.V2ray.re?ed=8080&security=none&encryption=none&host=VPNCUSTOMIZE.V2ray.Community.&type=ws#🪿 [Резерв] Резерв 4
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
