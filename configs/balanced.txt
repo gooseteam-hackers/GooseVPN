@@ -1,7 +1,7 @@
 //profile-title: base64:8J+qvyBHb29zZVZQTg==
 //profile-update-interval: 24
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//last update on: 2026-11-15 22:30:57
+//last update on: 2026-11-16 04:59:34
 // 🪿 GooseVPN - 15 конфигов, 5 wLTE, 5 WiFi, 3 резервов, ночной и стабильный WARP
 
 // =-=-=-=-=-= wLTE =-=-=-=-=-=
@@ -13,15 +13,15 @@ vless://---Bug-vpn---@bugvpn-chtelegram.ddns.net:443?mode=gun&security=reality&e
 
 // =-=-=-=-=-= WiFi =-=-=-=-=-=
 vless://00000000-0000-0000-0000-000000000000@0.0.0.0:1080?encryption=none&security=none&type=tcp#🌐 [WiFi] Global 1
-vless://64c5f924-1c24-44a5-acff-2e3ebcd2f807@188.114.98.0:443?mode=auto&security=tls&alpn=h3,h2,http/1.1&encryption=none&insecure=0&fp=ios&type=xhttp&allowInsecure=0&sni=nl29.dr-ping.ir#🌐 [WiFi] Global 2
-vless://185e2bb3-2934-48d0-bbd5-dd20d16e83ee@93.89.220.37:443?security=reality&encryption=none&pbk=lwKaUQ81wJUJRsqAPsfTPj5V_f9N50UYEwzRI_nuq2g&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=ibm.com&sid=e88cb983f3c97528#🌐 [WiFi] Эстония 3
-vless://d342d11e-d224-4463-b982-532309285094@188.164.248.216:443?path=/fp=chrome&security=tls&encryption=none&insecure=0&host=ccc.010304.xyz&fp=edge&type=ws&allowInsecure=0&sni=ccc.010304.xyz#🇳🇱 [WiFi] Нидерланды 4
-vless://f07b2e36-b533-4cdd-9a70-58d5e0e6eeee@fast.sabzipoloo.com:443?mode=packet-up&pcs=cd6e838b9bfe31cab8b3d5c858b0d6223fe84ece236c1fdb281be93c302e1e6e&path=/&security=tls&alpn=h2&encryption=mlkem768x25519plus.native.0rtt.4E1rDZb9ct_aSfu-z0dFkCHtdD62mvK1nNL22xXU0B0&insecure=0&host=factually-trusting-doe.global.ssl.fastly.net&fp=edge&type=xhttp&allowInsecure=0&sni=cdn.akamai.steamstatic.com#🌐 [WiFi] Global 5
+vless://baded307-189c-4ffc-a271-9acdab51a324@online.shop.ir.eeso.cc:39653?security=tls&alpn=h2,http/1.1&encryption=none&insecure=0&headerType=none&fp=chrome&type=tcp&allowInsecure=0&sni=online.shop.ir.eeso.cc#🌐 [WiFi] Global 2
+vless://d342d11e-d224-4463-b982-532309285094@188.164.248.216:443?path=/fp=chrome&security=tls&encryption=none&insecure=0&host=ccc.010304.xyz&fp=edge&type=ws&allowInsecure=0&sni=ccc.010304.xyz#🇳🇱 [WiFi] Нидерланды 3
+vless://97e0ea78-67ae-4984-8a14-a7d1a51e58de@199.232.78.160:443?pcs=cd6e838b9bfe31cab8b3d5c858b0d6223fe84ece236c1fdb281be93c302e1e6e&security=tls&encryption=none&insecure=0&host=copy_az_channel_NUFiLTER_10i.global.ssl.fastly.net.&type=ws&allowInsecure=0&sni=cdn.akamai.steamstatic.com#🇺🇸 [WiFi] США 4
+vless://d65cc14c-f53f-4fe2-b262-97856601319c@169.40.42.231:443?security=reality&encryption=none&pbk=e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg&host=yahoo.com&headerType=none&fp=ios&type=tcp&flow=xtls-rprx-vision&sni=yahoo.com&sid=c39cc7310a#🌐 [WiFi] ФРГ 5
 
 // =-=-=-=-=-= Резерв =-=-=-=-=-=
 vless://---DIGIV2RAY--@185.146.173.68:2095?type=ws&host=QUENTIN--_--DiG.radiotehran.org.&path=/DigiconnecT?ed=1024&security=none#🪿 [Резерв] Резерв 1
-vless://f28ce4eb-62cd-45f5-b3b3-be1c1a95e335@157.22.240.20:443?security=reality&encryption=none&pbk=T1BWBw3lq9G1LiQ7eQSPfdNQic7bUMEbdFNJBewAwB8&headerType=none&fp=firefox&type=tcp&flow=xtls-rprx-vision&sni=yandex.ru&sid=6ad3c0f1e9b2478a#🪿 [Резерв] Резерв 2
-vless://e73df646-1f62-41bf-8c50-653497d603d0@sc-thenetherlands2.09vpn.com:80?path=/vless/&security=none&encryption=none&host=SC-TheNetherlands2.09vpn.com&type=ws#🪿 [Резерв] Резерв 3
+vless://2232d904-8e6a-4202-8240-6efd8aec02e9@50.7.193.150:443?security=reality&encryption=none&pbk=oAX7soFKfN3xURgCD26trmjeF-e-eEjW3pBVXuuvW0k&host=/?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&headerType=none&fp=firefox&type=tcp&flow=xtls-rprx-vision&sni=prime.jarbook.net&sid=77a8c8c8#🪿 [Резерв] Резерв 2
+vless://1653818d-532e-46be-b825-384107fb7c3a@edge.mediacorphub.org:443?security=tls&encryption=none&insecure=0&fp=firefox&type=grpc&serviceName=hub.v1.ObjectService&allowInsecure=0&sni=edge.mediacorphub.org#🪿 [Резерв] Резерв 3
 
 // =-=-=-=-=-= WARP Стабильный =-=-=-=-=-=
 warp://162.159.192.79:3476?ifp=10-20&ifps=20-60&ifpd=5-10&ifpm=m4#Cloud-#1&&detour=warp://162.159.195.203:8319?ifp=10-20&ifps=20-60&ifpd=5-10#Cloud-#🔥 [WARP] Стабильный
